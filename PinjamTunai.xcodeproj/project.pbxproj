@@ -7,17 +7,42 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55B84C2E87AE5ADD7E833F81 /* Pods_PinjamTunai.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B3A98329D2930528865FDC3 /* Pods_PinjamTunai.framework */; };
 		737D1ED72EE45467003CC748 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D1ECD2EE45467003CC748 /* AppDelegate.swift */; };
 		737D1EDA2EE45467003CC748 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 737D1ECE2EE45467003CC748 /* Assets.xcassets */; };
 		737D1EDC2EE45467003CC748 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 737D1ED12EE45467003CC748 /* LaunchScreen.storyboard */; };
+		737D1EF52EE457E9003CC748 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D1EED2EE457E9003CC748 /* BaseViewController.swift */; };
+		737D1EF62EE457E9003CC748 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D1EEC2EE457E9003CC748 /* BaseView.swift */; };
+		737D1EF82EE45814003CC748 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D1EF72EE45814003CC748 /* BaseNavigationController.swift */; };
+		737D1EFA2EE4582E003CC748 /* HttpRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D1EF92EE4582E003CC748 /* HttpRequestManager.swift */; };
+		737D1EFC2EE4584B003CC748 /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D1EFB2EE4584B003CC748 /* ProductListViewController.swift */; };
+		737D1EFE2EE45850003CC748 /* Untitled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D1EFD2EE4584F003CC748 /* Untitled.swift */; };
+		737D1F002EE4585B003CC748 /* OrderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D1EFF2EE4585B003CC748 /* OrderListViewController.swift */; };
+		737D1F022EE45863003CC748 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D1F012EE45863003CC748 /* LoginViewController.swift */; };
+		737D1F042EE45870003CC748 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D1F032EE45870003CC748 /* HomeViewController.swift */; };
+		737D1F062EE45878003CC748 /* CenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D1F052EE45878003CC748 /* CenterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		33E41DB814B4BFA72F93D9F6 /* Pods-PinjamTunai.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinjamTunai.debug.xcconfig"; path = "Target Support Files/Pods-PinjamTunai/Pods-PinjamTunai.debug.xcconfig"; sourceTree = "<group>"; };
+		3B3A98329D2930528865FDC3 /* Pods_PinjamTunai.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinjamTunai.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		737D1EB52EE4545E003CC748 /* PinjamTunai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinjamTunai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		737D1ECD2EE45467003CC748 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		737D1ECE2EE45467003CC748 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		737D1ECF2EE45467003CC748 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		737D1ED02EE45467003CC748 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		737D1EDE2EE45650003CC748 /* PinjamTunai.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PinjamTunai.entitlements; sourceTree = "<group>"; };
+		737D1EEC2EE457E9003CC748 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		737D1EED2EE457E9003CC748 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		737D1EF72EE45814003CC748 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		737D1EF92EE4582E003CC748 /* HttpRequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRequestManager.swift; sourceTree = "<group>"; };
+		737D1EFB2EE4584B003CC748 /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
+		737D1EFD2EE4584F003CC748 /* Untitled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Untitled.swift; sourceTree = "<group>"; };
+		737D1EFF2EE4585B003CC748 /* OrderListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListViewController.swift; sourceTree = "<group>"; };
+		737D1F012EE45863003CC748 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		737D1F032EE45870003CC748 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		737D1F052EE45878003CC748 /* CenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterViewController.swift; sourceTree = "<group>"; };
+		AA6D43098812CC6F40AAEA73 /* Pods-PinjamTunai.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinjamTunai.release.xcconfig"; path = "Target Support Files/Pods-PinjamTunai/Pods-PinjamTunai.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -25,17 +50,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55B84C2E87AE5ADD7E833F81 /* Pods_PinjamTunai.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0DC7A24265BD969474F3051E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3B3A98329D2930528865FDC3 /* Pods_PinjamTunai.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		737D1EAC2EE4545E003CC748 = {
 			isa = PBXGroup;
 			children = (
 				737D1ED62EE45467003CC748 /* PinjamTunai */,
 				737D1EB62EE4545E003CC748 /* Products */,
+				AD835B283DF41F9AB50DB7FD /* Pods */,
+				0DC7A24265BD969474F3051E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -50,12 +86,96 @@
 		737D1ED62EE45467003CC748 /* PinjamTunai */ = {
 			isa = PBXGroup;
 			children = (
+				737D1EEF2EE457E9003CC748 /* Center */,
+				737D1EF02EE457E9003CC748 /* Home */,
+				737D1EF22EE457E9003CC748 /* Login */,
+				737D1EF32EE457E9003CC748 /* Order */,
+				737D1EF42EE457E9003CC748 /* Other */,
+				737D1EEB2EE457E9003CC748 /* Auth */,
+				737D1EF12EE457E9003CC748 /* Http */,
+				737D1EEE2EE457E9003CC748 /* Base */,
+				737D1EDE2EE45650003CC748 /* PinjamTunai.entitlements */,
 				737D1ECF2EE45467003CC748 /* Info.plist */,
 				737D1ECE2EE45467003CC748 /* Assets.xcassets */,
 				737D1ECD2EE45467003CC748 /* AppDelegate.swift */,
 				737D1ED12EE45467003CC748 /* LaunchScreen.storyboard */,
 			);
 			path = PinjamTunai;
+			sourceTree = "<group>";
+		};
+		737D1EEB2EE457E9003CC748 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				737D1EFB2EE4584B003CC748 /* ProductListViewController.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		737D1EEE2EE457E9003CC748 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				737D1EEC2EE457E9003CC748 /* BaseView.swift */,
+				737D1EED2EE457E9003CC748 /* BaseViewController.swift */,
+				737D1EF72EE45814003CC748 /* BaseNavigationController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		737D1EEF2EE457E9003CC748 /* Center */ = {
+			isa = PBXGroup;
+			children = (
+				737D1F052EE45878003CC748 /* CenterViewController.swift */,
+			);
+			path = Center;
+			sourceTree = "<group>";
+		};
+		737D1EF02EE457E9003CC748 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				737D1F032EE45870003CC748 /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		737D1EF12EE457E9003CC748 /* Http */ = {
+			isa = PBXGroup;
+			children = (
+				737D1EF92EE4582E003CC748 /* HttpRequestManager.swift */,
+			);
+			path = Http;
+			sourceTree = "<group>";
+		};
+		737D1EF22EE457E9003CC748 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				737D1F012EE45863003CC748 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		737D1EF32EE457E9003CC748 /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				737D1EFF2EE4585B003CC748 /* OrderListViewController.swift */,
+			);
+			path = Order;
+			sourceTree = "<group>";
+		};
+		737D1EF42EE457E9003CC748 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				737D1EFD2EE4584F003CC748 /* Untitled.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		AD835B283DF41F9AB50DB7FD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				33E41DB814B4BFA72F93D9F6 /* Pods-PinjamTunai.debug.xcconfig */,
+				AA6D43098812CC6F40AAEA73 /* Pods-PinjamTunai.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -65,17 +185,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 737D1EC82EE4545F003CC748 /* Build configuration list for PBXNativeTarget "PinjamTunai" */;
 			buildPhases = (
+				9E97A9985207545C4B227B92 /* [CP] Check Pods Manifest.lock */,
 				737D1EB12EE4545E003CC748 /* Sources */,
 				737D1EB22EE4545E003CC748 /* Frameworks */,
 				737D1EB32EE4545E003CC748 /* Resources */,
+				EB28BB783984780604E58683 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = PinjamTunai;
-			packageProductDependencies = (
-			);
 			productName = PinjamTunai;
 			productReference = 737D1EB52EE4545E003CC748 /* PinjamTunai.app */;
 			productType = "com.apple.product-type.application";
@@ -126,12 +246,68 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9E97A9985207545C4B227B92 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PinjamTunai-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EB28BB783984780604E58683 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PinjamTunai/Pods-PinjamTunai-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PinjamTunai/Pods-PinjamTunai-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PinjamTunai/Pods-PinjamTunai-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		737D1EB12EE4545E003CC748 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				737D1F022EE45863003CC748 /* LoginViewController.swift in Sources */,
+				737D1EF82EE45814003CC748 /* BaseNavigationController.swift in Sources */,
+				737D1EF52EE457E9003CC748 /* BaseViewController.swift in Sources */,
+				737D1EFE2EE45850003CC748 /* Untitled.swift in Sources */,
+				737D1EFA2EE4582E003CC748 /* HttpRequestManager.swift in Sources */,
+				737D1F042EE45870003CC748 /* HomeViewController.swift in Sources */,
+				737D1EF62EE457E9003CC748 /* BaseView.swift in Sources */,
+				737D1EFC2EE4584B003CC748 /* ProductListViewController.swift in Sources */,
+				737D1F062EE45878003CC748 /* CenterViewController.swift in Sources */,
 				737D1ED72EE45467003CC748 /* AppDelegate.swift in Sources */,
+				737D1F002EE4585B003CC748 /* OrderListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,61 +327,79 @@
 /* Begin XCBuildConfiguration section */
 		737D1EC92EE4545F003CC748 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 33E41DB814B4BFA72F93D9F6 /* Pods-PinjamTunai.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PinjamTunai/PinjamTunai.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 57MBH2272N;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PinjamTunai/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = pt.PinjamTunai;
+				PRODUCT_BUNDLE_IDENTIFIER = ll.zoom.loan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		737D1ECA2EE4545F003CC748 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA6D43098812CC6F40AAEA73 /* Pods-PinjamTunai.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PinjamTunai/PinjamTunai.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 57MBH2272N;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PinjamTunai/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = pt.PinjamTunai;
+				PRODUCT_BUNDLE_IDENTIFIER = ll.zoom.loan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
