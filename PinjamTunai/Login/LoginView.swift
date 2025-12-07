@@ -106,6 +106,109 @@ class LoginView: UIView {
         nameLabel.attributedText = attributedString
         return nameLabel
     }()
+    
+    lazy var phoneLabel: UILabel = {
+        let phoneLabel = UILabel()
+        phoneLabel.text = "Phone number"
+        phoneLabel.textAlignment = .left
+        phoneLabel.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight(400))
+        phoneLabel.textColor = UIColor(hex: "#373737")
+        return phoneLabel
+    }()
+    
+    lazy var phoneView: UIView = {
+        let phoneView = UIView()
+        phoneView.layer.cornerRadius = 8
+        phoneView.layer.masksToBounds = true
+        phoneView.layer.borderWidth = 1
+        phoneView.layer.borderColor = UIColor.init(hex: "#000000").cgColor
+        return phoneView
+    }()
+    
+    lazy var codeLabel: UILabel = {
+        let codeLabel = UILabel()
+        codeLabel.text = "Verification code"
+        codeLabel.textAlignment = .left
+        codeLabel.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight(400))
+        codeLabel.textColor = UIColor(hex: "#373737")
+        return codeLabel
+    }()
+    
+    lazy var codeView: UIView = {
+        let codeView = UIView()
+        codeView.layer.cornerRadius = 8
+        codeView.layer.masksToBounds = true
+        codeView.layer.borderWidth = 1
+        codeView.layer.borderColor = UIColor.init(hex: "#000000").cgColor
+        return codeView
+    }()
+    
+    lazy var voiceLabel: UILabel = {
+        let voiceLabel = UILabel()
+        voiceLabel.text = "Get the voice verification code"
+        voiceLabel.textAlignment = .right
+        voiceLabel.font = UIFont.systemFont(ofSize: 10, weight: UIFont.Weight(400))
+        voiceLabel.textColor = UIColor(hex: "#C0C0C0")
+        return voiceLabel
+    }()
+    
+    lazy var lineView: UIView = {
+        let lineView = UIView()
+        lineView.backgroundColor = UIColor.init(hex: "#C0C0C0")
+        return lineView
+    }()
+    
+    lazy var descLabel: UILabel = {
+        let descLabel = UILabel()
+        descLabel.text = "+91"
+        descLabel.textAlignment = .center
+        descLabel.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight(500))
+        descLabel.textColor = UIColor(hex: "#000000")
+        return descLabel
+    }()
+    
+    lazy var lView: UIView = {
+        let lView = UIView()
+        lView.backgroundColor = UIColor.init(hex: "#BDBDBD")
+        return lView
+    }()
+    
+    lazy var phoneTextFiled: UITextField = {
+        let phoneTextFiled = UITextField()
+        phoneTextFiled.keyboardType = .numberPad
+        let attrString = NSMutableAttributedString(string: "Please Enter Your Phone Number", attributes: [
+            .foregroundColor: UIColor.init(hex: "#BDBDBD") as Any,
+            .font: UIFont.systemFont(ofSize: 11, weight: UIFont.Weight(400))
+        ])
+        phoneTextFiled.attributedPlaceholder = attrString
+        phoneTextFiled.font = UIFont.systemFont(ofSize: 11, weight: UIFont.Weight(600))
+        phoneTextFiled.textColor = UIColor.init(hex: "#000000")
+        return phoneTextFiled
+    }()
+    
+    lazy var codeTextFiled: UITextField = {
+        let codeTextFiled = UITextField()
+        codeTextFiled.keyboardType = .numberPad
+        let attrString = NSMutableAttributedString(string: "Please Enter Verification Code", attributes: [
+            .foregroundColor: UIColor.init(hex: "#BDBDBD") as Any,
+            .font: UIFont.systemFont(ofSize: 11, weight: UIFont.Weight(400))
+        ])
+        codeTextFiled.attributedPlaceholder = attrString
+        codeTextFiled.font = UIFont.systemFont(ofSize: 11, weight: UIFont.Weight(600))
+        codeTextFiled.textColor = UIColor.init(hex: "#000000")
+        return codeTextFiled
+    }()
+    
+    lazy var codeBtn: UIButton = {
+        let codeBtn = UIButton(type: .custom)
+        codeBtn.layer.cornerRadius = 8
+        codeBtn.layer.masksToBounds = true
+        codeBtn.backgroundColor = UIColor.init(hex: "#6D95FC")
+        codeBtn.setTitle("Get Code", for: .normal)
+        codeBtn.setTitleColor(UIColor.white, for: .normal)
+        codeBtn.titleLabel?.font = UIFont.systemFont(ofSize: 13, weight: UIFont.Weight(400))
+        return codeBtn
+    }()
             
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -135,6 +238,22 @@ extension LoginView {
         
         stackView.addArrangedSubview(oneBtn)
         stackView.addArrangedSubview(nameLabel)
+        
+        whiteView.addSubview(phoneLabel)
+        whiteView.addSubview(phoneView)
+        
+        whiteView.addSubview(codeLabel)
+        whiteView.addSubview(codeView)
+        
+        whiteView.addSubview(voiceLabel)
+        whiteView.addSubview(lineView)
+        
+        phoneView.addSubview(descLabel)
+        phoneView.addSubview(lView)
+        phoneView.addSubview(phoneTextFiled)
+        
+        codeView.addSubview(codeTextFiled)
+        codeView.addSubview(codeBtn)
     }
     
     private func setupConstraints() {
@@ -186,6 +305,76 @@ extension LoginView {
             make.height.equalTo(46)
             make.centerX.equalToSuperview()
             make.left.equalToSuperview().offset(72)
+        }
+        
+        phoneLabel.snp.makeConstraints { make in
+            make.height.equalTo(18)
+            make.left.equalToSuperview().offset(15)
+            make.top.equalToSuperview().offset(15)
+        }
+        
+        phoneView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(phoneLabel.snp.bottom).offset(12)
+            make.left.equalToSuperview().offset(15)
+            make.height.equalTo(46)
+        }
+        
+        codeLabel.snp.makeConstraints { make in
+            make.height.equalTo(18)
+            make.left.equalToSuperview().offset(15)
+            make.top.equalTo(phoneView.snp.bottom).offset(11)
+        }
+        
+        codeView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(codeLabel.snp.bottom).offset(12)
+            make.left.equalToSuperview().offset(15)
+            make.height.equalTo(46)
+        }
+        
+        voiceLabel.snp.makeConstraints { make in
+            make.right.equalToSuperview().offset(-11)
+            make.top.equalTo(codeView.snp.bottom).offset(8)
+            make.height.equalTo(12)
+        }
+        
+        lineView.snp.makeConstraints { make in
+            make.left.right.equalTo(voiceLabel)
+            make.bottom.equalTo(voiceLabel).offset(1)
+            make.height.equalTo(1)
+        }
+        
+        descLabel.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.left.equalToSuperview()
+            make.size.equalTo(CGSize(width: 47, height: 30))
+        }
+        
+        lView.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.left.equalTo(descLabel.snp.right)
+            make.size.equalTo(CGSize(width: 1, height: 24))
+        }
+        
+        phoneTextFiled.snp.makeConstraints { make in
+            make.left.equalTo(lView.snp.right).offset(10)
+            make.centerY.equalToSuperview()
+            make.right.equalToSuperview().offset(-10)
+            make.height.equalTo(40)
+        }
+        
+        codeTextFiled.snp.makeConstraints { make in
+            make.left.equalToSuperview().offset(10)
+            make.centerY.equalToSuperview()
+            make.right.equalToSuperview().offset(-100)
+            make.height.equalTo(40)
+        }
+        
+        codeBtn.snp.makeConstraints { make in
+            make.right.equalToSuperview().offset(-4)
+            make.size.equalTo(CGSizeMake(87, 38))
+            make.centerY.equalToSuperview()
         }
         
         loginBtn.rx.tap.bind(onNext: { [weak self] in

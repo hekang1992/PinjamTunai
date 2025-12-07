@@ -13,11 +13,11 @@ class LaunchViewModel {
     var onSuccess: ((BaseModel?) -> Void)?
     
     func initLaunchInfo(with json: [String: Any]) async {
-        LoadingView.show()
-        
-        defer {
-            LoadingView.hide()
-        }
+//        LoadingView.show()
+//        
+//        defer {
+//            LoadingView.hide()
+//        }
         
         do {
             let model: BaseModel = try await HttpRequestManager.shared.get("/ecutiveof/became", parameters: json)
@@ -37,11 +37,11 @@ class UpLoadIDFAViewModel {
     var onSuccess: ((BaseModel?) -> Void)?
     
     func uploadIDFAInfo(with json: [String: Any]) async {
-//        LoadingView.show()
-//        
-//        defer {
-//            LoadingView.hide()
-//        }
+        LoadingView.show()
+        
+        defer {
+            LoadingView.hide()
+        }
         
         do {
             let model: BaseModel = try await HttpRequestManager.shared.upload("/ecutiveof/prayer", parameters: json)
