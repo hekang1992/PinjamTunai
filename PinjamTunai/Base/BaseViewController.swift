@@ -13,6 +13,7 @@ class BaseViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        view.backgroundColor = UIColor(hex: "#F2F4FA")
     }
     
 

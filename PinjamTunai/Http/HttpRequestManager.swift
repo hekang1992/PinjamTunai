@@ -72,7 +72,7 @@ class HttpRequestManager: NSObject {
     // MARK: - Upload async
     func upload<T: Decodable>(_ path: String,
                 parameters: [String: Any]?,
-                files: [String: Data]?) async throws -> T {
+                files: [String: Data]? = nil) async throws -> T {
 
         let url = baseURL + path
         

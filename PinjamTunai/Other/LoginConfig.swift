@@ -26,6 +26,10 @@ class LoginConfig: NSObject {
     static func hasValidToken() -> Bool {
         return UserDefaults.standard.string(forKey: "token")?.isEmpty == false
     }
+    
+    static func getPhone() -> String {
+        return UserDefaults.standard.string(forKey: "phone") ?? ""
+    }
 }
 
 class DeviceIdentifierManager {

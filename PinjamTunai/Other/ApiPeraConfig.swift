@@ -10,15 +10,13 @@ import UIKit
 class ApiPeraConfig: NSObject {
     
     static func getCommonPara() -> [String: String] {
-        let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
-        let token = UserDefaults.standard.object(forKey: "token") as? String ?? ""
-        let broken = version
+        let broken = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
         let straightway = getDeviceModel()
         let sit = DeviceIdentifierManager.getIDFV() ?? ""
         let overfull = UIDevice.current.systemVersion
-        let mill = token
+        let mill = UserDefaults.standard.object(forKey: "token") as? String ?? ""
         let weir = DeviceIdentifierManager.getIDFA() ?? ""
-        let kissed = ""
+        let kissed = String(UserDefaults.standard.object(forKey: "kissed") as? Int ?? 0)
         
         let dict = ["broken": broken,
                     "straightway": straightway,
@@ -26,7 +24,7 @@ class ApiPeraConfig: NSObject {
                     "overfull": overfull,
                     "mill": mill,
                     "weir": weir,
-                    "kissed": kissed]
+                    "kissed": "1"]
         
 //        let jsonStr = JSONHelper.toJSONString(dict)
         

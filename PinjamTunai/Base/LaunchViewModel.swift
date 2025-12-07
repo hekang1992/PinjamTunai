@@ -44,7 +44,7 @@ class UpLoadIDFAViewModel {
 //        }
         
         do {
-            let model: BaseModel = try await HttpRequestManager.shared.upload("/ecutiveof/prayer", parameters: json, files: nil)
+            let model: BaseModel = try await HttpRequestManager.shared.upload("/ecutiveof/prayer", parameters: json)
             self.onSuccess?(model)
         } catch {
             print("error===: \(error)")

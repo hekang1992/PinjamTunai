@@ -105,6 +105,9 @@ extension LaunchViewController {
             guard let self = self, let model = model else { return }
             if model.token == 0 {
                 self.againBtn.isHidden = true
+                let kissed = model.kindness?.kissed ?? 0
+                UserDefaults.standard.set(kissed, forKey: "kissed")
+                UserDefaults.standard.synchronize()
                 if let tModel = model.kindness?.toward {
                     self.fbInfo(with: tModel)
                 }
