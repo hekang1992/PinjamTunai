@@ -7,8 +7,14 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
+import FBSDKCoreKit
+import AppTrackingTransparency
 
 class LaunchViewController: BaseViewController {
+    
+    let disposeBag = DisposeBag()
     
     lazy var bgImageView: UIImageView = {
         let bgImageView = UIImageView()
@@ -22,12 +28,16 @@ class LaunchViewController: BaseViewController {
         againBtn.setTitle("Try Again", for: .normal)
         againBtn.setTitleColor(UIColor.init(hex: "#6D95FC"), for: .normal)
         againBtn.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight(500))
+        againBtn.isHidden = true
         return againBtn
     }()
-
+    
+    let viewModel = LaunchViewModel()
+    let uploadViewModel = UpLoadIDFAViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         view.addSubview(bgImageView)
         bgImageView.snp.makeConstraints { make in
@@ -41,8 +51,36 @@ class LaunchViewController: BaseViewController {
             make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(-50)
         }
         
-        initAppInfo()
+        NetworkMonitor.shared.startMonitoring()
         
+        NetworkMonitor.shared.networkTypeChanged = { [weak self] networkType in
+            guard let self = self else { return }
+            if networkType == "5G" || networkType == "WIFI" {
+                Task { [weak self] in
+                    guard let self = self else { return }
+                    await self.initAppInfo()
+                    await self.getIDFAInfo()
+                }
+            }
+        }
+        
+        againBtn.rx.tap
+            .bind(onNext: { [weak self] in
+                guard let self else { return }
+                
+                Task { [weak self] in
+                    guard let self else { return }
+                    await self.initAppInfo()
+                    await self.appleInfo()
+                }
+            })
+            .disposed(by: disposeBag)
+        
+    }
+    
+    @MainActor
+    deinit {
+        print("LaunchViewController============")
     }
     
 }
@@ -50,22 +88,87 @@ class LaunchViewController: BaseViewController {
 
 extension LaunchViewController {
     
-    private func initAppInfo() {
+    private func initAppInfo() async {
+        
         let became = Locale.preferredLanguages.first ?? ""
         let famous = HTTPProxyInfo.proxyStatus.rawValue
         let fellowship = HTTPProxyInfo.vpnStatus.rawValue
         let dict = ["became": became, "famous": famous, "fellowship": fellowship] as [String : Any]
-        Task {
-            do {
-                let model: BaseModel = try await HttpRequestManager.shared.get("/ecutiveof/became", parameters: dict)
-            } catch {
-            
+        
+        viewModel.onError = { [weak self] msg in
+            guard let self = self else { return }
+            self.againBtn.isHidden = false
+            print("Error: \(msg)")
+        }
+        
+        viewModel.onSuccess = { [weak self] model in
+            guard let self = self, let model = model else { return }
+            if model.token == 0 {
+                self.againBtn.isHidden = true
+                if let tModel = model.kindness?.toward {
+                    self.fbInfo(with: tModel)
+                }
+            }else {
+                self.againBtn.isHidden = false
+            }
+        }
+        await viewModel.initLaunchInfo(with: dict)
+        
+    }
+    
+    private func getIDFAInfo() async {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            if #available(iOS 14.0, *) {
+                ATTrackingManager.requestTrackingAuthorization { status in
+                    switch status {
+                    case .restricted:
+                        break
+                    case .authorized, .notDetermined, .denied:
+                        Task { [weak self] in
+                            guard let self = self else { return }
+                            await self.appleInfo()
+                        }
+                        break
+                    @unknown default:
+                        break
+                    }
+                }
             }
         }
     }
     
+    private func appleInfo() async {
+        
+        uploadViewModel.onError = { [weak self] msg in
+            guard let self = self else { return }
+            self.againBtn.isHidden = false
+        }
+        
+        uploadViewModel.onSuccess = { [weak self] model in
+            guard let self = self, let model = model else { return }
+            if model.token == 0 {
+                self.againBtn.isHidden = true
+                NotificationCenter.default.post(name: NSNotification.Name("changeRootVc"), object: nil)
+            }else {
+                self.againBtn.isHidden = false
+            }
+        }
+        
+        let idfv = DeviceIdentifierManager.getIDFV() ?? ""
+        let idfa = DeviceIdentifierManager.getIDFA() ?? ""
+        let json = ["eating": idfv, "lovers": idfa]
+        await uploadViewModel.uploadIDFAInfo(with: json)
+    }
+    
+    private func fbInfo(with model: towardModel) {
+        Settings.shared.appID = model.company ?? ""
+        Settings.shared.clientToken = model.troth ?? ""
+        Settings.shared.displayName = model.drawing ?? ""
+        Settings.shared.appURLSchemeSuffix = model.feel ?? ""
+        ApplicationDelegate.shared.application(UIApplication.shared, didFinishLaunchingWithOptions: nil)
+    }
+    
 }
-
 
 struct HTTPProxyInfo {
     
@@ -88,7 +191,7 @@ struct HTTPProxyInfo {
             return .inactive
         }
         return scopes.keys.contains { $0.contains("tap") || $0.contains("tun") ||
-                                      $0.contains("ppp") || $0.contains("ipsec") ||
-                                      $0.contains("utun") } ? .active : .inactive
+            $0.contains("ppp") || $0.contains("ipsec") ||
+            $0.contains("utun") } ? .active : .inactive
     }
 }

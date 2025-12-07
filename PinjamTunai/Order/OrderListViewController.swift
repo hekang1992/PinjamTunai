@@ -7,7 +7,7 @@
 
 import UIKit
 
-class OrderListViewController: BaseNavigationController {
+class OrderListViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

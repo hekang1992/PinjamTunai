@@ -6,13 +6,13 @@
 //
 
 struct BaseModel: Codable {
-    var token: String?
+    var token: Int?
     var stretched: String?
     var kindness: kindnessModel?
 }
 
 struct kindnessModel: Codable {
-    var kissed: String?
+    var kissed: Int?
     var toward: towardModel?
 }
 

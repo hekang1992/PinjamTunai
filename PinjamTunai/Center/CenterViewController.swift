@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CenterViewController: BaseNavigationController {
+class CenterViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

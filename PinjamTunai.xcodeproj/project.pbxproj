@@ -24,6 +24,10 @@
 		737D1F082EE4597A003CC748 /* ApiPeraConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D1F072EE4597A003CC748 /* ApiPeraConfig.swift */; };
 		737D1F0A2EE45FB1003CC748 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D1F092EE45FB1003CC748 /* LaunchViewController.swift */; };
 		737D1F0C2EE46C21003CC748 /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D1F0B2EE46C19003CC748 /* BaseModel.swift */; };
+		737D1F0E2EE55034003CC748 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D1F0D2EE55029003CC748 /* LoadingView.swift */; };
+		737D1F102EE55843003CC748 /* LaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D1F0F2EE5583E003CC748 /* LaunchViewModel.swift */; };
+		737D1F122EE57BA0003CC748 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D1F112EE57B9F003CC748 /* NetworkMonitor.swift */; };
+		737D1F142EE5832E003CC748 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D1F132EE5832E003CC748 /* BaseTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +52,10 @@
 		737D1F072EE4597A003CC748 /* ApiPeraConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiPeraConfig.swift; sourceTree = "<group>"; };
 		737D1F092EE45FB1003CC748 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		737D1F0B2EE46C19003CC748 /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
+		737D1F0D2EE55029003CC748 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		737D1F0F2EE5583E003CC748 /* LaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewModel.swift; sourceTree = "<group>"; };
+		737D1F112EE57B9F003CC748 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		737D1F132EE5832E003CC748 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
 		AA6D43098812CC6F40AAEA73 /* Pods-PinjamTunai.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinjamTunai.release.xcconfig"; path = "Target Support Files/Pods-PinjamTunai/Pods-PinjamTunai.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,7 +131,9 @@
 				737D1EEC2EE457E9003CC748 /* BaseView.swift */,
 				737D1EED2EE457E9003CC748 /* BaseViewController.swift */,
 				737D1EF72EE45814003CC748 /* BaseNavigationController.swift */,
+				737D1F0F2EE5583E003CC748 /* LaunchViewModel.swift */,
 				737D1F092EE45FB1003CC748 /* LaunchViewController.swift */,
+				737D1F132EE5832E003CC748 /* BaseTabBarController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -172,8 +182,10 @@
 		737D1EF42EE457E9003CC748 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				737D1F0D2EE55029003CC748 /* LoadingView.swift */,
 				737D1EFD2EE4584F003CC748 /* LoginConfig.swift */,
 				737D1F072EE4597A003CC748 /* ApiPeraConfig.swift */,
+				737D1F112EE57B9F003CC748 /* NetworkMonitor.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -329,12 +341,16 @@
 			files = (
 				737D1F0A2EE45FB1003CC748 /* LaunchViewController.swift in Sources */,
 				737D1F022EE45863003CC748 /* LoginViewController.swift in Sources */,
+				737D1F142EE5832E003CC748 /* BaseTabBarController.swift in Sources */,
 				737D1F0C2EE46C21003CC748 /* BaseModel.swift in Sources */,
 				737D1EF82EE45814003CC748 /* BaseNavigationController.swift in Sources */,
 				737D1EF52EE457E9003CC748 /* BaseViewController.swift in Sources */,
 				737D1EFE2EE45850003CC748 /* LoginConfig.swift in Sources */,
 				737D1EFA2EE4582E003CC748 /* HttpRequestManager.swift in Sources */,
+				737D1F102EE55843003CC748 /* LaunchViewModel.swift in Sources */,
+				737D1F122EE57BA0003CC748 /* NetworkMonitor.swift in Sources */,
 				737D1F042EE45870003CC748 /* HomeViewController.swift in Sources */,
+				737D1F0E2EE55034003CC748 /* LoadingView.swift in Sources */,
 				737D1EF62EE457E9003CC748 /* BaseView.swift in Sources */,
 				737D1EFC2EE4584B003CC748 /* ProductListViewController.swift in Sources */,
 				737D1F062EE45878003CC748 /* CenterViewController.swift in Sources */,

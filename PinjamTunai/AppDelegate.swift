@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         boardInfo()
+        notiChangeVc()
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = LaunchViewController()
         window?.makeKeyAndVisible()
@@ -31,6 +32,14 @@ extension AppDelegate {
     private func boardInfo() {
         IQKeyboardManager.shared.isEnabled = true
         IQKeyboardManager.shared.resignOnTouchOutside = true
+    }
+    
+    private func notiChangeVc() {
+        NotificationCenter.default.addObserver(self, selector: #selector(changeRootVc), name: NSNotification.Name("changeRootVc"), object: nil)
+    }
+    
+    @objc private func changeRootVc() {
+        window?.rootViewController = BaseTabBarController()
     }
     
 }
