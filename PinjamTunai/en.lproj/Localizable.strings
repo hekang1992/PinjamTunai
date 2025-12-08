@@ -1,0 +1,24 @@
+//
+//  LoadingView.swift
+//  PinjamTunai
+//
+//  Created by hekang on 2025/12/7.
+//
+
+"Hello," = "Hello,";
+"Welcome to Pinjam Tunai!" = "Welcome to Pinjam Tunai!";
+"Log In" = "Log In";
+"I have agreed to all the terms of the <Privacy Policy>." = "I have agreed to all the terms of the <Privacy Policy>.";
+"<Privacy Policy>" = "<Privacy Policy>";
+"Phone number" = "Phone number";
+"Verification code" = "Verification code";
+"Get the voice verification code" = "Get the voice verification code";
+"+91" = "+91";
+"Please Enter Your Phone Number" = "Please Enter Your Phone Number";
+"Please Enter Verification Code" = "Please Enter Verification Code";
+"Get Code" = "Get Code";
+"Not logged In" = "Not logged In";
+"Try Again" = "Try Again";
+"Loan" = "Loan";
+"Bills" = "Bills";
+"Mine" = "Mine";

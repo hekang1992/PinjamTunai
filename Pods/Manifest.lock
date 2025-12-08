@@ -56,6 +56,7 @@ PODS:
     - RxSwift (= 6.9.0)
   - RxSwift (6.9.0)
   - SnapKit (5.7.1)
+  - Toast-Swift (5.1.1)
   - TYAlertController (1.2.0)
 
 DEPENDENCIES:
@@ -68,6 +69,7 @@ DEPENDENCIES:
   - RxGesture
   - RxSwift
   - SnapKit
+  - Toast-Swift
   - TYAlertController
 
 SPEC REPOS:
@@ -91,6 +93,7 @@ SPEC REPOS:
     - RxRelay
     - RxSwift
     - SnapKit
+    - Toast-Swift
     - TYAlertController
 
 SPEC CHECKSUMS:
@@ -113,8 +116,9 @@ SPEC CHECKSUMS:
   RxRelay: 6b0c930e5cef57d5fe2032571e5e65b78e3cbdb1
   RxSwift: 31649ace6aceeb422e16ff71c60804f9c3281ed9
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
+  Toast-Swift: 7a03a532afe3a560d4044bc7c237e2864d295173
   TYAlertController: c121090edb0bea7426f987da94cdddd81eef4231
 
-PODFILE CHECKSUM: d029cef9a599aaa4312cf81ee723444c86884faa
+PODFILE CHECKSUM: b920946c3d30992a5ca05ea68e4972d4daca830a
 
 COCOAPODS: 1.16.2

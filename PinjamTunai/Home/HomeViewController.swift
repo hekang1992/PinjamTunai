@@ -37,7 +37,7 @@ class HomeViewController: BaseViewController {
         self.oneView.applyBlock = { [weak self] productID in
             guard let self = self else { return }
             if LoginConfig.hasValidToken() {
-                
+                self.applyProduct(with: productID)
             }else {
                 let loginVc = BaseNavigationController(rootViewController: LoginViewController())
                 loginVc.modalPresentationStyle = .overFullScreen
@@ -76,6 +76,7 @@ extension HomeViewController {
         self.oneView.scrollView.mj_header?.endRefreshing()
     }
     
+    // Judge One Two
     private func dueModel(with model: BaseModel) {
         model.kindness?.flew?.forEach { model in
             let heads = model.heads ?? ""
@@ -84,4 +85,29 @@ extension HomeViewController {
             }
         }
     }
+    
+    // apply product
+    private func applyProduct(with productID: String) {
+        Task {
+            do {
+                let json = ["shot": productID]
+                let model = try await homeViewModel.applyProductInfo(json: json)
+                if model.token == 0 {
+                    let whistling = model.kindness?.whistling ?? ""
+                    self.goNextPage(with: whistling)
+                }else {
+                    Toaster.showMessage(with: model.stretched ?? "")
+                }
+            } catch {
+            
+            }
+        }
+    }
+    
+    private func goNextPage(with pageUrl: String) {
+        if pageUrl.contains(scheme_url) {
+            AppRouteConfig.handleRoute(pageUrl: pageUrl, viewController: self)
+        }
+    }
+    
 }

@@ -1,0 +1,24 @@
+//
+//  LoadingView.swift
+//  PinjamTunai
+//
+//  Created by hekang on 2025/12/7.
+//
+
+"Hello," = "Halo,";
+"Welcome to Pinjam Tunai!" = "Selamat Datang di Pinjam Tunai!";
+"Log In" = "Masuk";
+"I have agreed to all the terms of the <Privacy Policy>." = "Saya menyetujui semua syarat dalam <Kebijakan Privasi>.";
+"<Privacy Policy>" = "<Kebijakan Privasi>";
+"Phone number" = "Nomor Telepon";
+"Verification code" = "Kode Verifikasi";
+"Get the voice verification code" = "Dapatkan Kode Verifikasi Suara";
+"+91" = "+62";
+"Please Enter Your Phone Number" = "Silakan Masukkan Nomor HP Anda";
+"Please Enter Verification Code" = "Silakan Masukkan Kode Verifikasi";
+"Get Code" = "Dapatkan Kode";
+"Not logged In" = "Belum Login";
+"Try Again" = "Coba Lagi";
+"Loan" = "Pinjaman";
+"Bills" = "Tagihan";
+"Mine" = "Milikku";

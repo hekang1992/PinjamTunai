@@ -14,6 +14,7 @@ target 'PinjamTunai' do
   pod 'MJRefresh'
   pod 'Alamofire'
   pod 'Kingfisher'
+  pod 'Toast-Swift'
   pod 'FBSDKCoreKit'
   pod 'TYAlertController'
   pod 'IQKeyboardManagerSwift'

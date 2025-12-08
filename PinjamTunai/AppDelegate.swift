@@ -13,6 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
+    private var tabbarVc: BaseTabBarController?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -36,10 +38,21 @@ extension AppDelegate {
     
     private func notiChangeVc() {
         NotificationCenter.default.addObserver(self, selector: #selector(changeRootVc), name: NSNotification.Name("changeRootVc"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(toOrderVc), name: NSNotification.Name("toOrderVc"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(toLoginVc), name: NSNotification.Name("toLoginVc"), object: nil)
     }
     
     @objc private func changeRootVc() {
-        window?.rootViewController = BaseTabBarController()
+        tabbarVc = BaseTabBarController()
+        window?.rootViewController = tabbarVc
+    }
+    
+    @objc private func toOrderVc() {
+        tabbarVc?.selectedIndex = 1
+    }
+    
+    @objc private func toLoginVc() {
+        window?.rootViewController = BaseNavigationController(rootViewController: LoginViewController())
     }
     
 }

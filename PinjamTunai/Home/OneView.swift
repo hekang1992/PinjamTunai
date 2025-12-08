@@ -66,9 +66,9 @@ class OneView: UIView {
     lazy var phoneLabel: UILabel = {
         let phoneLabel = UILabel()
         if LoginConfig.hasValidToken() {
-            phoneLabel.text = LoginConfig.getPhone()
+            phoneLabel.text = maskPhoneNumber(LoginConfig.getPhone())
         } else {
-            phoneLabel.text = "Not logged In"
+            phoneLabel.text = LanguageManager.localizedString(for: "Not logged In")
         }
         phoneLabel.textAlignment = .left
         phoneLabel.textColor = UIColor(hex: "#3D3D3D")
@@ -136,8 +136,13 @@ class OneView: UIView {
     
     lazy var loanBtn: UIButton = {
         let loanBtn = UIButton(type: .custom)
-        loanBtn.setImage(UIImage(named: "home_loan_image"), for: .normal)
         loanBtn.adjustsImageWhenHighlighted = true
+        let type = LanguageManager.getLanguageCode()
+        if type == "2" {
+            loanBtn.setImage(UIImage(named: "id_ag_imge_image"), for: .normal)
+        }else {
+            loanBtn.setImage(UIImage(named: "home_loan_image"), for: .normal)
+        }
         return loanBtn
     }()
     
@@ -152,13 +157,23 @@ class OneView: UIView {
     
     lazy var twoImageView: UIImageView = {
         let twoImageView = UIImageView()
-        twoImageView.image = UIImage(named: "home_two_image")
+        let type = LanguageManager.getLanguageCode()
+        if type == "2" {
+            twoImageView.image = UIImage(named: "id_imge_image")
+        }else {
+            twoImageView.image = UIImage(named: "home_two_image")
+        }
         return twoImageView
     }()
     
     lazy var threeImageView: UIImageView = {
         let threeImageView = UIImageView()
-        threeImageView.image = UIImage(named: "home_three_image")
+        let type = LanguageManager.getLanguageCode()
+        if type == "2" {
+            threeImageView.image = UIImage(named: "id_ad_imge_image")
+        }else {
+            threeImageView.image = UIImage(named: "home_three_image")
+        }
         return threeImageView
     }()
     
@@ -394,6 +409,17 @@ class OneView: UIView {
     
     func updateLogoImage(_ image: UIImage?) {
         logoImageView.image = image
+    }
+    
+    func maskPhoneNumber(_ phone: String) -> String {
+        guard phone.count >= 10 else { return phone }
+        
+        let startIndex = phone.index(phone.startIndex, offsetBy: 3)
+        let endIndex = phone.index(phone.startIndex, offsetBy: 6)
+        
+        var result = phone
+        result.replaceSubrange(startIndex...endIndex, with: "****")
+        return result
     }
 }
 

@@ -8,6 +8,11 @@
 import UIKit
 
 class BaseViewController: UIViewController {
+    
+    lazy var headView: AppHeadView = {
+        let headView = AppHeadView()
+        return headView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()

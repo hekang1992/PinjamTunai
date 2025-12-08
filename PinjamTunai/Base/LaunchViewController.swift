@@ -25,7 +25,7 @@ class LaunchViewController: BaseViewController {
     
     lazy var againBtn: UIButton = {
         let againBtn = UIButton(type: .custom)
-        againBtn.setTitle("Try Again", for: .normal)
+        againBtn.setTitle(LanguageManager.localizedString(for: "Try Again"), for: .normal)
         againBtn.setTitleColor(UIColor.init(hex: "#6D95FC"), for: .normal)
         againBtn.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight(500))
         againBtn.isHidden = true
@@ -105,11 +105,14 @@ extension LaunchViewController {
             guard let self = self, let model = model else { return }
             if model.token == 0 {
                 self.againBtn.isHidden = true
-                let kissed = model.kindness?.kissed ?? 0
+                let kissed = String(model.kindness?.kissed ?? 1)
                 UserDefaults.standard.set(kissed, forKey: "kissed")
                 UserDefaults.standard.synchronize()
                 if let tModel = model.kindness?.toward {
                     self.fbInfo(with: tModel)
+                }
+                if let lang = AppLanguage(rawValue: kissed) {
+                    LanguageManager.setLanguage(lang)
                 }
             }else {
                 self.againBtn.isHidden = false
@@ -151,7 +154,9 @@ extension LaunchViewController {
             guard let self = self, let model = model else { return }
             if model.token == 0 {
                 self.againBtn.isHidden = true
-                NotificationCenter.default.post(name: NSNotification.Name("changeRootVc"), object: nil)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                    NotificationCenter.default.post(name: NSNotification.Name("changeRootVc"), object: nil)
+                }
             }else {
                 self.againBtn.isHidden = false
             }

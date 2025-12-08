@@ -16,7 +16,7 @@ class ApiPeraConfig: NSObject {
         let overfull = UIDevice.current.systemVersion
         let mill = UserDefaults.standard.object(forKey: "token") as? String ?? ""
         let weir = DeviceIdentifierManager.getIDFA() ?? ""
-        let kissed = String(UserDefaults.standard.object(forKey: "kissed") as? Int ?? 0)
+        let kissed = UserDefaults.standard.object(forKey: "kissed") as? String ?? ""
         
         let dict = ["broken": broken,
                     "straightway": straightway,
@@ -24,7 +24,7 @@ class ApiPeraConfig: NSObject {
                     "overfull": overfull,
                     "mill": mill,
                     "weir": weir,
-                    "kissed": "1"]
+                    "kissed": kissed]
         
 //        let jsonStr = JSONHelper.toJSONString(dict)
         

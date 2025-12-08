@@ -16,21 +16,21 @@ class BaseTabBarController: UITabBarController {
     
     private func setupTabBar() {
         let homeVC = createNavigationController(
-            title: "Loan",
+            title: LanguageManager.localizedString(for: "Loan"),
             imageName: "home_nor_image",
             selectedImageName: "home_sel_image",
             viewController: HomeViewController()
         )
         
         let orderVC = createNavigationController(
-            title: "Bills",
+            title: LanguageManager.localizedString(for: "Bills"),
             imageName: "bills_nor_image",
             selectedImageName: "bills_sel_image",
             viewController: OrderListViewController()
         )
         
         let centerVC = createNavigationController(
-            title: "Mine",
+            title: LanguageManager.localizedString(for: "Mine"),
             imageName: "mine_nor_image",
             selectedImageName: "mine_sel_image",
             viewController: CenterViewController()

@@ -13,11 +13,17 @@ import RxGesture
 
 class LoginView: UIView {
     
+    var codeBlock: (() -> Void)?
+    
+    var voiceBlock: (() -> Void)?
+    
+    var loginBlock: (() -> Void)?
+    
     let disposeBag = DisposeBag()
         
     private lazy var oneLabel: UILabel = {
         let label = UILabel()
-        label.text = "Hello,"
+        label.text = LanguageManager.localizedString(for: "Hello,")
         label.textAlignment = .left
         label.textColor = UIColor(hex: "#6D95FC")
         label.font = UIFont.systemFont(ofSize: 40, weight: .bold)
@@ -26,7 +32,7 @@ class LoginView: UIView {
     
     private lazy var twoLabel: UILabel = {
         let label = UILabel()
-        label.text = "Welcome to Pinjam Tunai !"
+        label.text = LanguageManager.localizedString(for: "Welcome to Pinjam Tunai!")
         label.textAlignment = .left
         label.textColor = UIColor(hex: "#666666")
         label.font = UIFont.systemFont(ofSize: 13, weight: .regular)
@@ -65,7 +71,7 @@ class LoginView: UIView {
     lazy var loginBtn: UIButton = {
         let loginBtn = UIButton(type: .custom)
         loginBtn.setTitleColor(.white, for: .normal)
-        loginBtn.setTitle("Log In", for: .normal)
+        loginBtn.setTitle(LanguageManager.localizedString(for: "Log In"), for: .normal)
         loginBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight(500))
         loginBtn.setBackgroundImage(UIImage(named: "home_apply_image"), for: .normal)
         loginBtn.adjustsImageWhenHighlighted = true
@@ -95,8 +101,8 @@ class LoginView: UIView {
         nameLabel.textAlignment = .center
         nameLabel.font = UIFont.systemFont(ofSize: 11, weight: UIFont.Weight(400))
         nameLabel.textColor = UIColor.init(hex: "#D9D9D9")
-        let fullText = "I have agreed to all the terms of the <Privacy Policy>."
-        let policyText = "<Privacy Policy>"
+        let fullText = LanguageManager.localizedString(for: "I have agreed to all the terms of the <Privacy Policy>.")
+        let policyText = LanguageManager.localizedString(for: "<Privacy Policy>")
         let attributedString = NSMutableAttributedString(string: fullText)
         attributedString.addAttribute(.foregroundColor, value: UIColor.darkGray, range: NSRange(location: 0, length: attributedString.length))
         if let range = fullText.range(of: policyText) {
@@ -109,7 +115,7 @@ class LoginView: UIView {
     
     lazy var phoneLabel: UILabel = {
         let phoneLabel = UILabel()
-        phoneLabel.text = "Phone number"
+        phoneLabel.text = LanguageManager.localizedString(for: "Phone number")
         phoneLabel.textAlignment = .left
         phoneLabel.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight(400))
         phoneLabel.textColor = UIColor(hex: "#373737")
@@ -127,7 +133,7 @@ class LoginView: UIView {
     
     lazy var codeLabel: UILabel = {
         let codeLabel = UILabel()
-        codeLabel.text = "Verification code"
+        codeLabel.text = LanguageManager.localizedString(for: "Verification code")
         codeLabel.textAlignment = .left
         codeLabel.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight(400))
         codeLabel.textColor = UIColor(hex: "#373737")
@@ -145,7 +151,7 @@ class LoginView: UIView {
     
     lazy var voiceLabel: UILabel = {
         let voiceLabel = UILabel()
-        voiceLabel.text = "Get the voice verification code"
+        voiceLabel.text = LanguageManager.localizedString(for: "Get the voice verification code")
         voiceLabel.textAlignment = .right
         voiceLabel.font = UIFont.systemFont(ofSize: 10, weight: UIFont.Weight(400))
         voiceLabel.textColor = UIColor(hex: "#C0C0C0")
@@ -160,9 +166,9 @@ class LoginView: UIView {
     
     lazy var descLabel: UILabel = {
         let descLabel = UILabel()
-        descLabel.text = "+91"
+        descLabel.text = LanguageManager.localizedString(for: "+91")
         descLabel.textAlignment = .center
-        descLabel.font = UIFont.systemFont(ofSize: 15, weight: UIFont.Weight(500))
+        descLabel.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight(500))
         descLabel.textColor = UIColor(hex: "#000000")
         return descLabel
     }()
@@ -176,12 +182,12 @@ class LoginView: UIView {
     lazy var phoneTextFiled: UITextField = {
         let phoneTextFiled = UITextField()
         phoneTextFiled.keyboardType = .numberPad
-        let attrString = NSMutableAttributedString(string: "Please Enter Your Phone Number", attributes: [
+        let attrString = NSMutableAttributedString(string: LanguageManager.localizedString(for: "Please Enter Your Phone Number"), attributes: [
             .foregroundColor: UIColor.init(hex: "#BDBDBD") as Any,
-            .font: UIFont.systemFont(ofSize: 11, weight: UIFont.Weight(400))
+            .font: UIFont.systemFont(ofSize: 10, weight: UIFont.Weight(400))
         ])
         phoneTextFiled.attributedPlaceholder = attrString
-        phoneTextFiled.font = UIFont.systemFont(ofSize: 11, weight: UIFont.Weight(600))
+        phoneTextFiled.font = UIFont.systemFont(ofSize: 10, weight: UIFont.Weight(500))
         phoneTextFiled.textColor = UIColor.init(hex: "#000000")
         return phoneTextFiled
     }()
@@ -189,12 +195,12 @@ class LoginView: UIView {
     lazy var codeTextFiled: UITextField = {
         let codeTextFiled = UITextField()
         codeTextFiled.keyboardType = .numberPad
-        let attrString = NSMutableAttributedString(string: "Please Enter Verification Code", attributes: [
+        let attrString = NSMutableAttributedString(string: LanguageManager.localizedString(for: "Please Enter Verification Code"), attributes: [
             .foregroundColor: UIColor.init(hex: "#BDBDBD") as Any,
-            .font: UIFont.systemFont(ofSize: 11, weight: UIFont.Weight(400))
+            .font: UIFont.systemFont(ofSize: 10, weight: UIFont.Weight(400))
         ])
         codeTextFiled.attributedPlaceholder = attrString
-        codeTextFiled.font = UIFont.systemFont(ofSize: 11, weight: UIFont.Weight(600))
+        codeTextFiled.font = UIFont.systemFont(ofSize: 10, weight: UIFont.Weight(500))
         codeTextFiled.textColor = UIColor.init(hex: "#000000")
         return codeTextFiled
     }()
@@ -204,9 +210,9 @@ class LoginView: UIView {
         codeBtn.layer.cornerRadius = 8
         codeBtn.layer.masksToBounds = true
         codeBtn.backgroundColor = UIColor.init(hex: "#6D95FC")
-        codeBtn.setTitle("Get Code", for: .normal)
+        codeBtn.setTitle(LanguageManager.localizedString(for: "Get Code"), for: .normal)
         codeBtn.setTitleColor(UIColor.white, for: .normal)
-        codeBtn.titleLabel?.font = UIFont.systemFont(ofSize: 13, weight: UIFont.Weight(400))
+        codeBtn.titleLabel?.font = UIFont.systemFont(ofSize: 10, weight: UIFont.Weight(400))
         return codeBtn
     }()
             
@@ -367,19 +373,29 @@ extension LoginView {
         codeTextFiled.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(10)
             make.centerY.equalToSuperview()
-            make.right.equalToSuperview().offset(-100)
+            make.right.equalToSuperview().offset(-110)
             make.height.equalTo(40)
         }
         
         codeBtn.snp.makeConstraints { make in
             make.right.equalToSuperview().offset(-4)
-            make.size.equalTo(CGSizeMake(87, 38))
+            make.size.equalTo(CGSizeMake(90, 38))
             make.centerY.equalToSuperview()
         }
         
         loginBtn.rx.tap.bind(onNext: { [weak self] in
             guard let self = self else { return }
-            oneBtn.isSelected.toggle()
+            self.loginBlock?()
+        }).disposed(by: disposeBag)
+        
+        codeBtn.rx.tap.bind(onNext: { [weak self] in
+            guard let self = self else { return }
+            self.codeBlock?()
+        }).disposed(by: disposeBag)
+        
+        voiceLabel.rx.tapGesture().when(.recognized).bind(onNext: { [weak self] _ in
+            guard let self = self else { return }
+            self.voiceBlock?()
         }).disposed(by: disposeBag)
         
         oneBtn.rx.tap.bind(onNext: { [weak self] in

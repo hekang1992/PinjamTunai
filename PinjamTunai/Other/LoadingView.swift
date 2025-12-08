@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Toast_Swift
 
 class LoadingView: UIView {
     
@@ -127,3 +128,9 @@ extension LoadingView {
     }
 }
 
+class Toaster {
+    static func showMessage(with message: String) {
+        guard let window = UIApplication.shared.windows.first else { return }
+        window.makeToast(message, duration: 3.0, position: .center)
+    }
+}
