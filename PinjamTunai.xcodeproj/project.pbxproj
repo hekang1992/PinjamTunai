@@ -318,8 +318,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 737D1EC82EE4545F003CC748 /* Build configuration list for PBXNativeTarget "PinjamTunai" */;
 			buildPhases = (
-				710D87ADCC424FDE85A5DE54 /* Copy Target Symbols */,
 				9E97A9985207545C4B227B92 /* [CP] Check Pods Manifest.lock */,
+				710D87ADCC424FDE85A5DE54 /* Copy Target Symbols */,
 				737D1EB12EE4545E003CC748 /* Sources */,
 				737D1EB22EE4545E003CC748 /* Frameworks */,
 				737D1EB32EE4545E003CC748 /* Resources */,
@@ -433,13 +433,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-PinjamTunai/Pods-PinjamTunai-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-PinjamTunai/Pods-PinjamTunai-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

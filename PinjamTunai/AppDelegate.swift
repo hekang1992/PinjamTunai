@@ -32,8 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate {
     
     private func boardInfo() {
-        IQKeyboardManager.shared.isEnabled = true
-        IQKeyboardManager.shared.resignOnTouchOutside = true
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
     }
     
     private func notiChangeVc() {
