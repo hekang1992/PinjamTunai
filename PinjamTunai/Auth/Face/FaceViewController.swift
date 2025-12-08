@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import TYAlertController
 
 class FaceViewController: BaseViewController {
     
@@ -17,6 +18,8 @@ class FaceViewController: BaseViewController {
     var stepArray: [StepModel] = []
     
     let viewModel = FaceViewModel()
+    
+    var model: BaseModel?
     
     lazy var faceView: FaceView = {
         let faceView = FaceView()
@@ -64,6 +67,21 @@ class FaceViewController: BaseViewController {
             make.bottom.equalToSuperview()
         }
         
+        faceView.oneView.uploadBlock = { [weak self] in
+            guard let self = self, let model = model else { return }
+            popModelView(with: model)
+        }
+        
+        faceView.twoView.uploadBlock = { [weak self] in
+            guard let self = self, let model = model else { return }
+            popModelView(with: model)
+        }
+        
+        faceView.nextBlock = { [weak self] in
+            guard let self = self, let model = model else { return }
+            popModelView(with: model)
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -83,12 +101,44 @@ extension FaceViewController {
                 let json = ["shot": productID]
                 let model = try await viewModel.faceMessageInfo(json: json)
                 if model.token == 0 {
-                    
+                    self.model = model
+                    popModelView(with: model)
                 }
             } catch {
                 
             }
         }
+    }
+    
+    private func popModelView(with model: BaseModel) {
+        let lie = model.kindness?.above?.lie ?? ""
+        let upturned = model.kindness?.above?.upturned ?? ""
+        let code = LanguageManager.getLanguageCode()
+        if lie.isEmpty {
+            let imageStr = code == "2" ? "id_card_ili_image" : "card_ili_image"
+            let popCardView = PopFaceView(frame: self.view.bounds)
+            popCardView.bgImageView.image = UIImage(named: imageStr)
+            let alertVc = TYAlertController(alert: popCardView, preferredStyle: .alert)!
+            self.present(alertVc, animated: true)
+            
+            // upload---Image
+            popCardView.oneBlock = { [weak self] in
+                guard let self = self else { return }
+                self.dismiss(animated: true) {
+                    
+                }
+            }
+            
+            popCardView.twoBlock = { [weak self] in
+                guard let self = self else { return }
+                self.dismiss(animated: true)
+            }
+            
+            return
+        }
+        
+        
+        
     }
     
 }

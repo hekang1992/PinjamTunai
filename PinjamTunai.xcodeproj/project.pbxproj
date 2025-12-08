@@ -29,6 +29,7 @@
 		7315650C2EE70C1D00599239 /* PopSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7315650B2EE70C1D00599239 /* PopSettingView.swift */; };
 		7315650E2EE70F6F00599239 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7315650D2EE70F6B00599239 /* SettingViewModel.swift */; };
 		731565102EE710A800599239 /* PopDelAccView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7315650F2EE710A100599239 /* PopDelAccView.swift */; };
+		731565122EE715CE00599239 /* PopFaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731565112EE715C700599239 /* PopFaceView.swift */; };
 		737D1ED72EE45467003CC748 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D1ECD2EE45467003CC748 /* AppDelegate.swift */; };
 		737D1EDA2EE45467003CC748 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 737D1ECE2EE45467003CC748 /* Assets.xcassets */; };
 		737D1EDC2EE45467003CC748 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 737D1ED12EE45467003CC748 /* LaunchScreen.storyboard */; };
@@ -81,6 +82,7 @@
 		7315650B2EE70C1D00599239 /* PopSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopSettingView.swift; sourceTree = "<group>"; };
 		7315650D2EE70F6B00599239 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		7315650F2EE710A100599239 /* PopDelAccView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopDelAccView.swift; sourceTree = "<group>"; };
+		731565112EE715C700599239 /* PopFaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopFaceView.swift; sourceTree = "<group>"; };
 		737D1EB52EE4545E003CC748 /* PinjamTunai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinjamTunai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		737D1ECD2EE45467003CC748 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		737D1ECE2EE45467003CC748 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 		73145F002EE6C42E006085E8 /* Face */ = {
 			isa = PBXGroup;
 			children = (
+				731565112EE715C700599239 /* PopFaceView.swift */,
 				73145F092EE6D952006085E8 /* FaceViewModel.swift */,
 				73145F052EE6C8C2006085E8 /* StepView.swift */,
 				73145F032EE6C89D006085E8 /* FaceView.swift */,
@@ -460,6 +463,7 @@
 				737D1F0A2EE45FB1003CC748 /* LaunchViewController.swift in Sources */,
 				73145EF12EE6A200006085E8 /* AuthListViewCell.swift in Sources */,
 				737D1F022EE45863003CC748 /* LoginViewController.swift in Sources */,
+				731565122EE715CE00599239 /* PopFaceView.swift in Sources */,
 				737D1F142EE5832E003CC748 /* BaseTabBarController.swift in Sources */,
 				737D1F0C2EE46C21003CC748 /* BaseModel.swift in Sources */,
 				73145EE72EE695DB006085E8 /* AppRouteConfig.swift in Sources */,

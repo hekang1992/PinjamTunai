@@ -7,8 +7,14 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 class FaceListView: UIView {
+    
+    let disposeBag = DisposeBag()
+    
+    var uploadBlock: (() -> Void)?
     
     lazy var whiteView: UIView = {
         let whiteView = UIView()
@@ -83,6 +89,11 @@ class FaceListView: UIView {
             make.centerX.equalToSuperview()
             make.left.equalToSuperview().offset(25)
         }
+        
+        uploadBtn.rx.tap.bind(onNext: { [weak self] in
+            guard let self = self else { return }
+            self.uploadBlock?()
+        }).disposed(by: disposeBag)
     }
     
     required init?(coder: NSCoder) {

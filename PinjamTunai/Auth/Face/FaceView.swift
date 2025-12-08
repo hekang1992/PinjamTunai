@@ -7,8 +7,14 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 class FaceView: UIView {
+    
+    let disposeBag = DisposeBag()
+    
+    var nextBlock: (() -> Void)?
     
     lazy var oneView: FaceListView = {
         let oneView = FaceListView()
@@ -81,6 +87,10 @@ class FaceView: UIView {
             make.bottom.equalToSuperview().offset(-20)
         }
         
+        nextBtn.rx.tap.bind(onNext: { [weak self] in
+            guard let self = self else { return }
+            self.nextBlock?()
+        }).disposed(by: disposeBag)
     }
     
     required init?(coder: NSCoder) {
