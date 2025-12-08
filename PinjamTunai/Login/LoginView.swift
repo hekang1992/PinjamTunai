@@ -74,7 +74,7 @@ class LoginView: UIView {
         loginBtn.setTitle(LanguageManager.localizedString(for: "Log In"), for: .normal)
         loginBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight(500))
         loginBtn.setBackgroundImage(UIImage(named: "home_apply_image"), for: .normal)
-        loginBtn.adjustsImageWhenHighlighted = true
+        loginBtn.adjustsImageWhenHighlighted = false
         return loginBtn
     }()
     
@@ -182,12 +182,12 @@ class LoginView: UIView {
     lazy var phoneTextFiled: UITextField = {
         let phoneTextFiled = UITextField()
         phoneTextFiled.keyboardType = .numberPad
+        phoneTextFiled.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight(500))
         let attrString = NSMutableAttributedString(string: LanguageManager.localizedString(for: "Please Enter Your Phone Number"), attributes: [
             .foregroundColor: UIColor.init(hex: "#BDBDBD") as Any,
             .font: UIFont.systemFont(ofSize: 10, weight: UIFont.Weight(400))
         ])
         phoneTextFiled.attributedPlaceholder = attrString
-        phoneTextFiled.font = UIFont.systemFont(ofSize: 10, weight: UIFont.Weight(500))
         phoneTextFiled.textColor = UIColor.init(hex: "#000000")
         return phoneTextFiled
     }()
@@ -195,12 +195,12 @@ class LoginView: UIView {
     lazy var codeTextFiled: UITextField = {
         let codeTextFiled = UITextField()
         codeTextFiled.keyboardType = .numberPad
+        codeTextFiled.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight(500))
         let attrString = NSMutableAttributedString(string: LanguageManager.localizedString(for: "Please Enter Verification Code"), attributes: [
             .foregroundColor: UIColor.init(hex: "#BDBDBD") as Any,
             .font: UIFont.systemFont(ofSize: 10, weight: UIFont.Weight(400))
         ])
         codeTextFiled.attributedPlaceholder = attrString
-        codeTextFiled.font = UIFont.systemFont(ofSize: 10, weight: UIFont.Weight(500))
         codeTextFiled.textColor = UIColor.init(hex: "#000000")
         return codeTextFiled
     }()

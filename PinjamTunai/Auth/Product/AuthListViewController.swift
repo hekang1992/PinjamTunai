@@ -8,12 +8,20 @@
 import UIKit
 import SnapKit
 import MJRefresh
+import RxSwift
+import RxCocoa
 
 class AuthListViewController: BaseViewController {
+    
+    let disposeBag = DisposeBag()
     
     var productID: String = ""
     
     let viewModel = AuthListViewModel()
+    
+    var droppedModel: droppedModel?
+    
+    var modelArray: [midModel]?
     
     lazy var listView: AuthListView = {
         let listView = AuthListView()
@@ -48,6 +56,19 @@ class AuthListViewController: BaseViewController {
             }
         })
         
+        self.listView.cellBlock = { [weak self] model in
+            guard let self = self else { return }
+            let stillness = String(model.stillness ?? 0)
+            let blossoming = model.blossoming ?? ""
+            dueBlossoming(with: blossoming, complete: stillness)
+        }
+        
+        self.listView.nextBtn.rx.tap.bind(onNext: { [weak self] in
+            guard let self = self, let model = droppedModel else { return }
+            let blossoming = model.blossoming ?? ""
+            dueBlossoming(with: blossoming, complete: "2")
+        }).disposed(by: disposeBag)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,6 +90,8 @@ extension AuthListViewController {
                 let model = try await viewModel.productDetailInfo(json: dict)
                 if model.token == 0 {
                     self.listView.model = model
+                    self.droppedModel = model.kindness?.dropped
+                    self.modelArray = model.kindness?.mid ?? []
                     self.headView.nameLabel.text = model.kindness?.pavement?.silently ?? ""
                 }
                 self.listView.tableView.reloadData()
@@ -76,6 +99,28 @@ extension AuthListViewController {
             } catch {
                 await self.listView.tableView.mj_header?.endRefreshing()
             }
+        }
+    }
+    
+    private func dueBlossoming(with type: String, complete: String? = "") {
+        if complete == "2" {
+            goPageVc(with: type)
+        }else if complete == "0" { // false
+            let blossoming = self.droppedModel?.blossoming ?? ""
+            goPageVc(with: blossoming)
+        }else if complete == "1" { // true
+            goPageVc(with: type)
+        }else {
+            
+        }
+    }
+    
+    private func goPageVc(with type: String) {
+        if type == "isa" {
+            let faceVc = FaceViewController()
+            faceVc.productID = productID
+            faceVc.modelArray = self.modelArray ?? []
+            self.navigationController?.pushViewController(faceVc, animated: true)
         }
     }
     

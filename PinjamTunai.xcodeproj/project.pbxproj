@@ -16,6 +16,11 @@
 		73145EF12EE6A200006085E8 /* AuthListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73145EF02EE6A200006085E8 /* AuthListViewCell.swift */; };
 		73145EF32EE6B6BC006085E8 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73145EF22EE6B6BB006085E8 /* LanguageManager.swift */; };
 		73145EFD2EE6B8E9006085E8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 73145EFB2EE6B8E9006085E8 /* Localizable.strings */; };
+		73145F022EE6C85D006085E8 /* FaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73145F012EE6C85D006085E8 /* FaceViewController.swift */; };
+		73145F042EE6C89D006085E8 /* FaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73145F032EE6C89D006085E8 /* FaceView.swift */; };
+		73145F062EE6C8CD006085E8 /* StepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73145F052EE6C8C2006085E8 /* StepView.swift */; };
+		73145F082EE6D289006085E8 /* FaceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73145F072EE6D289006085E8 /* FaceListView.swift */; };
+		73145F0A2EE6D954006085E8 /* FaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73145F092EE6D952006085E8 /* FaceViewModel.swift */; };
 		737D1ED72EE45467003CC748 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D1ECD2EE45467003CC748 /* AppDelegate.swift */; };
 		737D1EDA2EE45467003CC748 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 737D1ECE2EE45467003CC748 /* Assets.xcassets */; };
 		737D1EDC2EE45467003CC748 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 737D1ED12EE45467003CC748 /* LaunchScreen.storyboard */; };
@@ -55,6 +60,11 @@
 		73145EFA2EE6B7E0006085E8 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		73145EFC2EE6B8E9006085E8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		73145EFE2EE6B900006085E8 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
+		73145F012EE6C85D006085E8 /* FaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceViewController.swift; sourceTree = "<group>"; };
+		73145F032EE6C89D006085E8 /* FaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceView.swift; sourceTree = "<group>"; };
+		73145F052EE6C8C2006085E8 /* StepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepView.swift; sourceTree = "<group>"; };
+		73145F072EE6D289006085E8 /* FaceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceListView.swift; sourceTree = "<group>"; };
+		73145F092EE6D952006085E8 /* FaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceViewModel.swift; sourceTree = "<group>"; };
 		737D1EB52EE4545E003CC748 /* PinjamTunai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinjamTunai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		737D1ECD2EE45467003CC748 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		737D1ECE2EE45467003CC748 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -105,6 +115,30 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		73145EFF2EE6C41E006085E8 /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				73145EEA2EE69A41006085E8 /* AuthListViewModel.swift */,
+				73145EEC2EE69A55006085E8 /* AuthListView.swift */,
+				73145EE82EE69A28006085E8 /* AuthListViewController.swift */,
+				73145EEE2EE69A8A006085E8 /* AppHeadView.swift */,
+				73145EF02EE6A200006085E8 /* AuthListViewCell.swift */,
+			);
+			path = Product;
+			sourceTree = "<group>";
+		};
+		73145F002EE6C42E006085E8 /* Face */ = {
+			isa = PBXGroup;
+			children = (
+				73145F092EE6D952006085E8 /* FaceViewModel.swift */,
+				73145F052EE6C8C2006085E8 /* StepView.swift */,
+				73145F032EE6C89D006085E8 /* FaceView.swift */,
+				73145F012EE6C85D006085E8 /* FaceViewController.swift */,
+				73145F072EE6D289006085E8 /* FaceListView.swift */,
+			);
+			path = Face;
+			sourceTree = "<group>";
+		};
 		737D1EAC2EE4545E003CC748 = {
 			isa = PBXGroup;
 			children = (
@@ -132,13 +166,13 @@
 				737D1ECD2EE45467003CC748 /* AppDelegate.swift */,
 				73145EFB2EE6B8E9006085E8 /* Localizable.strings */,
 				737D1ED12EE45467003CC748 /* LaunchScreen.storyboard */,
+				737D1EF12EE457E9003CC748 /* Http */,
 				737D1EF42EE457E9003CC748 /* Other */,
 				737D1EEB2EE457E9003CC748 /* Auth */,
 				737D1EEF2EE457E9003CC748 /* Center */,
 				737D1EF02EE457E9003CC748 /* Home */,
 				737D1EF22EE457E9003CC748 /* Login */,
 				737D1EF32EE457E9003CC748 /* Order */,
-				737D1EF12EE457E9003CC748 /* Http */,
 				737D1EEE2EE457E9003CC748 /* Base */,
 			);
 			path = PinjamTunai;
@@ -147,11 +181,8 @@
 		737D1EEB2EE457E9003CC748 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				73145EEA2EE69A41006085E8 /* AuthListViewModel.swift */,
-				73145EEC2EE69A55006085E8 /* AuthListView.swift */,
-				73145EE82EE69A28006085E8 /* AuthListViewController.swift */,
-				73145EEE2EE69A8A006085E8 /* AppHeadView.swift */,
-				73145EF02EE6A200006085E8 /* AuthListViewCell.swift */,
+				73145F002EE6C42E006085E8 /* Face */,
+				73145EFF2EE6C41E006085E8 /* Product */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -379,6 +410,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73145F082EE6D289006085E8 /* FaceListView.swift in Sources */,
+				73145F0A2EE6D954006085E8 /* FaceViewModel.swift in Sources */,
+				73145F062EE6C8CD006085E8 /* StepView.swift in Sources */,
 				737D1F1E2EE5CFAC003CC748 /* LoginViewModel.swift in Sources */,
 				73145EF32EE6B6BC006085E8 /* LanguageManager.swift in Sources */,
 				737D1F0A2EE45FB1003CC748 /* LaunchViewController.swift in Sources */,
@@ -403,9 +437,11 @@
 				737D1F1A2EE587F5003CC748 /* HomeViewModel.swift in Sources */,
 				737D1F082EE4597A003CC748 /* ApiPeraConfig.swift in Sources */,
 				73145EE92EE69A28006085E8 /* AuthListViewController.swift in Sources */,
+				73145F042EE6C89D006085E8 /* FaceView.swift in Sources */,
 				737D1ED72EE45467003CC748 /* AppDelegate.swift in Sources */,
 				737D1F162EE587E0003CC748 /* OneView.swift in Sources */,
 				73145EED2EE69A55006085E8 /* AuthListView.swift in Sources */,
+				73145F022EE6C85D006085E8 /* FaceViewController.swift in Sources */,
 				73145EEF2EE69A8A006085E8 /* AppHeadView.swift in Sources */,
 				737D1F002EE4585B003CC748 /* OrderListViewController.swift in Sources */,
 			);

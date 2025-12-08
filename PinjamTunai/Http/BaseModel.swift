@@ -50,8 +50,25 @@ class aboveModel: Codable {
 
 class pavementModel: Codable {
     var rare: String?
-    var beauty: Int?
+    var beauty: String?
     var silently: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case rare, beauty, silently
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        rare = try container.decodeIfPresent(String.self, forKey: .rare)
+        silently = try container.decodeIfPresent(String.self, forKey: .silently)
+        
+        if let stringValue = try? container.decode(String.self, forKey: .beauty) {
+            beauty = stringValue
+        } else if let intValue = try? container.decode(Int.self, forKey: .beauty) {
+            beauty = "\(intValue)"
+        }
+    }
 }
 
 class midModel: Codable {
@@ -61,6 +78,7 @@ class midModel: Codable {
     var quivering: String?
     var snowy: String?
     var stillness: Int?
+    var blossoming: String?
 }
 
 class droppedModel: Codable {

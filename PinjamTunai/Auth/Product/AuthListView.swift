@@ -14,9 +14,11 @@ class AuthListView: UIView {
         didSet {
             guard let model = model else { return }
             oneLabel.text = model.kindness?.pavement?.rare ?? ""
-            twoLabel.text = String(model.kindness?.pavement?.beauty ?? 0)
+            twoLabel.text = model.kindness?.pavement?.beauty ?? ""
         }
     }
+    
+    var cellBlock: ((midModel) -> Void)?
 
     lazy var whiteView: UIView = {
         let whiteView = UIView()
@@ -35,10 +37,10 @@ class AuthListView: UIView {
     lazy var nextBtn: UIButton = {
         let nextBtn = UIButton(type: .custom)
         nextBtn.setTitleColor(.white, for: .normal)
-        nextBtn.setTitle("Next", for: .normal)
+        nextBtn.setTitle(LanguageManager.localizedString(for: "Next"), for: .normal)
         nextBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight(500))
         nextBtn.setBackgroundImage(UIImage(named: "home_apply_image"), for: .normal)
-        nextBtn.adjustsImageWhenHighlighted = true
+        nextBtn.adjustsImageWhenHighlighted = false
         return nextBtn
     }()
     
@@ -94,12 +96,12 @@ class AuthListView: UIView {
         nextBtn.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.size.equalTo(CGSize(width: 313, height: 50))
-            make.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom).offset(-20)
+            make.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom).offset(-10)
         }
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(whiteView.snp.bottom).offset(20)
+            make.top.equalTo(whiteView.snp.bottom).offset(15)
             make.left.right.equalToSuperview()
-            make.bottom.equalTo(nextBtn.snp.top).offset(-20)
+            make.bottom.equalTo(nextBtn.snp.top).offset(-10)
         }
         oneLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(13)
@@ -136,5 +138,9 @@ extension AuthListView: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let model = model?.kindness?.mid?[indexPath.row] {
+            self.cellBlock?(model)
+        }
+    }
 }

@@ -22,3 +22,9 @@
 "Loan" = "Pinjaman";
 "Bills" = "Tagihan";
 "Mine" = "Milikku";
+"Identity Information" = "Informasi KTP";
+"Upload" = "Unggah";
+"Finished" = "Selesai";
+"Next" = "Selanjutnya";
+"Please upload a photo of the front side of your ID card, ensuring that the borders are intact and all key information is fully visible." = "Silakan unggah foto sisi depan KTP Anda, pastikan batasannya utuh dan semua informasi penting terlihat jelas.";
+"Please position your face fully within the on-screen face frame in a well-lit, unobstructed environment." = "Silakan letakkan wajah Anda sepenuhnya di dalam bingkai wajah pada layar, di lingkungan yang terang dan tidak ada halangan.";

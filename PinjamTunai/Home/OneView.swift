@@ -151,7 +151,7 @@ class OneView: UIView {
         applyBtn.setTitleColor(.white, for: .normal)
         applyBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight(500))
         applyBtn.setBackgroundImage(UIImage(named: "home_apply_image"), for: .normal)
-        applyBtn.adjustsImageWhenHighlighted = true
+        applyBtn.adjustsImageWhenHighlighted = false
         return applyBtn
     }()
     
