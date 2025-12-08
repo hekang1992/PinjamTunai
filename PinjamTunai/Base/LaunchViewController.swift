@@ -111,7 +111,7 @@ extension LaunchViewController {
                 if let tModel = model.kindness?.toward {
                     self.fbInfo(with: tModel)
                 }
-                if let lang = AppLanguage(rawValue: "1") {
+                if let lang = AppLanguage(rawValue: kissed) {
                     LanguageManager.setLanguage(lang)
                 }
             }else {

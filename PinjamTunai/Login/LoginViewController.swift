@@ -50,7 +50,7 @@ extension LoginViewController {
     private func getCodeInfo() {
         let phone = self.loginView.phoneTextFiled.text ?? ""
         if phone.isEmpty {
-            Toaster.showMessage(with: "Please Enter Your Phone Number")
+            Toaster.showMessage(with: LanguageManager.localizedString(for: "Please Enter Your Phone Number"))
             return
         }
         Task {
@@ -70,7 +70,7 @@ extension LoginViewController {
     private func getVoiceCodeInfo() {
         let phone = self.loginView.phoneTextFiled.text ?? ""
         if phone.isEmpty {
-            Toaster.showMessage(with: "Please Enter Your Phone Number")
+            Toaster.showMessage(with: LanguageManager.localizedString(for: "Please Enter Your Phone Number"))
             return
         }
         Task {
@@ -94,15 +94,15 @@ extension LoginViewController {
         self.loginView.phoneTextFiled.resignFirstResponder()
         self.loginView.codeTextFiled.resignFirstResponder()
         if phone.isEmpty {
-            Toaster.showMessage(with: "Please Enter Your Phone Number")
+            Toaster.showMessage(with: LanguageManager.localizedString(for: "Please Enter Your Phone Number"))
             return
         }
         if code.isEmpty {
-            Toaster.showMessage(with: "Please Enter Verification Code")
+            Toaster.showMessage(with: LanguageManager.localizedString(for: "Please Enter Verification Code"))
             return
         }
         if agree == false {
-            Toaster.showMessage(with: "Please agreed to all the terms")
+            Toaster.showMessage(with: LanguageManager.localizedString(for: "Please agree to all the terms"))
             return
         }
         Task {

@@ -24,7 +24,7 @@ class ApiPeraConfig: NSObject {
                     "overfull": overfull,
                     "mill": mill,
                     "weir": weir,
-                    "kissed": "1"]
+                    "kissed": kissed]
         
 //        let jsonStr = JSONHelper.toJSONString(dict)
         
