@@ -21,6 +21,14 @@
 		73145F062EE6C8CD006085E8 /* StepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73145F052EE6C8C2006085E8 /* StepView.swift */; };
 		73145F082EE6D289006085E8 /* FaceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73145F072EE6D289006085E8 /* FaceListView.swift */; };
 		73145F0A2EE6D954006085E8 /* FaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73145F092EE6D952006085E8 /* FaceViewModel.swift */; };
+		731565002EE6E3FE00599239 /* CenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731564FF2EE6E3FE00599239 /* CenterView.swift */; };
+		731565022EE6E7EB00599239 /* CenterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731565012EE6E7E900599239 /* CenterViewModel.swift */; };
+		731565042EE6E94300599239 /* CenterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731565032EE6E94300599239 /* CenterTableViewCell.swift */; };
+		731565082EE707E600599239 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731565072EE707E600599239 /* SettingViewController.swift */; };
+		7315650A2EE708A500599239 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731565092EE7089F00599239 /* SettingView.swift */; };
+		7315650C2EE70C1D00599239 /* PopSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7315650B2EE70C1D00599239 /* PopSettingView.swift */; };
+		7315650E2EE70F6F00599239 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7315650D2EE70F6B00599239 /* SettingViewModel.swift */; };
+		731565102EE710A800599239 /* PopDelAccView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7315650F2EE710A100599239 /* PopDelAccView.swift */; };
 		737D1ED72EE45467003CC748 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D1ECD2EE45467003CC748 /* AppDelegate.swift */; };
 		737D1EDA2EE45467003CC748 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 737D1ECE2EE45467003CC748 /* Assets.xcassets */; };
 		737D1EDC2EE45467003CC748 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 737D1ED12EE45467003CC748 /* LaunchScreen.storyboard */; };
@@ -65,6 +73,14 @@
 		73145F052EE6C8C2006085E8 /* StepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepView.swift; sourceTree = "<group>"; };
 		73145F072EE6D289006085E8 /* FaceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceListView.swift; sourceTree = "<group>"; };
 		73145F092EE6D952006085E8 /* FaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceViewModel.swift; sourceTree = "<group>"; };
+		731564FF2EE6E3FE00599239 /* CenterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterView.swift; sourceTree = "<group>"; };
+		731565012EE6E7E900599239 /* CenterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterViewModel.swift; sourceTree = "<group>"; };
+		731565032EE6E94300599239 /* CenterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterTableViewCell.swift; sourceTree = "<group>"; };
+		731565072EE707E600599239 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		731565092EE7089F00599239 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		7315650B2EE70C1D00599239 /* PopSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopSettingView.swift; sourceTree = "<group>"; };
+		7315650D2EE70F6B00599239 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		7315650F2EE710A100599239 /* PopDelAccView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopDelAccView.swift; sourceTree = "<group>"; };
 		737D1EB52EE4545E003CC748 /* PinjamTunai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinjamTunai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		737D1ECD2EE45467003CC748 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		737D1ECE2EE45467003CC748 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -139,6 +155,29 @@
 			path = Face;
 			sourceTree = "<group>";
 		};
+		731565052EE707C200599239 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				731565012EE6E7E900599239 /* CenterViewModel.swift */,
+				731564FF2EE6E3FE00599239 /* CenterView.swift */,
+				737D1F052EE45878003CC748 /* CenterViewController.swift */,
+				731565032EE6E94300599239 /* CenterTableViewCell.swift */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		731565062EE707D200599239 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				7315650F2EE710A100599239 /* PopDelAccView.swift */,
+				7315650B2EE70C1D00599239 /* PopSettingView.swift */,
+				7315650D2EE70F6B00599239 /* SettingViewModel.swift */,
+				731565092EE7089F00599239 /* SettingView.swift */,
+				731565072EE707E600599239 /* SettingViewController.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
 		737D1EAC2EE4545E003CC748 = {
 			isa = PBXGroup;
 			children = (
@@ -203,7 +242,8 @@
 		737D1EEF2EE457E9003CC748 /* Center */ = {
 			isa = PBXGroup;
 			children = (
-				737D1F052EE45878003CC748 /* CenterViewController.swift */,
+				731565052EE707C200599239 /* Mine */,
+				731565062EE707D200599239 /* Setting */,
 			);
 			path = Center;
 			sourceTree = "<group>";
@@ -411,6 +451,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				73145F082EE6D289006085E8 /* FaceListView.swift in Sources */,
+				731565042EE6E94300599239 /* CenterTableViewCell.swift in Sources */,
+				731565002EE6E3FE00599239 /* CenterView.swift in Sources */,
 				73145F0A2EE6D954006085E8 /* FaceViewModel.swift in Sources */,
 				73145F062EE6C8CD006085E8 /* StepView.swift in Sources */,
 				737D1F1E2EE5CFAC003CC748 /* LoginViewModel.swift in Sources */,
@@ -423,12 +465,14 @@
 				73145EE72EE695DB006085E8 /* AppRouteConfig.swift in Sources */,
 				737D1EF82EE45814003CC748 /* BaseNavigationController.swift in Sources */,
 				737D1EF52EE457E9003CC748 /* BaseViewController.swift in Sources */,
+				7315650E2EE70F6F00599239 /* SettingViewModel.swift in Sources */,
 				737D1EFE2EE45850003CC748 /* LoginConfig.swift in Sources */,
 				737D1EFA2EE4582E003CC748 /* HttpRequestManager.swift in Sources */,
 				73145EEB2EE69A49006085E8 /* AuthListViewModel.swift in Sources */,
 				737D1F102EE55843003CC748 /* LaunchViewModel.swift in Sources */,
 				737D1F1C2EE5B95E003CC748 /* LoginView.swift in Sources */,
 				737D1F182EE587EA003CC748 /* TwoView.swift in Sources */,
+				7315650A2EE708A500599239 /* SettingView.swift in Sources */,
 				737D1F122EE57BA0003CC748 /* NetworkMonitor.swift in Sources */,
 				737D1F042EE45870003CC748 /* HomeViewController.swift in Sources */,
 				737D1F0E2EE55034003CC748 /* LoadingView.swift in Sources */,
@@ -438,10 +482,14 @@
 				737D1F082EE4597A003CC748 /* ApiPeraConfig.swift in Sources */,
 				73145EE92EE69A28006085E8 /* AuthListViewController.swift in Sources */,
 				73145F042EE6C89D006085E8 /* FaceView.swift in Sources */,
+				731565102EE710A800599239 /* PopDelAccView.swift in Sources */,
+				7315650C2EE70C1D00599239 /* PopSettingView.swift in Sources */,
 				737D1ED72EE45467003CC748 /* AppDelegate.swift in Sources */,
 				737D1F162EE587E0003CC748 /* OneView.swift in Sources */,
 				73145EED2EE69A55006085E8 /* AuthListView.swift in Sources */,
 				73145F022EE6C85D006085E8 /* FaceViewController.swift in Sources */,
+				731565022EE6E7EB00599239 /* CenterViewModel.swift in Sources */,
+				731565082EE707E600599239 /* SettingViewController.swift in Sources */,
 				73145EEF2EE69A8A006085E8 /* AppHeadView.swift in Sources */,
 				737D1F002EE4585B003CC748 /* OrderListViewController.swift in Sources */,
 			);

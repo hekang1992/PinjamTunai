@@ -18,7 +18,8 @@ class AppRouteConfig {
     
     static func handleRoute(pageUrl: String, viewController: BaseViewController) {
         if pageUrl.contains(scheme_url_setting) {
-            
+            let settingVc = SettingViewController()
+            viewController.navigationController?.pushViewController(settingVc, animated: true)
         }else if pageUrl.contains(scheme_url_home) {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
                 NotificationCenter.default.post(name: NSNotification.Name("changeRootVc"), object: nil)

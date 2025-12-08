@@ -21,6 +21,7 @@ class kindnessModel: Codable {
     var pavement: pavementModel?
     var mid: [midModel]?
     var dropped: droppedModel?
+    var userInfo: userInfoModel?
 }
 
 class towardModel: Codable {
@@ -33,6 +34,10 @@ class towardModel: Codable {
 class flewModel: Codable {
     var heads: String?
     var above: [aboveModel]?
+    var swan: String?
+    var shrank: String?
+    var whistling: String?
+     
 }
 
 class aboveModel: Codable {
@@ -84,4 +89,9 @@ class midModel: Codable {
 class droppedModel: Codable {
     var blossoming: String?
     var shrank: String?
+}
+
+class userInfoModel: Codable {
+    var singer: String?
+    var lose: String?
 }
