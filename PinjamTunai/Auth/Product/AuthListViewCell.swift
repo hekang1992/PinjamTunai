@@ -26,6 +26,29 @@ class AuthListViewCell: UITableViewCell {
             }else {
                 rightImageView.image = UIImage(named: "auth_list_nor_image")
             }
+            
+            let blossoming = model.blossoming ?? ""
+            
+            switch blossoming {
+            case "isa":
+                listImageView.image = stillness == 1 ? UIImage(named: "one_com_type_image") : UIImage(named: "list_auth_nor_image")
+                break
+            case "isb":
+                listImageView.image = stillness == 1 ? UIImage(named: "two_com_type_image") : UIImage(named: "list_auth_nor_image")
+                break
+            case "isc":
+                listImageView.image = stillness == 1 ? UIImage(named: "three_com_type_image") : UIImage(named: "list_auth_nor_image")
+                break
+            case "isd":
+                listImageView.image = stillness == 1 ? UIImage(named: "four_com_type_image") : UIImage(named: "list_auth_nor_image")
+                break
+            case "ise":
+                listImageView.image = stillness == 1 ? UIImage(named: "five_com_type_image") : UIImage(named: "list_auth_nor_image")
+                break
+            default:
+                break
+            }
+            
         }
     }
 

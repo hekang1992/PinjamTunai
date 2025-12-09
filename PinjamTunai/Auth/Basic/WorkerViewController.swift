@@ -179,6 +179,7 @@ extension WorkerViewController {
     private func popOneModel(with model: groundModel, cell: TapTableViewCell) {
         let oneView = PopOneView(frame: self.view.bounds)
         let modelArray = model.breeze ?? []
+        oneView.nameLabel.text = model.shrank ?? ""
         for (index, model) in modelArray.enumerated() {
             let text = cell.phoneTextFiled.text ?? ""
             let target = model.bore ?? ""
