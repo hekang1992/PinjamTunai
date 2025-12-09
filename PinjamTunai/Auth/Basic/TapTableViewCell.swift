@@ -54,7 +54,7 @@ class TapTableViewCell: UITableViewCell {
         ])
         phoneTextFiled.attributedPlaceholder = attrString
         phoneTextFiled.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight(600))
-        phoneTextFiled.textColor = UIColor.init(hex: "#FFCC6C")
+        phoneTextFiled.textColor = UIColor.init(hex: "#3B3B3B")
         phoneTextFiled.leftView = UIView(frame: CGRectMake(0, 0, 15, 10))
         phoneTextFiled.leftViewMode = .always
         phoneTextFiled.isEnabled = false

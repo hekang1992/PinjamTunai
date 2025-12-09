@@ -131,6 +131,11 @@ extension AuthListViewController {
             workerVc.productID = productID
             workerVc.modelArray = self.modelArray ?? []
             self.navigationController?.pushViewController(workerVc, animated: true)
+        }else if type == "isd" {
+            let relationVc = RelationViewController()
+            relationVc.productID = productID
+            relationVc.modelArray = self.modelArray ?? []
+            self.navigationController?.pushViewController(relationVc, animated: true)
         }
     }
     

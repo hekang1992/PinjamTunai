@@ -1,5 +1,5 @@
 //
-//  WorkerViewController.swift
+//  RelationViewController.swift
 //  PinjamTunai
 //
 //  Created by hekang on 2025/12/9.
@@ -12,11 +12,11 @@ import RxSwift
 import RxCocoa
 import TYAlertController
 
-class WorkerViewController: BaseViewController {
+class RelationViewController: BaseViewController {
     
     var productID: String = ""
     
-    let viewModel = BasicViewModel()
+    let viewModel = RelationViewModel()
     
     var modelArray: [midModel] = []
     
@@ -44,8 +44,7 @@ class WorkerViewController: BaseViewController {
         tableView.showsVerticalScrollIndicator = false
         tableView.contentInsetAdjustmentBehavior = .never
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.register(BasicTableViewCell.self, forCellReuseIdentifier: "BasicTableViewCell")
-        tableView.register(TapTableViewCell.self, forCellReuseIdentifier: "TapTableViewCell")
+        tableView.register(RelationViewCell.self, forCellReuseIdentifier: "RelationViewCell")
         if #available(iOS 15.0, *) {
             tableView.sectionHeaderTopPadding = 0
         }
@@ -58,7 +57,7 @@ class WorkerViewController: BaseViewController {
         // Do any additional setup after loading the view.
         view.addSubview(headView)
         
-        headView.nameLabel.text = LanguageManager.localizedString(for: "Base Information")
+        headView.nameLabel.text = LanguageManager.localizedString(for: "Emergency Contact")
         
         headView.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
@@ -81,7 +80,7 @@ class WorkerViewController: BaseViewController {
         }
         
         for (index, _) in modelArray.enumerated() {
-            stepArray.append(StepModel(title: "\(index + 1)", isCurrent: (index < 3)))
+            stepArray.append(StepModel(title: "\(index + 1)", isCurrent: (index < modelArray.count - 1)))
         }
         stepView.modelArray = stepArray
         
@@ -103,33 +102,23 @@ class WorkerViewController: BaseViewController {
         
         self.model
             .asObservable()
-            .map { $0?.kindness?.ground ?? [] }
+            .map { $0?.kindness?.prince ?? [] }
             .bind(to: tableView.rx.items) { tableView, row, model in
-                let snow = model.snow ?? ""
-                if snow == "birdb" {
-                    let cell = tableView.dequeueReusableCell(
-                        withIdentifier: "BasicTableViewCell",
-                        for: IndexPath(row: row, section: 0)
-                    ) as! BasicTableViewCell
-                    cell.model = model
-                    cell.textBlock = { text in
-                        model.winds = text
-                        model.heads = text
-                    }
-                    return cell
-                }else {
-                    let cell = tableView.dequeueReusableCell(
-                        withIdentifier: "TapTableViewCell",
-                        for: IndexPath(row: row, section: 0)
-                    ) as! TapTableViewCell
-                    cell.model = model
-                    cell.clickBlock = { [weak self] in
-                        guard let self = self else { return }
-                        self.view.endEditing(true)
-                        popOneModel(with: model, cell: cell)
-                    }
-                    return cell
+                let cell = tableView.dequeueReusableCell(
+                    withIdentifier: "RelationViewCell",
+                    for: IndexPath(row: row, section: 0)
+                ) as! RelationViewCell
+                cell.model = model
+                cell.relationBlock = { [weak self] in
+                    guard let self = self else { return }
+                    popOneModel(with: model, cell: cell)
                 }
+                
+                cell.phoneBlock = { [weak self] in
+                    guard let self = self else { return }
+                    
+                }
+                return cell
             }
             .disposed(by: disposeBag)
                 
@@ -144,7 +133,7 @@ class WorkerViewController: BaseViewController {
             print("json======\(json)")
             
             Task {
-                await self.saveWorkerInfo(with: json)
+                await self.saveBasicInfo(with: json)
             }
             
         }).disposed(by: disposeBag)
@@ -160,12 +149,12 @@ class WorkerViewController: BaseViewController {
     
 }
 
-extension WorkerViewController {
+extension RelationViewController {
     
-    private func saveWorkerInfo(with json: [String: String]) async {
+    private func saveBasicInfo(with json: [String: String]) async {
         Task {
             do {
-                let model = try await viewModel.saveWorkerInfo(json: json)
+                let model = try await viewModel.saveRelationInfo(json: json)
                 if model.token == 0 {
                     self.navigationController?.popViewController(animated: true)
                 }
@@ -176,12 +165,12 @@ extension WorkerViewController {
         }
     }
     
-    private func popOneModel(with model: groundModel, cell: TapTableViewCell) {
+    private func popOneModel(with model: princeModel, cell: RelationViewCell) {
         let oneView = PopOneView(frame: self.view.bounds)
         let modelArray = model.breeze ?? []
         oneView.nameLabel.text = model.shrank ?? ""
         for (index, model) in modelArray.enumerated() {
-            let text = cell.phoneTextFiled.text ?? ""
+            let text = cell.threeLabel.text
             let target = model.bore ?? ""
             if target == text {
                 oneView.selectedIndex = index
@@ -200,9 +189,9 @@ extension WorkerViewController {
         oneView.confirmBlock = { [weak self] amodel in
             guard let self = self else { return }
             self.dismiss(animated: true) {
-                cell.phoneTextFiled.text = amodel.bore ?? ""
-                model.winds = amodel.bore ?? ""
-                model.heads = amodel.heads ?? ""
+                cell.threeLabel.text = amodel.bore ?? ""
+                model.fairy = amodel.heads ?? ""
+                cell.threeLabel.textColor = UIColor(hex: "#3B3B3B")
             }
         }
     }
@@ -211,7 +200,7 @@ extension WorkerViewController {
         Task {
             do {
                 let json = ["shot": productID]
-                let model = try await viewModel.getWokerInfo(json: json)
+                let model = try await viewModel.getRelationInfo(json: json)
                 if model.token == 0 {
                     self.model.accept(model)
                 }

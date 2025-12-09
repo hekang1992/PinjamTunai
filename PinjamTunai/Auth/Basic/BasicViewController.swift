@@ -202,7 +202,7 @@ extension BasicViewController {
             self.dismiss(animated: true) {
                 cell.phoneTextFiled.text = amodel.bore ?? ""
                 model.winds = amodel.bore ?? ""
-                model.heads = String(amodel.heads ?? 0)
+                model.heads = amodel.heads ?? ""
             }
         }
     }

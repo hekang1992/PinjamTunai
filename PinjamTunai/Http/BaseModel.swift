@@ -25,6 +25,7 @@ class kindnessModel: Codable {
     var above: aboveModel?
     var breast: [breastModel]?
     var ground: [groundModel]?
+    var prince: [princeModel]?
 }
 
 class towardModel: Codable {
@@ -84,9 +85,36 @@ class breastModel: Codable {
     var token: String?
 }
 
+class princeModel: Codable {
+    var fairy: String?
+    var bore: String?
+    var beloved: String?
+    var shrank: String?
+    var account: String?
+    var giving: String?
+    var music: String?
+    var backing: String?
+    var breeze: [breezeModel]?
+}
+
 class breezeModel: Codable {
     var bore: String?
-    var heads: Int?
+    var heads: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case bore, heads
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        bore = try container.decodeIfPresent(String.self, forKey: .bore)
+        if let stringValue = try? container.decode(String.self, forKey: .heads) {
+            heads = stringValue
+        } else if let intValue = try? container.decode(Int.self, forKey: .heads) {
+            heads = "\(intValue)"
+        }
+    }
+    
 }
 
 class pavementModel: Codable {
