@@ -32,6 +32,7 @@
 "Log Out" = "Log Out";
 "Delete" = "Delete";
 "Cancel" = "Cancel";
+"Settings" = "Settings";
 "Your account security is guaranteed after logging out. You can log in directly with your mobile phone number if you need to use the service again." = "Your account security is guaranteed after logging out. You can log in directly with your mobile phone number if you need to use the service again.";
 "Deleting your account will result in permanent loss of account access rights, all assets and transaction records will be cleared and cannot be recovered." = "Deleting your account will result in permanent loss of account access rights, all assets and transaction records will be cleared and cannot be recovered.";
 "I confirm deletion." = "I confirm deletion.";
@@ -42,3 +43,5 @@
 "Base Information" = "Base Information";
 "Please choose one" = "Please choose one";
 "Emergency Contact" = "Emergency Contact";
+"Contacts permission is not enabled" = "Contacts permission is not enabled";
+"Please go to settings and enable the contacts permission" = "Please go to settings and enable the contacts permission";

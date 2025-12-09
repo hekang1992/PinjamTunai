@@ -28,9 +28,6 @@ class RelationViewCell: UITableViewCell {
             threeLabel.text = model.giving ?? ""
             fourLabel.text = model.backing ?? ""
             
-            let name = model.bore ?? ""
-            let phone = model.beloved ?? ""
-            
             
             let fairy = model.fairy ?? ""
             if fairy.isEmpty {
@@ -38,6 +35,16 @@ class RelationViewCell: UITableViewCell {
             }else {
                 threeLabel.textColor = UIColor(hex: "#3B3B3B")
             }
+            
+            let name = model.bore ?? ""
+            let phone = model.beloved ?? ""
+            
+            if !name.isEmpty || !phone.isEmpty {
+                fourLabel.textColor = UIColor.init(hex: "#3B3B3B")
+            }else {
+                fourLabel.textColor = UIColor.init(hex: "#939393")
+            }
+            
         }
     }
     

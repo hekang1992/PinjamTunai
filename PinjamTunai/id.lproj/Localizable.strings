@@ -32,6 +32,7 @@
 "Log Out" = "Keluar Akun";
 "Delete" = "Menghapus";
 "Cancel" = "Batal";
+"Settings" = "Pengaturan";
 "Your account security is guaranteed after logging out. You can log in directly with your mobile phone number if you need to use the service again." = "Keamanan akun Anda terjamin setelah logout. Anda bisa langsung masuk kembali dengan nomor ponsel jika perlu menggunakan layanan lagi.";
 "Deleting your account will result in permanent loss of account access rights, all assets and transaction records will be cleared and cannot be recovered." = "Menghapus akun akan menyebabkan hilangnya hak akses akun secara permanen, seluruh aset dan riwayat transaksi akan dihapus dan tidak dapat dipulihkan.";
 "I confirm deletion." = "Saya konfirmasi penghapusan.";
@@ -42,3 +43,5 @@
 "Base Information" = "Informasi Dasar";
 "Please choose one" = "Silakan pilih satu";
 "Emergency Contact" = "Kontak Darurat";
+"Contacts permission is not enabled" = "Contacts permission is not enabled";
+"Please go to settings and enable the contacts permission" = "Silakan buka pengaturan dan aktifkan izin kontak";

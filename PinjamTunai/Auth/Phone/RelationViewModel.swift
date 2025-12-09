@@ -41,5 +41,17 @@ class RelationViewModel {
         
     }
     
+    func sendMessageInfo(json: [String: String]) async throws -> BaseModel {
+        
+        do {
+            let model: BaseModel = try await HttpRequestManager.shared.upload("/ecutiveof/affright", parameters: json)
+            return model
+        } catch {
+            print("error===: \(error)")
+            throw error
+        }
+        
+    }
+    
     
 }
