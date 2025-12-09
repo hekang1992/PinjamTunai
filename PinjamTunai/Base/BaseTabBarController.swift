@@ -12,6 +12,7 @@ class BaseTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTabBar()
+        self.delegate = self
     }
     
     private func setupTabBar() {
@@ -94,6 +95,18 @@ class BaseTabBarController: UITabBarController {
             tabBar.scrollEdgeAppearance = appearance
         }
     }
+}
+
+extension BaseTabBarController: UITabBarControllerDelegate {
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        if !LoginConfig.hasValidToken() {
+            let naeVc = BaseNavigationController(rootViewController: LoginViewController())
+            naeVc.modalPresentationStyle = .overFullScreen
+            self.present(naeVc, animated: true)
+        }
+    }
+    
 }
 
 extension UIView {

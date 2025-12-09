@@ -11,23 +11,6 @@ class BaseModel: Codable {
     var kindness: kindnessModel?
 }
 
-class kindnessModel: Codable {
-    var kissed: Int?
-    var toward: towardModel?
-    var flew: [flewModel]?
-    var drop: String?
-    var mill: String?
-    var whistling: String?
-    var pavement: pavementModel?
-    var mid: [midModel]?
-    var dropped: droppedModel?
-    var userInfo: userInfoModel?
-    var above: aboveModel?
-    var breast: [breastModel]?
-    var ground: [groundModel]?
-    var prince: [princeModel]?
-}
-
 class towardModel: Codable {
     var feel: String?
     var company: String?
@@ -121,15 +104,21 @@ class pavementModel: Codable {
     var rare: String?
     var beauty: String?
     var silently: String?
+    var lea: String?
+    var stands: Int?
+    var pallid: Int?
     
     enum CodingKeys: String, CodingKey {
-        case rare, beauty, silently
+        case rare, beauty, silently, stands, pallid, lea
     }
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
+        lea = try container.decodeIfPresent(String.self, forKey: .lea)
         rare = try container.decodeIfPresent(String.self, forKey: .rare)
         silently = try container.decodeIfPresent(String.self, forKey: .silently)
+        stands = try container.decodeIfPresent(Int.self, forKey: .stands)
+        pallid = try container.decodeIfPresent(Int.self, forKey: .pallid)
         if let stringValue = try? container.decode(String.self, forKey: .beauty) {
             beauty = stringValue
         } else if let intValue = try? container.decode(Int.self, forKey: .beauty) {
@@ -165,6 +154,50 @@ class groundModel: Codable {
             heads = stringValue
         } else if let intValue = try? container.decode(Int.self, forKey: .heads) {
             heads = String(intValue)
+        }
+    }
+}
+
+
+class kindnessModel: Codable {
+    var kissed: Int?
+    var toward: towardModel?
+    var flew: [flewModel]?
+    var drop: String?
+    var mill: String?
+    var whistling: String?
+    var pavement: pavementModel?
+    var mid: [midModel]?
+    var dropped: droppedModel?
+    var userInfo: userInfoModel?
+    var above: aboveModel?
+    var breast: [breastModel]?
+    var ground: [groundModel]?
+    var prince: [princeModel]?
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        kissed = try container.decodeIfPresent(Int.self, forKey: .kissed)
+        toward = try container.decodeIfPresent(towardModel.self, forKey: .toward)
+        flew = try container.decodeIfPresent([flewModel].self, forKey: .flew)
+        drop = try container.decodeIfPresent(String.self, forKey: .drop)
+        mill = try container.decodeIfPresent(String.self, forKey: .mill)
+        whistling = try container.decodeIfPresent(String.self, forKey: .whistling)
+        pavement = try container.decodeIfPresent(pavementModel.self, forKey: .pavement)
+        mid = try container.decodeIfPresent([midModel].self, forKey: .mid)
+        userInfo = try container.decodeIfPresent(userInfoModel.self, forKey: .userInfo)
+        above = try container.decodeIfPresent(aboveModel.self, forKey: .above)
+        breast = try container.decodeIfPresent([breastModel].self, forKey: .breast)
+        ground = try container.decodeIfPresent([groundModel].self, forKey: .ground)
+        prince = try container.decodeIfPresent([princeModel].self, forKey: .prince)
+        
+        if let droppedValue = try? container.decode(droppedModel.self, forKey: .dropped) {
+            dropped = droppedValue
+        } else if let array = try? container.decode([String].self, forKey: .dropped), array.isEmpty {
+            dropped = nil
+        } else {
+            dropped = nil
         }
     }
 }

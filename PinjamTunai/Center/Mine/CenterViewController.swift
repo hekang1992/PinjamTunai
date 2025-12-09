@@ -40,7 +40,9 @@ class CenterViewController: BaseViewController {
             if pageUrl.contains(scheme_url) {
                 AppRouteConfig.handleRoute(pageUrl: pageUrl, viewController: self)
             }else {
-                
+                let webVc = WebsiteViewController()
+                webVc.pageUrl = pageUrl
+                self.navigationController?.pushViewController(webVc, animated: true)
             }
         }
         

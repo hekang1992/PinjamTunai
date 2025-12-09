@@ -23,14 +23,16 @@ class AuthListViewController: BaseViewController {
     
     var modelArray: [midModel]?
     
+    var model: BaseModel?
+    
     lazy var listView: AuthListView = {
         let listView = AuthListView()
         return listView
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         view.addSubview(headView)
         headView.snp.makeConstraints { make in
@@ -64,9 +66,21 @@ class AuthListViewController: BaseViewController {
         }
         
         self.listView.nextBtn.rx.tap.bind(onNext: { [weak self] in
-            guard let self = self, let model = droppedModel else { return }
-            let blossoming = model.blossoming ?? ""
-            dueBlossoming(with: blossoming, complete: "2")
+            guard let self = self else { return }
+            if let model = droppedModel {
+                let blossoming = model.blossoming ?? ""
+                dueBlossoming(with: blossoming, complete: "2")
+            }else {
+                // order-to-h5
+                let lea = self.model?.kindness?.pavement?.lea ?? ""
+                let beauty = self.model?.kindness?.pavement?.beauty ?? ""
+                let stands = self.model?.kindness?.pavement?.stands ?? 0
+                let pallid = self.model?.kindness?.pavement?.pallid ?? 0
+                let json = ["lea": lea, "beauty": beauty, "stands": stands, "pallid": pallid] as [String: Any]
+                Task {
+                    await self.reallyApplyProduct(with: json)
+                }
+            }
         }).disposed(by: disposeBag)
         
     }
@@ -78,10 +92,27 @@ class AuthListViewController: BaseViewController {
             await refreshMessageInfo()
         }
     }
-
+    
 }
 
 extension AuthListViewController {
+    
+    private func reallyApplyProduct(with json: [String: Any]) async {
+        Task {
+            do {
+                let model = try await viewModel.reallyOrderInfo(json: json)
+                if model.token == 0 {
+                    let webVc = WebsiteViewController()
+                    webVc.pageUrl = model.kindness?.whistling ?? ""
+                    self.navigationController?.pushViewController(webVc, animated: true)
+                }else {
+                    Toaster.showMessage(with: model.stretched ?? "")
+                }
+            } catch {
+                
+            }
+        }
+    }
     
     private func refreshMessageInfo() async {
         Task {
@@ -89,6 +120,7 @@ extension AuthListViewController {
                 let dict = ["shot": productID]
                 let model = try await viewModel.productDetailInfo(json: dict)
                 if model.token == 0 {
+                    self.model = model
                     self.listView.model = model
                     self.droppedModel = model.kindness?.dropped
                     self.modelArray = model.kindness?.mid ?? []
@@ -136,6 +168,13 @@ extension AuthListViewController {
             relationVc.productID = productID
             relationVc.modelArray = self.modelArray ?? []
             self.navigationController?.pushViewController(relationVc, animated: true)
+        }else if type == "ise" {
+            let recVc = ReceiptAccountViewController()
+            recVc.productID = productID
+            recVc.modelArray = self.modelArray ?? []
+            self.navigationController?.pushViewController(recVc, animated: true)
+        }else {
+            
         }
     }
     

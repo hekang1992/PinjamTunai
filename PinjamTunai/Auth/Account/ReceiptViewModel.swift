@@ -1,13 +1,13 @@
 //
-//  AuthListViewModel.swift
+//  ReceiptViewModel.swift
 //  PinjamTunai
 //
-//  Created by hekang on 2025/12/8.
+//  Created by hekang on 2025/12/9.
 //
 
-class AuthListViewModel {
+class ReceiptViewModel {
     
-    func productDetailInfo(json: [String: String]) async throws -> BaseModel {
+    func getBasicInfo(json: [String: String]) async throws -> BaseModel {
         LoadingView.show()
         
         defer {
@@ -15,7 +15,7 @@ class AuthListViewModel {
         }
         
         do {
-            let model: BaseModel = try await HttpRequestManager.shared.upload("/ecutiveof/kissed", parameters: json)
+            let model: BaseModel = try await HttpRequestManager.shared.upload("/ecutiveof/singer", parameters: json)
             return model
         } catch {
             print("error===: \(error)")
@@ -24,7 +24,7 @@ class AuthListViewModel {
         
     }
     
-    func reallyOrderInfo(json: [String: Any]) async throws -> BaseModel {
+    func saveBasicInfo(json: [String: String]) async throws -> BaseModel {
         LoadingView.show()
         
         defer {
@@ -32,7 +32,7 @@ class AuthListViewModel {
         }
         
         do {
-            let model: BaseModel = try await HttpRequestManager.shared.upload("/ecutiveof/stillness", parameters: json)
+            let model: BaseModel = try await HttpRequestManager.shared.upload("/ecutiveof/handsome", parameters: json)
             return model
         } catch {
             print("error===: \(error)")

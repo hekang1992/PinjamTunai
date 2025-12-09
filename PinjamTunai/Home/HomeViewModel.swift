@@ -41,16 +41,4 @@ class HomeViewModel {
         
     }
     
-    func cityInfo() async throws -> BaseModel {
-
-        do {
-            let model: BaseModel = try await HttpRequestManager.shared.get("/ecutiveof/winged")
-            return model
-        } catch {
-            print("error===: \(error)")
-            throw error
-        }
-        
-    }
-    
 }

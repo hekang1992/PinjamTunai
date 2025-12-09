@@ -39,6 +39,13 @@ class OneView: UIView {
         }
     }
     
+    private let gradientLayer = CAGradientLayer()
+    
+    lazy var bgView: UIView = {
+        let bgView = UIView()
+        return bgView
+    }()
+    
     lazy var oneImageView: UIImageView = {
         let oneImageView = UIImageView()
         oneImageView.image = UIImage(named: "home_one_image")
@@ -218,6 +225,7 @@ class OneView: UIView {
         super.init(frame: frame)
         setupView()
         setupConstraints()
+        setupGradient()
     }
     
     required init?(coder: NSCoder) {
@@ -227,7 +235,8 @@ class OneView: UIView {
     // MARK: - Setup Methods
     
     private func setupView() {
-        backgroundColor = UIColor(hex: "#F5F5F5")
+        
+        addSubview(bgView)
         
         // Add subviews
         addSubview(oneImageView)
@@ -260,6 +269,10 @@ class OneView: UIView {
     }
     
     private func setupConstraints() {
+        bgView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
         // oneImageView constraints
         oneImageView.snp.makeConstraints { make in
             make.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(12)
@@ -391,6 +404,22 @@ class OneView: UIView {
             let productID = String(self.model?.windows ?? 0)
             self.applyBlock?(productID)
         }).disposed(by: disposeBag)
+    }
+    
+    private func setupGradient() {
+        gradientLayer.colors = [
+            UIColor(hex: "#6D95FC").cgColor,
+            UIColor(hex: "#FFFFFF").cgColor
+        ]
+        
+        gradientLayer.startPoint = CGPoint(x: 0.5, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 0.5, y: 1)
+        bgView.layer.insertSublayer(gradientLayer, at: 0)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        gradientLayer.frame = bgView.bounds
     }
     
     // MARK: - Public Methods

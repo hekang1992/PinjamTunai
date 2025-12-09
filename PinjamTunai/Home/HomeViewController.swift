@@ -17,6 +17,11 @@ class HomeViewController: BaseViewController {
         let oneView = OneView()
         return oneView
     }()
+    
+    lazy var twoView: TwoView = {
+        let twoView = TwoView()
+        return twoView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +31,14 @@ class HomeViewController: BaseViewController {
         oneView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+        
+        view.addSubview(twoView)
+        twoView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        oneView.isHidden = true
+        twoView.isHidden = true
         
         self.oneView.scrollView.mj_header = MJRefreshNormalHeader(refreshingBlock: { [weak self] in
             guard let self = self else { return }
@@ -39,9 +52,9 @@ class HomeViewController: BaseViewController {
             if LoginConfig.hasValidToken() {
                 self.applyProduct(with: productID)
             }else {
-                let loginVc = BaseNavigationController(rootViewController: LoginViewController())
-                loginVc.modalPresentationStyle = .overFullScreen
-                self.present(loginVc, animated: true)
+                let naeVc = BaseNavigationController(rootViewController: LoginViewController())
+                naeVc.modalPresentationStyle = .overFullScreen
+                self.present(naeVc, animated: true)
             }
         }
         
@@ -51,7 +64,6 @@ class HomeViewController: BaseViewController {
         super.viewWillAppear(animated)
         Task {
             await homeMessageInfo()
-            await threeCityInfo()
         }
     }
 
@@ -73,19 +85,6 @@ extension HomeViewController {
         }
     }
     
-    private func threeCityInfo() async {
-        Task {
-            do {
-                let model = try await homeViewModel.cityInfo()
-                if model.token == 0 {
-//                    dueModel(with: model)
-                }
-            } catch {
-                
-            }
-        }
-    }
-    
     private func endRefreshing() {
         self.oneView.scrollView.mj_header?.endRefreshing()
     }
@@ -95,7 +94,12 @@ extension HomeViewController {
         model.kindness?.flew?.forEach { model in
             let heads = model.heads ?? ""
             if heads == "asb" {
+                oneView.isHidden = false
+                twoView.isHidden = true
                 self.oneView.model = model.above?.first
+            }else if heads == "asc" {
+                oneView.isHidden = true
+                twoView.isHidden = false
             }
         }
     }
@@ -121,6 +125,10 @@ extension HomeViewController {
     private func goNextPage(with pageUrl: String) {
         if pageUrl.contains(scheme_url) {
             AppRouteConfig.handleRoute(pageUrl: pageUrl, viewController: self)
+        }else {
+            let webVc = WebsiteViewController()
+            webVc.pageUrl = pageUrl
+            self.navigationController?.pushViewController(webVc, animated: true)
         }
     }
     

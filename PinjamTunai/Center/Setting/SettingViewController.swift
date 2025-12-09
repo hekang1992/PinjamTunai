@@ -29,6 +29,10 @@ class SettingViewController: BaseViewController {
             make.height.equalTo(40)
         }
         
+        headView.backBlock = { [weak self] in
+            self?.navigationController?.popViewController(animated: true)
+        }
+        
         view.addSubview(settingView)
         settingView.snp.makeConstraints { make in
             make.top.equalTo(headView.snp.bottom).offset(16)
