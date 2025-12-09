@@ -121,6 +121,16 @@ extension AuthListViewController {
             faceVc.productID = productID
             faceVc.modelArray = self.modelArray ?? []
             self.navigationController?.pushViewController(faceVc, animated: true)
+        }else if type == "isb" {
+            let basicVc = BasicViewController()
+            basicVc.productID = productID
+            basicVc.modelArray = self.modelArray ?? []
+            self.navigationController?.pushViewController(basicVc, animated: true)
+        }else if type == "isc" {
+            let workerVc = WorkerViewController()
+            workerVc.productID = productID
+            workerVc.modelArray = self.modelArray ?? []
+            self.navigationController?.pushViewController(workerVc, animated: true)
         }
     }
     

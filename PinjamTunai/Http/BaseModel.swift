@@ -24,6 +24,7 @@ class kindnessModel: Codable {
     var userInfo: userInfoModel?
     var above: aboveModel?
     var breast: [breastModel]?
+    var ground: [groundModel]?
 }
 
 class towardModel: Codable {
@@ -57,29 +58,6 @@ class aboveModel: Codable {
     var upturned: String?
 }
 
-class pavementModel: Codable {
-    var rare: String?
-    var beauty: String?
-    var silently: String?
-    
-    enum CodingKeys: String, CodingKey {
-        case rare, beauty, silently
-    }
-    
-    required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        
-        rare = try container.decodeIfPresent(String.self, forKey: .rare)
-        silently = try container.decodeIfPresent(String.self, forKey: .silently)
-        
-        if let stringValue = try? container.decode(String.self, forKey: .beauty) {
-            beauty = stringValue
-        } else if let intValue = try? container.decode(Int.self, forKey: .beauty) {
-            beauty = "\(intValue)"
-        }
-    }
-}
-
 class midModel: Codable {
     var shrank: String?
     var nestled: String?
@@ -104,4 +82,61 @@ class breastModel: Codable {
     var strain: String?
     var lingering: String?
     var token: String?
+}
+
+class breezeModel: Codable {
+    var bore: String?
+    var heads: Int?
+}
+
+class pavementModel: Codable {
+    var rare: String?
+    var beauty: String?
+    var silently: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case rare, beauty, silently
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        rare = try container.decodeIfPresent(String.self, forKey: .rare)
+        silently = try container.decodeIfPresent(String.self, forKey: .silently)
+        if let stringValue = try? container.decode(String.self, forKey: .beauty) {
+            beauty = stringValue
+        } else if let intValue = try? container.decode(Int.self, forKey: .beauty) {
+            beauty = "\(intValue)"
+        }
+    }
+}
+
+class groundModel: Codable {
+    var shrank: String?
+    var nestled: String?
+    var token: String?
+    var snow: String?
+    var breeze: [breezeModel]?
+    var heads: String?
+    var winds: String?
+    var blossoms: Int?
+    
+    enum CodingKeys: String, CodingKey {
+        case shrank, nestled, token, snow, breeze, heads, winds, blossoms
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        shrank = try container.decodeIfPresent(String.self, forKey: .shrank)
+        nestled = try container.decodeIfPresent(String.self, forKey: .nestled)
+        token = try container.decodeIfPresent(String.self, forKey: .token)
+        snow = try container.decodeIfPresent(String.self, forKey: .snow)
+        breeze = try container.decodeIfPresent([breezeModel].self, forKey: .breeze)
+        winds = try container.decodeIfPresent(String.self, forKey: .winds)
+        blossoms = try container.decodeIfPresent(Int.self, forKey: .blossoms)
+        if let stringValue = try? container.decode(String.self, forKey: .heads) {
+            heads = stringValue
+        } else if let intValue = try? container.decode(Int.self, forKey: .heads) {
+            heads = String(intValue)
+        }
+    }
 }

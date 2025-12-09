@@ -11,6 +11,12 @@
 		731114A02EE7AEEF0036A024 /* Untitled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7311149F2EE7AEEE0036A024 /* Untitled.swift */; };
 		731114A22EE7BCA00036A024 /* PopCommonAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731114A12EE7BCA00036A024 /* PopCommonAlertView.swift */; };
 		731114A42EE7C99D0036A024 /* PopListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731114A32EE7C99D0036A024 /* PopListView.swift */; };
+		731114A72EE7D8020036A024 /* BasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731114A62EE7D8020036A024 /* BasicViewController.swift */; };
+		731114A92EE7E3010036A024 /* BasicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731114A82EE7E3010036A024 /* BasicTableViewCell.swift */; };
+		731114AB2EE7E30B0036A024 /* TapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731114AA2EE7E30B0036A024 /* TapTableViewCell.swift */; };
+		731114AD2EE7E41C0036A024 /* BasicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731114AC2EE7E41C0036A024 /* BasicViewModel.swift */; };
+		731114AF2EE7E9F30036A024 /* PopOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731114AE2EE7E9F30036A024 /* PopOneView.swift */; };
+		731114B12EE7E9FE0036A024 /* PopThreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731114B02EE7E9FE0036A024 /* PopThreeView.swift */; };
 		73145EE72EE695DB006085E8 /* AppRouteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73145EE62EE695CE006085E8 /* AppRouteConfig.swift */; };
 		73145EE92EE69A28006085E8 /* AuthListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73145EE82EE69A28006085E8 /* AuthListViewController.swift */; };
 		73145EEB2EE69A49006085E8 /* AuthListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73145EEA2EE69A41006085E8 /* AuthListViewModel.swift */; };
@@ -57,6 +63,7 @@
 		737D1F1A2EE587F5003CC748 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D1F192EE587F1003CC748 /* HomeViewModel.swift */; };
 		737D1F1C2EE5B95E003CC748 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D1F1B2EE5B95E003CC748 /* LoginView.swift */; };
 		737D1F1E2EE5CFAC003CC748 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D1F1D2EE5CFAA003CC748 /* LoginViewModel.swift */; };
+		73FA07E72EE80624006B7452 /* WorkerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FA07E62EE80624006B7452 /* WorkerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +72,12 @@
 		7311149F2EE7AEEE0036A024 /* Untitled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Untitled.swift; sourceTree = "<group>"; };
 		731114A12EE7BCA00036A024 /* PopCommonAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopCommonAlertView.swift; sourceTree = "<group>"; };
 		731114A32EE7C99D0036A024 /* PopListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopListView.swift; sourceTree = "<group>"; };
+		731114A62EE7D8020036A024 /* BasicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicViewController.swift; sourceTree = "<group>"; };
+		731114A82EE7E3010036A024 /* BasicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicTableViewCell.swift; sourceTree = "<group>"; };
+		731114AA2EE7E30B0036A024 /* TapTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapTableViewCell.swift; sourceTree = "<group>"; };
+		731114AC2EE7E41C0036A024 /* BasicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicViewModel.swift; sourceTree = "<group>"; };
+		731114AE2EE7E9F30036A024 /* PopOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOneView.swift; sourceTree = "<group>"; };
+		731114B02EE7E9FE0036A024 /* PopThreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopThreeView.swift; sourceTree = "<group>"; };
 		73145EE62EE695CE006085E8 /* AppRouteConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouteConfig.swift; sourceTree = "<group>"; };
 		73145EE82EE69A28006085E8 /* AuthListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthListViewController.swift; sourceTree = "<group>"; };
 		73145EEA2EE69A41006085E8 /* AuthListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthListViewModel.swift; sourceTree = "<group>"; };
@@ -116,6 +129,7 @@
 		737D1F192EE587F1003CC748 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		737D1F1B2EE5B95E003CC748 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		737D1F1D2EE5CFAA003CC748 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		73FA07E62EE80624006B7452 /* WorkerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerViewController.swift; sourceTree = "<group>"; };
 		AA6D43098812CC6F40AAEA73 /* Pods-PinjamTunai.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinjamTunai.release.xcconfig"; path = "Target Support Files/Pods-PinjamTunai/Pods-PinjamTunai.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -137,6 +151,20 @@
 				3B3A98329D2930528865FDC3 /* Pods_PinjamTunai.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		731114A52EE7D7B00036A024 /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+				731114AC2EE7E41C0036A024 /* BasicViewModel.swift */,
+				731114A62EE7D8020036A024 /* BasicViewController.swift */,
+				73FA07E62EE80624006B7452 /* WorkerViewController.swift */,
+				731114A82EE7E3010036A024 /* BasicTableViewCell.swift */,
+				731114AA2EE7E30B0036A024 /* TapTableViewCell.swift */,
+				731114AE2EE7E9F30036A024 /* PopOneView.swift */,
+				731114B02EE7E9FE0036A024 /* PopThreeView.swift */,
+			);
+			path = Basic;
 			sourceTree = "<group>";
 		};
 		73145EFF2EE6C41E006085E8 /* Product */ = {
@@ -232,6 +260,7 @@
 		737D1EEB2EE457E9003CC748 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				731114A52EE7D7B00036A024 /* Basic */,
 				73145F002EE6C42E006085E8 /* Face */,
 				73145EFF2EE6C41E006085E8 /* Product */,
 			);
@@ -464,12 +493,15 @@
 			files = (
 				73145F082EE6D289006085E8 /* FaceListView.swift in Sources */,
 				731565042EE6E94300599239 /* CenterTableViewCell.swift in Sources */,
+				731114AB2EE7E30B0036A024 /* TapTableViewCell.swift in Sources */,
 				731565002EE6E3FE00599239 /* CenterView.swift in Sources */,
 				73145F0A2EE6D954006085E8 /* FaceViewModel.swift in Sources */,
 				73145F062EE6C8CD006085E8 /* StepView.swift in Sources */,
+				731114AD2EE7E41C0036A024 /* BasicViewModel.swift in Sources */,
 				737D1F1E2EE5CFAC003CC748 /* LoginViewModel.swift in Sources */,
 				73145EF32EE6B6BC006085E8 /* LanguageManager.swift in Sources */,
 				737D1F0A2EE45FB1003CC748 /* LaunchViewController.swift in Sources */,
+				731114A92EE7E3010036A024 /* BasicTableViewCell.swift in Sources */,
 				73145EF12EE6A200006085E8 /* AuthListViewCell.swift in Sources */,
 				737D1F022EE45863003CC748 /* LoginViewController.swift in Sources */,
 				731565122EE715CE00599239 /* PopFaceView.swift in Sources */,
@@ -479,8 +511,10 @@
 				731114A22EE7BCA00036A024 /* PopCommonAlertView.swift in Sources */,
 				737D1EF82EE45814003CC748 /* BaseNavigationController.swift in Sources */,
 				737D1EF52EE457E9003CC748 /* BaseViewController.swift in Sources */,
+				731114AF2EE7E9F30036A024 /* PopOneView.swift in Sources */,
 				7315650E2EE70F6F00599239 /* SettingViewModel.swift in Sources */,
 				737D1EFE2EE45850003CC748 /* LoginConfig.swift in Sources */,
+				73FA07E72EE80624006B7452 /* WorkerViewController.swift in Sources */,
 				731114A02EE7AEEF0036A024 /* Untitled.swift in Sources */,
 				731114A42EE7C99D0036A024 /* PopListView.swift in Sources */,
 				737D1EFA2EE4582E003CC748 /* HttpRequestManager.swift in Sources */,
@@ -489,6 +523,7 @@
 				737D1F1C2EE5B95E003CC748 /* LoginView.swift in Sources */,
 				737D1F182EE587EA003CC748 /* TwoView.swift in Sources */,
 				7315650A2EE708A500599239 /* SettingView.swift in Sources */,
+				731114B12EE7E9FE0036A024 /* PopThreeView.swift in Sources */,
 				737D1F122EE57BA0003CC748 /* NetworkMonitor.swift in Sources */,
 				737D1F042EE45870003CC748 /* HomeViewController.swift in Sources */,
 				737D1F0E2EE55034003CC748 /* LoadingView.swift in Sources */,
@@ -501,6 +536,7 @@
 				731565102EE710A800599239 /* PopDelAccView.swift in Sources */,
 				7315650C2EE70C1D00599239 /* PopSettingView.swift in Sources */,
 				737D1ED72EE45467003CC748 /* AppDelegate.swift in Sources */,
+				731114A72EE7D8020036A024 /* BasicViewController.swift in Sources */,
 				737D1F162EE587E0003CC748 /* OneView.swift in Sources */,
 				73145EED2EE69A55006085E8 /* AuthListView.swift in Sources */,
 				73145F022EE6C85D006085E8 /* FaceViewController.swift in Sources */,

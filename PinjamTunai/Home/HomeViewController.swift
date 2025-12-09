@@ -51,6 +51,7 @@ class HomeViewController: BaseViewController {
         super.viewWillAppear(animated)
         Task {
             await homeMessageInfo()
+            await threeCityInfo()
         }
     }
 
@@ -68,6 +69,19 @@ extension HomeViewController {
                 endRefreshing()
             } catch {
                 endRefreshing()
+            }
+        }
+    }
+    
+    private func threeCityInfo() async {
+        Task {
+            do {
+                let model = try await homeViewModel.cityInfo()
+                if model.token == 0 {
+//                    dueModel(with: model)
+                }
+            } catch {
+                
             }
         }
     }
