@@ -58,6 +58,24 @@ class HomeViewController: BaseViewController {
             }
         }
         
+        self.twoView.tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: { [weak self] in
+            guard let self = self else { return }
+            Task {
+                await self.homeMessageInfo()
+            }
+        })
+        
+        self.twoView.applyBlock = { [weak self] productID in
+            guard let self = self else { return }
+            if LoginConfig.hasValidToken() {
+                self.applyProduct(with: productID)
+            }else {
+                let naeVc = BaseNavigationController(rootViewController: LoginViewController())
+                naeVc.modalPresentationStyle = .overFullScreen
+                self.present(naeVc, animated: true)
+            }
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -87,6 +105,7 @@ extension HomeViewController {
     
     private func endRefreshing() {
         self.oneView.scrollView.mj_header?.endRefreshing()
+        self.twoView.tableView.mj_header?.endRefreshing()
     }
     
     // Judge One Two
@@ -97,9 +116,20 @@ extension HomeViewController {
                 oneView.isHidden = false
                 twoView.isHidden = true
                 self.oneView.model = model.above?.first
-            }else if heads == "asc" {
+            }else if heads == "asc" || heads == "asd" {
                 oneView.isHidden = true
                 twoView.isHidden = false
+                if heads == "asc" {
+                    self.twoView.model = model.above?.first
+                }
+                
+                if heads == "asd" {
+                    self.twoView.modelArray = model.above
+                }
+                
+                self.twoView.tableView.reloadData()
+            }else {
+                
             }
         }
     }

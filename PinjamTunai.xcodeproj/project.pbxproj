@@ -39,6 +39,8 @@
 		7315650E2EE70F6F00599239 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7315650D2EE70F6B00599239 /* SettingViewModel.swift */; };
 		731565102EE710A800599239 /* PopDelAccView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7315650F2EE710A100599239 /* PopDelAccView.swift */; };
 		731565122EE715CE00599239 /* PopFaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731565112EE715C700599239 /* PopFaceView.swift */; };
+		734EA0382EE85F5A00C1B49E /* TwoHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734EA0372EE85F5A00C1B49E /* TwoHeadView.swift */; };
+		734EA03A2EE866FF00C1B49E /* ProductAccViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734EA0392EE866FF00C1B49E /* ProductAccViewCell.swift */; };
 		7368B6392EE8465700ADDA99 /* ReceiptAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7368B6382EE8465700ADDA99 /* ReceiptAccountViewController.swift */; };
 		7368B63B2EE8473B00ADDA99 /* ReceiptViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7368B63A2EE8473400ADDA99 /* ReceiptViewModel.swift */; };
 		7368B63D2EE84C3300ADDA99 /* WebsiteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7368B63C2EE84C3300ADDA99 /* WebsiteViewController.swift */; };
@@ -109,6 +111,8 @@
 		7315650D2EE70F6B00599239 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		7315650F2EE710A100599239 /* PopDelAccView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopDelAccView.swift; sourceTree = "<group>"; };
 		731565112EE715C700599239 /* PopFaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopFaceView.swift; sourceTree = "<group>"; };
+		734EA0372EE85F5A00C1B49E /* TwoHeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoHeadView.swift; sourceTree = "<group>"; };
+		734EA0392EE866FF00C1B49E /* ProductAccViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAccViewCell.swift; sourceTree = "<group>"; };
 		7368B6382EE8465700ADDA99 /* ReceiptAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptAccountViewController.swift; sourceTree = "<group>"; };
 		7368B63A2EE8473400ADDA99 /* ReceiptViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptViewModel.swift; sourceTree = "<group>"; };
 		7368B63C2EE84C3300ADDA99 /* WebsiteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsiteViewController.swift; sourceTree = "<group>"; };
@@ -322,6 +326,8 @@
 				737D1F172EE587EA003CC748 /* TwoView.swift */,
 				737D1F192EE587F1003CC748 /* HomeViewModel.swift */,
 				737D1F032EE45870003CC748 /* HomeViewController.swift */,
+				734EA0372EE85F5A00C1B49E /* TwoHeadView.swift */,
+				734EA0392EE866FF00C1B49E /* ProductAccViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -552,6 +558,7 @@
 				731114AF2EE7E9F30036A024 /* PopOneView.swift in Sources */,
 				7315650E2EE70F6F00599239 /* SettingViewModel.swift in Sources */,
 				737D1EFE2EE45850003CC748 /* LoginConfig.swift in Sources */,
+				734EA0382EE85F5A00C1B49E /* TwoHeadView.swift in Sources */,
 				7368B63B2EE8473B00ADDA99 /* ReceiptViewModel.swift in Sources */,
 				73FA07E72EE80624006B7452 /* WorkerViewController.swift in Sources */,
 				731114A02EE7AEEF0036A024 /* Untitled.swift in Sources */,
@@ -573,6 +580,7 @@
 				737D1EF62EE457E9003CC748 /* BaseView.swift in Sources */,
 				737D1F062EE45878003CC748 /* CenterViewController.swift in Sources */,
 				737D1F1A2EE587F5003CC748 /* HomeViewModel.swift in Sources */,
+				734EA03A2EE866FF00C1B49E /* ProductAccViewCell.swift in Sources */,
 				737D1F082EE4597A003CC748 /* ApiPeraConfig.swift in Sources */,
 				73145EE92EE69A28006085E8 /* AuthListViewController.swift in Sources */,
 				73145F042EE6C89D006085E8 /* FaceView.swift in Sources */,
