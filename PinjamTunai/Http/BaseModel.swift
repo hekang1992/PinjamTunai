@@ -23,6 +23,7 @@ class kindnessModel: Codable {
     var dropped: droppedModel?
     var userInfo: userInfoModel?
     var above: aboveModel?
+    var breast: [breastModel]?
 }
 
 class towardModel: Codable {
@@ -97,4 +98,10 @@ class droppedModel: Codable {
 class userInfoModel: Codable {
     var singer: String?
     var lose: String?
+}
+
+class breastModel: Codable {
+    var strain: String?
+    var lingering: String?
+    var token: String?
 }

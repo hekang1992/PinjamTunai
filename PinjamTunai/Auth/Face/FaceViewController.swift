@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import TYAlertController
+import Kingfisher
 
 class FaceViewController: BaseViewController {
     
@@ -79,16 +80,24 @@ class FaceViewController: BaseViewController {
         
         faceView.nextBlock = { [weak self] in
             guard let self = self, let model = model else { return }
-            popModelView(with: model)
+            let lie = model.kindness?.above?.lie ?? ""
+            let upturned = model.kindness?.above?.upturned ?? ""
+            if !lie.isEmpty && !upturned.isEmpty {
+                self.navigationController?.popViewController(animated: true)
+            }else {
+                popModelView(with: model)
+            }
+        }
+        
+        Task {
+            await self.getFaceInfo()
         }
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        Task {
-            await self.getFaceInfo()
-        }
+        
     }
     
 }
@@ -125,7 +134,7 @@ extension FaceViewController {
             popCardView.oneBlock = { [weak self] in
                 guard let self = self else { return }
                 self.dismiss(animated: true) {
-                    
+                    self.selectCardImage()
                 }
             }
             
@@ -133,12 +142,118 @@ extension FaceViewController {
                 guard let self = self else { return }
                 self.dismiss(animated: true)
             }
-            
             return
         }
         
+        faceView.oneView.twoImageView.kf.setImage(with: URL(string: lie))
+        faceView.oneView.uploadBtn.backgroundColor = UIColor(hex: "#18B45F")
+        faceView.oneView.uploadBtn.setTitle(LanguageManager.localizedString(for: "Finished"), for: .normal)
         
+        if upturned.isEmpty {
+            let imageStr = code == "2" ? "id_face_ili_image" : "face_ili_image"
+            let popCardView = PopFaceView(frame: self.view.bounds)
+            popCardView.bgImageView.image = UIImage(named: imageStr)
+            let alertVc = TYAlertController(alert: popCardView, preferredStyle: .alert)!
+            self.present(alertVc, animated: true)
+            
+            // upload---Image---face
+            popCardView.oneBlock = { [weak self] in
+                guard let self = self else { return }
+                self.dismiss(animated: true) {
+                    self.selectFaceImage()
+                }
+            }
+            
+            popCardView.twoBlock = { [weak self] in
+                guard let self = self else { return }
+                self.dismiss(animated: true)
+            }
+            return
+        }
         
+        faceView.twoView.twoImageView.kf.setImage(with: URL(string: upturned))
+        faceView.twoView.uploadBtn.backgroundColor = UIColor(hex: "#18B45F")
+        faceView.twoView.uploadBtn.setTitle(LanguageManager.localizedString(for: "Finished"), for: .normal)
+        
+    }
+    
+    private func selectCardImage() {
+        SystemCameraManager.shared.onPhotoCaptured = { [weak self] image in
+            if let self = self, let image = image {
+                if let data = image.jpegData(compressionQuality: 0.3) {
+                    self.uploadCardImage(with: data, heads: "11")
+                }
+            }
+        }
+        
+        SystemCameraManager.shared.takePhoto(from: self, type: "1")
+    }
+    
+    private func selectFaceImage() {
+        SystemCameraManager.shared.onPhotoCaptured = { [weak self] image in
+            if let self = self, let image = image {
+                if let data = image.jpegData(compressionQuality: 0.3) {
+                    self.uploadCardImage(with: data, heads: "10")
+                }
+            }
+        }
+        
+        SystemCameraManager.shared.takePhoto(from: self, type: "2")
+    }
+    
+    private func uploadCardImage(with data: Data, heads: String) {
+        Task {
+            do {
+                let json = ["heads": heads, "blissful": "1"]
+                let model = try await viewModel.uploadCardInfo(json: json, data: data)
+                if model.token == 0 {
+                    if heads == "11" {
+                        cardSuccessView(with: model.kindness?.breast ?? [])
+                    }else {
+                        await self.getFaceInfo()
+                    }
+                }else {
+                    Toaster.showMessage(with: model.stretched ?? "")
+                }
+            } catch {
+                
+            }
+        }
+    }
+    
+    private func cardSuccessView(with modelArray: [breastModel]) {
+        let cardView = PopCommonAlertView(frame: self.view.bounds)
+        cardView.modelArray = modelArray
+        let alertVc = TYAlertController(alert: cardView, preferredStyle: .actionSheet)!
+        self.present(alertVc, animated: true)
+        
+        cardView.cancelBlock = { [weak self] in
+            self?.dismiss(animated: true)
+        }
+        
+        cardView.confirmBlock = { [weak self] in
+            guard let self = self else { return }
+            let name = cardView.oneView.phoneTextFiled.text ?? ""
+            let idStr = cardView.twoView.phoneTextFiled.text ?? ""
+            let dateStr = cardView.threeView.phoneTextFiled.text ?? ""
+            let json = ["wild": dateStr, "lime": idStr, "bore": name, "shot": productID]
+            saveCardInfo(json: json)
+        }
+    }
+    
+    private func saveCardInfo(json: [String: String]) {
+        Task {
+            do {
+                let model = try await viewModel.saveCardInfo(json: json)
+                if model.token == 0 {
+                    self.dismiss(animated: true)
+                    await self.getFaceInfo()
+                }
+                Toaster.showMessage(with: model.stretched ?? "")
+            } catch {
+            
+            }
+        }
     }
     
 }

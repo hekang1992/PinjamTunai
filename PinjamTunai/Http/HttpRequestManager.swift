@@ -91,7 +91,7 @@ class HttpRequestManager: NSObject {
 
                 files?.forEach { key, data in
                     formData.append(data,
-                                    withName: key,
+                                    withName: "hisBringing",
                                     fileName: "\(key).jpg",
                                     mimeType: "image/jpeg")
                 }
