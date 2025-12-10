@@ -28,6 +28,8 @@ class HomeViewController: BaseViewController {
     
     let uploadViewModel = UpLoadIDFAViewModel()
     
+    let trackingViewModel = TrackingViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -92,6 +94,27 @@ class HomeViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.homeAllApiMessageInfo()
+        let aelfrida = SaveTimeConfig.getStartTime()
+        let hair = SaveTimeConfig.getEndTime()
+        if !aelfrida.isEmpty && !hair.isEmpty {
+            Task {
+                do {
+                    let locationModel = LocationManagerModel.shared.model
+                    let json = ["sure": "1",
+                                "thereafter": locationModel?.thereafter ?? "",
+                                "leading": locationModel?.leading ?? "",
+                                "aelfrida": aelfrida,
+                                "hair": hair,
+                                "swear": ""]
+                    let model = try await trackingViewModel.saveTrackingMessageIngo(json: json)
+                    if model.token == 0 {
+                        SaveTimeConfig.deleteAllTime()
+                    }
+                } catch {
+                    
+                }
+            }
+        }
     }
     
     private func homeAllApiMessageInfo() {
@@ -223,7 +246,7 @@ extension HomeViewController {
                             "drinking": model.drinking ?? ""]
                 let _ = try await homeViewModel.uplocationMessageInfo(json: json)
             } catch {
-            
+                
             }
         }
     }
@@ -268,6 +291,6 @@ extension HomeViewController {
         }
         
     }
-
+    
     
 }

@@ -22,10 +22,18 @@ class FaceViewController: BaseViewController {
     
     var model: BaseModel?
     
+    let locationManager = AppLocationManager()
+    
+    let trackingViewModel = TrackingViewModel()
+    
     lazy var faceView: FaceView = {
         let faceView = FaceView()
         return faceView
     }()
+    
+    var oneCardtime: String = ""
+    
+    var oneFacetime: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,11 +101,15 @@ class FaceViewController: BaseViewController {
             await self.getFaceInfo()
         }
         
+        oneCardtime = String(Int(Date().timeIntervalSince1970))
+        
+        getLocation()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
+    private func getLocation() {
+        locationManager.getCurrentLocation { model in
+            LocationManagerModel.shared.model = model
+        }
     }
     
 }
@@ -150,6 +162,8 @@ extension FaceViewController {
         faceView.oneView.uploadBtn.setTitle(LanguageManager.localizedString(for: "Finished"), for: .normal)
         
         if upturned.isEmpty {
+            oneFacetime = String(Int(Date().timeIntervalSince1970))
+            getLocation()
             let imageStr = code == "2" ? "id_face_ili_image" : "face_ili_image"
             let popCardView = PopFaceView(frame: self.view.bounds)
             popCardView.bgImageView.image = UIImage(named: imageStr)
@@ -211,6 +225,7 @@ extension FaceViewController {
                         cardSuccessView(with: model.kindness?.breast ?? [])
                     }else {
                         await self.getFaceInfo()
+                        await self.trackthreeInfo()
                     }
                 }else {
                     Toaster.showMessage(with: model.stretched ?? "")
@@ -248,12 +263,49 @@ extension FaceViewController {
                 if model.token == 0 {
                     self.dismiss(animated: true)
                     await self.getFaceInfo()
+                    await self.tracktwoInfo()
                 }
                 Toaster.showMessage(with: model.stretched ?? "")
             } catch {
-            
+                
             }
         }
+    }
+    
+    private func tracktwoInfo() async {
+        Task {
+            do {
+                let locationModel = LocationManagerModel.shared.model
+                let ajson = ["sure": "2",
+                             "thereafter": locationModel?.thereafter ?? "",
+                             "leading": locationModel?.leading ?? "",
+                             "aelfrida": oneCardtime,
+                             "hair": String(Int(Date().timeIntervalSince1970)),
+                             "swear": ""]
+                let _ = try await trackingViewModel.saveTrackingMessageIngo(json: ajson)
+            } catch  {
+                
+            }
+        }
+        
+    }
+    
+    private func trackthreeInfo() async {
+        Task {
+            do {
+                let locationModel = LocationManagerModel.shared.model
+                let ajson = ["sure": "3",
+                             "thereafter": locationModel?.thereafter ?? "",
+                             "leading": locationModel?.leading ?? "",
+                             "aelfrida": oneFacetime,
+                             "hair": String(Int(Date().timeIntervalSince1970)),
+                             "swear": ""]
+                let _ = try await trackingViewModel.saveTrackingMessageIngo(json: ajson)
+            } catch  {
+                
+            }
+        }
+        
     }
     
 }

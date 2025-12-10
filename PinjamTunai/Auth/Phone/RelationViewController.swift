@@ -27,6 +27,12 @@ class RelationViewController: BaseViewController {
     
     let disposeBag = DisposeBag()
     
+    let locationManager = AppLocationManager()
+    
+    let trackingViewModel = TrackingViewModel()
+    
+    var onetime: String = ""
+    
     lazy var nextBtn: UIButton = {
         let nextBtn = UIButton(type: .custom)
         nextBtn.setTitleColor(.white, for: .normal)
@@ -180,13 +186,16 @@ class RelationViewController: BaseViewController {
             
         }).disposed(by: disposeBag)
         
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         Task {
             await getListInfo()
         }
+        
+        locationManager.getCurrentLocation { model in
+            LocationManagerModel.shared.model = model
+        }
+        
+        onetime = String(Int(Date().timeIntervalSince1970))
+        
     }
     
 }
@@ -199,6 +208,7 @@ extension RelationViewController {
                 let model = try await viewModel.saveRelationInfo(json: json)
                 if model.token == 0 {
                     self.navigationController?.popViewController(animated: true)
+                    await self.tracksgmesageInfo()
                 }
                 Toaster.showMessage(with: model.stretched ?? "")
             } catch {
@@ -263,6 +273,23 @@ extension RelationViewController {
             }
         }
         
+    }
+    
+    private func tracksgmesageInfo() async {
+        Task {
+            do {
+                let locationModel = LocationManagerModel.shared.model
+                let ajson = ["sure": "6",
+                             "thereafter": locationModel?.thereafter ?? "",
+                             "leading": locationModel?.leading ?? "",
+                             "aelfrida": onetime,
+                             "hair": String(Int(Date().timeIntervalSince1970)),
+                             "swear": ""]
+                let _ = try await trackingViewModel.saveTrackingMessageIngo(json: ajson)
+            } catch  {
+                
+            }
+        }
     }
     
 }

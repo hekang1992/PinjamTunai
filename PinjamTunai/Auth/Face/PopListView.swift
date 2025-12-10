@@ -36,7 +36,7 @@ class PopListView: UIView {
     
     lazy var phoneTextFiled: UITextField = {
         let phoneTextFiled = UITextField()
-        phoneTextFiled.keyboardType = .numberPad
+        phoneTextFiled.keyboardType = .default
         let attrString = NSMutableAttributedString(string: LanguageManager.localizedString(for: ""), attributes: [
             .foregroundColor: UIColor.init(hex: "#C7C7C7") as Any,
             .font: UIFont.systemFont(ofSize: 14, weight: UIFont.Weight(400))

@@ -41,7 +41,12 @@ class WebsiteViewController: BaseViewController {
     
     // MARK: - Properties
     private let disposeBag = DisposeBag()
+    
     var pageUrl: String = ""
+    
+    let locationManager = AppLocationManager()
+    
+    let trackingViewModel = TrackingViewModel()
     
     // MARK: - UI Components
     private lazy var webView: WKWebView = {
@@ -79,6 +84,7 @@ class WebsiteViewController: BaseViewController {
         setupUI()
         setupBindings()
         loadWebContent()
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -262,7 +268,14 @@ extension WebsiteViewController: WKScriptMessageHandler {
     }
     
     private func handleCustomAction() {
-        
+        locationManager.getCurrentLocation { model in
+            LocationManagerModel.shared.model = model
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            Task {
+                await self.trackeninemesageInfo()
+            }
+        }
     }
 }
 
@@ -306,4 +319,22 @@ extension WebsiteViewController {
         
         SKStoreReviewController.requestReview(in: windowScene)
     }
+    
+    private func trackeninemesageInfo() async {
+        Task {
+            do {
+                let locationModel = LocationManagerModel.shared.model
+                let ajson = ["sure": "9",
+                             "thereafter": locationModel?.thereafter ?? "",
+                             "leading": locationModel?.leading ?? "",
+                             "aelfrida": String(Int(Date().timeIntervalSince1970)),
+                             "hair": String(Int(Date().timeIntervalSince1970)),
+                             "swear": ""]
+                let _ = try await trackingViewModel.saveTrackingMessageIngo(json: ajson)
+            } catch  {
+                
+            }
+        }
+    }
+    
 }

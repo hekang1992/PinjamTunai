@@ -26,6 +26,12 @@ class BasicViewController: BaseViewController {
     
     let disposeBag = DisposeBag()
     
+    let locationManager = AppLocationManager()
+    
+    let trackingViewModel = TrackingViewModel()
+    
+    var onetime: String = ""
+    
     lazy var nextBtn: UIButton = {
         let nextBtn = UIButton(type: .custom)
         nextBtn.setTitleColor(.white, for: .normal)
@@ -149,13 +155,16 @@ class BasicViewController: BaseViewController {
             
         }).disposed(by: disposeBag)
         
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         Task {
             await getListInfo()
         }
+        
+        locationManager.getCurrentLocation { model in
+            LocationManagerModel.shared.model = model
+        }
+        
+        onetime = String(Int(Date().timeIntervalSince1970))
+        
     }
     
 }
@@ -168,6 +177,7 @@ extension BasicViewController {
                 let model = try await viewModel.saveBasicInfo(json: json)
                 if model.token == 0 {
                     self.navigationController?.popViewController(animated: true)
+                    await self.trackfmesageInfo()
                 }
                 Toaster.showMessage(with: model.stretched ?? "")
             } catch {
@@ -215,6 +225,23 @@ extension BasicViewController {
                 if model.token == 0 {
                     self.model.accept(model)
                 }
+            } catch  {
+                
+            }
+        }
+    }
+    
+    private func trackfmesageInfo() async {
+        Task {
+            do {
+                let locationModel = LocationManagerModel.shared.model
+                let ajson = ["sure": "4",
+                             "thereafter": locationModel?.thereafter ?? "",
+                             "leading": locationModel?.leading ?? "",
+                             "aelfrida": onetime,
+                             "hair": String(Int(Date().timeIntervalSince1970)),
+                             "swear": ""]
+                let _ = try await trackingViewModel.saveTrackingMessageIngo(json: ajson)
             } catch  {
                 
             }

@@ -204,6 +204,16 @@ class SaveTimeConfig {
         UserDefaults.standard.synchronize()
     }
     
+    static func getStartTime() -> String {
+        let aelfrida = UserDefaults.standard.object(forKey: "aelfrida") as? String ?? ""
+        return aelfrida
+    }
+    
+    static func getEndTime() -> String {
+        let hair = UserDefaults.standard.object(forKey: "hair") as? String ?? ""
+        return hair
+    }
+    
     static func deleteAllTime() {
         UserDefaults.standard.removeObject(forKey: "aelfrida")
         UserDefaults.standard.removeObject(forKey: "hair")

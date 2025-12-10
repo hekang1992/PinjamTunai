@@ -25,6 +25,10 @@ class AuthListViewController: BaseViewController {
     
     var model: BaseModel?
     
+    let locationManager = AppLocationManager()
+    
+    let trackingViewModel = TrackingViewModel()
+    
     lazy var listView: AuthListView = {
         let listView = AuthListView()
         return listView
@@ -76,12 +80,20 @@ class AuthListViewController: BaseViewController {
                 let beauty = self.model?.kindness?.pavement?.beauty ?? ""
                 let stands = self.model?.kindness?.pavement?.stands ?? 0
                 let pallid = self.model?.kindness?.pavement?.pallid ?? 0
-                let json = ["lea": lea, "beauty": beauty, "stands": stands, "pallid": pallid] as [String: Any]
+                let json = ["lea": lea,
+                            "beauty": beauty,
+                            "stands": stands,
+                            "pallid": pallid] as [String: Any]
                 Task {
                     await self.reallyApplyProduct(with: json)
                 }
             }
         }).disposed(by: disposeBag)
+        
+        
+        locationManager.getCurrentLocation { model in
+            LocationManagerModel.shared.model = model
+        }
         
     }
     
@@ -105,6 +117,7 @@ extension AuthListViewController {
                     let webVc = WebsiteViewController()
                     webVc.pageUrl = model.kindness?.whistling ?? ""
                     self.navigationController?.pushViewController(webVc, animated: true)
+                    await self.trackeiggmesageInfo(with: json["lea"] as? String ?? "")
                 }else {
                     Toaster.showMessage(with: model.stretched ?? "")
                 }
@@ -175,6 +188,23 @@ extension AuthListViewController {
             self.navigationController?.pushViewController(recVc, animated: true)
         }else {
             
+        }
+    }
+    
+    private func trackeiggmesageInfo(with swear: String) async {
+        Task {
+            do {
+                let locationModel = LocationManagerModel.shared.model
+                let ajson = ["sure": "8",
+                             "thereafter": locationModel?.thereafter ?? "",
+                             "leading": locationModel?.leading ?? "",
+                             "aelfrida": String(Int(Date().timeIntervalSince1970)),
+                             "hair": String(Int(Date().timeIntervalSince1970)),
+                             "swear": swear]
+                let _ = try await trackingViewModel.saveTrackingMessageIngo(json: ajson)
+            } catch  {
+                
+            }
         }
     }
     
