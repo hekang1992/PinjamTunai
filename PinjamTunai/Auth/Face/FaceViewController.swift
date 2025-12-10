@@ -254,6 +254,23 @@ extension FaceViewController {
             let json = ["wild": dateStr, "lime": idStr, "bore": name, "shot": productID]
             saveCardInfo(json: json)
         }
+        
+        cardView.threeView.clickBlock = { [weak self] time in
+            guard let self = self else { return }
+            let timeView = PopTimeView(frame: self.view.bounds)
+            timeView.defaultDateString = time.isEmpty ? "12-12-2000" : time
+            guard let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) else { return }
+            window.addSubview(timeView)
+            
+            timeView.timeBlock = { time in
+                cardView.threeView.phoneTextFiled.text = time
+                timeView.defaultDateString = time
+                timeView.removeFromSuperview()
+            }
+            timeView.cancelBlock = {
+                timeView.removeFromSuperview()
+            }
+        }
     }
     
     private func saveCardInfo(json: [String: String]) {

@@ -111,7 +111,7 @@ class PopOneView: UIView {
         
         lineView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(32)
-            make.left.equalToSuperview().offset(75)
+            make.left.equalToSuperview().offset(55)
             make.size.equalTo(CGSize(width: 64, height: 4))
         }
         

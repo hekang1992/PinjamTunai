@@ -14,7 +14,7 @@ class PopListView: UIView {
     
     let disposeBag = DisposeBag()
     
-    var clickBlock: (() -> Void)?
+    var clickBlock: ((String) -> Void)?
 
     lazy var nameLabel: UILabel = {
         let nameLabel = UILabel()
@@ -99,7 +99,7 @@ class PopListView: UIView {
         
         clickBtn.rx.tap.bind(onNext: { [weak self] in
             guard let self = self else { return }
-            self.clickBlock?()
+            self.clickBlock?(phoneTextFiled.text ?? "")
         }).disposed(by: disposeBag)
     }
     

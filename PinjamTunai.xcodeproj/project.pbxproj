@@ -79,6 +79,7 @@
 		737D1F1C2EE5B95E003CC748 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D1F1B2EE5B95E003CC748 /* LoginView.swift */; };
 		737D1F1E2EE5CFAC003CC748 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D1F1D2EE5CFAA003CC748 /* LoginViewModel.swift */; };
 		738F4D762EE967F000909C0E /* TrackingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738F4D752EE967CF00909C0E /* TrackingViewModel.swift */; };
+		738F4D782EE9779900909C0E /* PopTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738F4D772EE9779200909C0E /* PopTimeView.swift */; };
 		73FA07E72EE80624006B7452 /* WorkerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FA07E62EE80624006B7452 /* WorkerViewController.swift */; };
 		73FA07EA2EE80BFF006B7452 /* RelationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FA07E92EE80BFF006B7452 /* RelationViewController.swift */; };
 		73FA07EE2EE80D38006B7452 /* RelationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FA07ED2EE80D35006B7452 /* RelationViewModel.swift */; };
@@ -165,6 +166,7 @@
 		737D1F1B2EE5B95E003CC748 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		737D1F1D2EE5CFAA003CC748 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		738F4D752EE967CF00909C0E /* TrackingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingViewModel.swift; sourceTree = "<group>"; };
+		738F4D772EE9779200909C0E /* PopTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopTimeView.swift; sourceTree = "<group>"; };
 		73FA07E62EE80624006B7452 /* WorkerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerViewController.swift; sourceTree = "<group>"; };
 		73FA07E92EE80BFF006B7452 /* RelationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationViewController.swift; sourceTree = "<group>"; };
 		73FA07ED2EE80D35006B7452 /* RelationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationViewModel.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 		73145F002EE6C42E006085E8 /* Face */ = {
 			isa = PBXGroup;
 			children = (
+				738F4D772EE9779200909C0E /* PopTimeView.swift */,
 				7311149F2EE7AEEE0036A024 /* Untitled.swift */,
 				731565112EE715C700599239 /* PopFaceView.swift */,
 				73145F092EE6D952006085E8 /* FaceViewModel.swift */,
@@ -616,6 +619,7 @@
 				737D1F122EE57BA0003CC748 /* NetworkMonitor.swift in Sources */,
 				737D1F042EE45870003CC748 /* HomeViewController.swift in Sources */,
 				737D1F0E2EE55034003CC748 /* LoadingView.swift in Sources */,
+				738F4D782EE9779900909C0E /* PopTimeView.swift in Sources */,
 				7368B63D2EE84C3300ADDA99 /* WebsiteViewController.swift in Sources */,
 				731F23262EE9503100C586BB /* MacMessageConfig.swift in Sources */,
 				73FA07EA2EE80BFF006B7452 /* RelationViewController.swift in Sources */,
