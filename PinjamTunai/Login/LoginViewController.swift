@@ -19,6 +19,10 @@ class LoginViewController: BaseViewController {
     
     let locationManager = AppLocationManager()
     
+    var aelfrida: String = ""
+    
+    var hair: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,13 +51,18 @@ class LoginViewController: BaseViewController {
             LocationManagerModel.shared.model = model
         }
         
+        SaveTimeConfig.saveStartTime()
+        
     }
+    
+
     
 }
 
 extension LoginViewController {
     
     private func getCodeInfo() {
+        SaveTimeConfig.saveEndTime()
         let phone = self.loginView.phoneTextFiled.text ?? ""
         if phone.isEmpty {
             Toaster.showMessage(with: LanguageManager.localizedString(for: "Please Enter Your Phone Number"))
@@ -74,6 +83,7 @@ extension LoginViewController {
     }
     
     private func getVoiceCodeInfo() {
+        SaveTimeConfig.saveEndTime()
         let phone = self.loginView.phoneTextFiled.text ?? ""
         if phone.isEmpty {
             Toaster.showMessage(with: LanguageManager.localizedString(for: "Please Enter Your Phone Number"))
@@ -94,6 +104,7 @@ extension LoginViewController {
     }
     
     private func toLoginInfo() {
+        SaveTimeConfig.saveEndTime()
         let phone = self.loginView.phoneTextFiled.text ?? ""
         let code = self.loginView.codeTextFiled.text ?? ""
         let agree = self.loginView.oneBtn.isSelected
@@ -128,6 +139,26 @@ extension LoginViewController {
                 
             }
         }
+    }
+    
+}
+
+class SaveTimeConfig {
+    
+    static func saveStartTime() {
+        UserDefaults.standard.set(String(Int(Date().timeIntervalSince1970)), forKey: "aelfrida")
+        UserDefaults.standard.synchronize()
+    }
+    
+    static func saveEndTime() {
+        UserDefaults.standard.set(String(Int(Date().timeIntervalSince1970)), forKey: "hair")
+        UserDefaults.standard.synchronize()
+    }
+    
+    static func deleteAllTime() {
+        UserDefaults.standard.removeObject(forKey: "aelfrida")
+        UserDefaults.standard.removeObject(forKey: "hair")
+        UserDefaults.standard.synchronize()
     }
     
 }
