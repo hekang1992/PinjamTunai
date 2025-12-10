@@ -13,6 +13,11 @@ class BaseViewController: UIViewController {
         let headView = AppHeadView()
         return headView
     }()
+    
+    lazy var leaveView: PopSLeaveView = {
+        let leaveView = PopSLeaveView()
+        return leaveView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,16 +25,19 @@ class BaseViewController: UIViewController {
         // Do any additional setup after loading the view.
         view.backgroundColor = UIColor(hex: "#F2F4FA")
     }
+
+}
+
+extension BaseViewController {
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func backToListPageVc() {
+        guard let navigationController = self.navigationController else { return }
+        if let targetVC = navigationController.viewControllers.first(where: { $0 is AuthListViewController }) {
+            navigationController.popToViewController(targetVC, animated: true)
+        } else {
+            navigationController.popToRootViewController(animated: true)
+        }
     }
-    */
-
+    
+    
 }

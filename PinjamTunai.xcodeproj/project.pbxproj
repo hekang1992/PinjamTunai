@@ -80,6 +80,7 @@
 		737D1F1E2EE5CFAC003CC748 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 737D1F1D2EE5CFAA003CC748 /* LoginViewModel.swift */; };
 		738F4D762EE967F000909C0E /* TrackingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738F4D752EE967CF00909C0E /* TrackingViewModel.swift */; };
 		738F4D782EE9779900909C0E /* PopTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738F4D772EE9779200909C0E /* PopTimeView.swift */; };
+		73DA26B12EE9ACBD0074F30F /* PopSLeaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73DA26B02EE9ACB60074F30F /* PopSLeaveView.swift */; };
 		73FA07E72EE80624006B7452 /* WorkerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FA07E62EE80624006B7452 /* WorkerViewController.swift */; };
 		73FA07EA2EE80BFF006B7452 /* RelationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FA07E92EE80BFF006B7452 /* RelationViewController.swift */; };
 		73FA07EE2EE80D38006B7452 /* RelationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FA07ED2EE80D35006B7452 /* RelationViewModel.swift */; };
@@ -167,6 +168,7 @@
 		737D1F1D2EE5CFAA003CC748 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		738F4D752EE967CF00909C0E /* TrackingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingViewModel.swift; sourceTree = "<group>"; };
 		738F4D772EE9779200909C0E /* PopTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopTimeView.swift; sourceTree = "<group>"; };
+		73DA26B02EE9ACB60074F30F /* PopSLeaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopSLeaveView.swift; sourceTree = "<group>"; };
 		73FA07E62EE80624006B7452 /* WorkerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerViewController.swift; sourceTree = "<group>"; };
 		73FA07E92EE80BFF006B7452 /* RelationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationViewController.swift; sourceTree = "<group>"; };
 		73FA07ED2EE80D35006B7452 /* RelationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationViewModel.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 		73145EFF2EE6C41E006085E8 /* Product */ = {
 			isa = PBXGroup;
 			children = (
+				73DA26B02EE9ACB60074F30F /* PopSLeaveView.swift */,
 				73145EEA2EE69A41006085E8 /* AuthListViewModel.swift */,
 				73145EEC2EE69A55006085E8 /* AuthListView.swift */,
 				73145EE82EE69A28006085E8 /* AuthListViewController.swift */,
@@ -580,6 +583,7 @@
 				731F231C2EE910D300C586BB /* OrderListViewModel.swift in Sources */,
 				7368B6392EE8465700ADDA99 /* ReceiptAccountViewController.swift in Sources */,
 				73145F062EE6C8CD006085E8 /* StepView.swift in Sources */,
+				73DA26B12EE9ACBD0074F30F /* PopSLeaveView.swift in Sources */,
 				731114AD2EE7E41C0036A024 /* BasicViewModel.swift in Sources */,
 				737D1F1E2EE5CFAC003CC748 /* LoginViewModel.swift in Sources */,
 				73145EF32EE6B6BC006085E8 /* LanguageManager.swift in Sources */,

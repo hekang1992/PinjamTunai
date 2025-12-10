@@ -51,7 +51,23 @@ class FaceViewController: BaseViewController {
         }
         
         headView.backBlock = { [weak self] in
-            self?.navigationController?.popViewController(animated: true)
+            guard let self = self else { return }
+            let popView = PopSLeaveView(frame: self.view.bounds)
+            let alertVc = TYAlertController(alert: popView, preferredStyle: .alert)
+            self.present(alertVc!, animated: true)
+            
+            popView.oneBlock = { [weak self] in
+                guard let self = self else { return }
+                self.dismiss(animated: true)
+            }
+            
+            popView.twoBlock = { [weak self] in
+                guard let self = self else { return }
+                self.dismiss(animated: true) {
+                    self.backToListPageVc()
+                }
+            }
+            
         }
         
         let stepView = StepIndicatorView()

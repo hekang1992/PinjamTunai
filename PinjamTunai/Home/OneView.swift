@@ -317,7 +317,7 @@ class OneView: UIView {
         // scrollView constraints
         scrollView.snp.makeConstraints { make in
             make.left.right.bottom.equalToSuperview()
-            make.top.equalTo(oneImageView.snp.bottom).offset(5)
+            make.top.equalTo(oneImageView.snp.bottom).offset(1)
         }
         
         // contentView constraints

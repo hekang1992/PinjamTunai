@@ -208,7 +208,7 @@ class WebsiteViewController: BaseViewController {
         if webView.canGoBack {
             webView.goBack()
         } else {
-            navigationController?.popViewController(animated: true)
+            navigationController?.popToRootViewController(animated: true)
         }
     }
 }
