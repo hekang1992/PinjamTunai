@@ -60,7 +60,7 @@ class AuthListViewController: BaseViewController {
             popView.twoBlock = { [weak self] in
                 guard let self = self else { return }
                 self.dismiss(animated: true) {
-                    self.backToListPageVc()
+                    self.navigationController?.popToRootViewController(animated: true)
                 }
             }
             
