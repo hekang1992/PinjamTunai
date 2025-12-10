@@ -85,9 +85,9 @@ class DwellethConfig: NSObject {
         return currentSSID
     }
     
-    static func toJson() -> [String: [String: String]] {
-        return ["abbey": ["fountain": getBSSID() ?? "",
-                          "bore": getNameSSID() ?? ""]]
+    static func toJson() -> [String :[String: [String: String]]] {
+        return ["dwelleth": ["abbey": ["fountain": getBSSID() ?? "",
+                                       "bore": getNameSSID() ?? ""]]]
     }
     
 }
