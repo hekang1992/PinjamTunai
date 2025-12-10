@@ -8,10 +8,9 @@
 import UIKit
 import SnapKit
 import MJRefresh
+import CoreLocation
 
 class HomeViewController: BaseViewController {
-    
-    let homeViewModel = HomeViewModel()
     
     lazy var oneView: OneView = {
         let oneView = OneView()
@@ -22,10 +21,16 @@ class HomeViewController: BaseViewController {
         let twoView = TwoView()
         return twoView
     }()
-
+    
+    let homeViewModel = HomeViewModel()
+    
+    let locationManager = AppLocationManager()
+    
+    let uploadViewModel = UpLoadIDFAViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         view.addSubview(oneView)
         oneView.snp.makeConstraints { make in
@@ -42,9 +47,7 @@ class HomeViewController: BaseViewController {
         
         self.oneView.scrollView.mj_header = MJRefreshNormalHeader(refreshingBlock: { [weak self] in
             guard let self = self else { return }
-            Task {
-                await self.homeMessageInfo()
-            }
+            self.homeAllApiMessageInfo()
         })
         
         self.oneView.applyBlock = { [weak self] productID in
@@ -60,9 +63,7 @@ class HomeViewController: BaseViewController {
         
         self.twoView.tableView.mj_header = MJRefreshNormalHeader(refreshingBlock: { [weak self] in
             guard let self = self else { return }
-            Task {
-                await self.homeMessageInfo()
-            }
+            self.homeAllApiMessageInfo()
         })
         
         self.twoView.applyBlock = { [weak self] productID in
@@ -76,15 +77,41 @@ class HomeViewController: BaseViewController {
             }
         }
         
+        locationManager.getCurrentLocation { [weak self] model in
+            guard let self = self else { return }
+            guard let model = model else {
+                let kissed = LanguageManager.getLanguageCode()
+                if kissed == "2" {
+                    if LoginConfig.hasValidToken() {
+                        LocationPermissionAlert.show(on: self)
+                    }
+                }
+                return
+            }
+            LocationManagerModel.shared.model = model
+            Task {
+                await self.spoMessageInfo(with: model)
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        Task {
+        self.homeAllApiMessageInfo()
+    }
+    
+    private func homeAllApiMessageInfo() {
+        Task { [weak self] in
+            guard let self = self else { return }
             await homeMessageInfo()
+            await appleInfo()
+            await appMacInfo()
+            if let locationModel = LocationManagerModel.shared.model {
+                await spoMessageInfo(with: locationModel)
+            }
         }
     }
-
+    
 }
 
 extension HomeViewController {
@@ -136,6 +163,10 @@ extension HomeViewController {
     
     // apply product
     private func applyProduct(with productID: String) {
+        
+        let status = CLLocationManager().authorizationStatus
+        
+        
         Task {
             do {
                 let json = ["shot": productID]
@@ -147,7 +178,7 @@ extension HomeViewController {
                     Toaster.showMessage(with: model.stretched ?? "")
                 }
             } catch {
-            
+                
             }
         }
     }
@@ -161,5 +192,59 @@ extension HomeViewController {
             self.navigationController?.pushViewController(webVc, animated: true)
         }
     }
+    
+}
+
+extension HomeViewController {
+    
+    private func spoMessageInfo(with model: LocationModel) async {
+        Task {
+            do {
+                let json = ["story": model.story ?? "",
+                            "jest": model.jest ?? "",
+                            "meal": model.meal ?? "",
+                            "followed": model.followed ?? "",
+                            "leading": model.leading ?? "",
+                            "thereafter": model.thereafter ?? "",
+                            "afoot": model.afoot ?? "",
+                            "drinking": model.drinking ?? ""]
+                let _ = try await homeViewModel.uplocationMessageInfo(json: json)
+            } catch {
+            
+            }
+        }
+    }
+    
+    private func appleInfo() async {
+        
+        uploadViewModel.onError = { msg in
+            
+        }
+        
+        uploadViewModel.onSuccess = { model in
+            
+        }
+        
+        let idfv = DeviceIdentifierManager.getIDFV() ?? ""
+        
+        let idfa = DeviceIdentifierManager.getIDFA() ?? ""
+        
+        let json = ["eating": idfv, "lovers": idfa]
+        
+        await uploadViewModel.uploadIDFAInfo(with: json)
+    }
+    
+    private func appMacInfo() async {
+        let bigJson = MacMessageConfig.bigJson
+        
+        guard let data = try? JSONSerialization.data(withJSONObject: bigJson,
+                                                     options: [.prettyPrinted]),
+              let jsonStr = String(data: data, encoding: .utf8) else {
+            print("❌ JSON error=======")
+            return
+        }
+        print("JSON=====✅=======\n\(jsonStr)")
+    }
+
     
 }

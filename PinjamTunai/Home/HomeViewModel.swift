@@ -41,4 +41,21 @@ class HomeViewModel {
         
     }
     
+    func uplocationMessageInfo(json: [String: String]) async throws -> BaseModel {
+//        LoadingView.show()
+//        
+//        defer {
+//            LoadingView.hide()
+//        }
+//        
+        do {
+            let model: BaseModel = try await HttpRequestManager.shared.upload("/ecutiveof/swan", parameters: json)
+            return model
+        } catch {
+            print("error===: \(error)")
+            throw error
+        }
+        
+    }
+    
 }

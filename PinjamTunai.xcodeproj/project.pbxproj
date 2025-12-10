@@ -45,6 +45,10 @@
 		731F231E2EE91BA900C586BB /* DashedLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731F231D2EE91BA800C586BB /* DashedLineView.swift */; };
 		731F23202EE9205D00C586BB /* OrderMinListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731F231F2EE9204A00C586BB /* OrderMinListView.swift */; };
 		731F23222EE9251700C586BB /* OrderEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731F23212EE9251700C586BB /* OrderEmptyView.swift */; };
+		731F23242EE93FA100C586BB /* AppLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731F23232EE93F9600C586BB /* AppLocationManager.swift */; };
+		731F23262EE9503100C586BB /* MacMessageConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731F23252EE9503100C586BB /* MacMessageConfig.swift */; };
+		731F23282EE9504F00C586BB /* ProudConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731F23272EE9504F00C586BB /* ProudConfig.swift */; };
+		731F232A2EE9532A00C586BB /* GainedConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731F23292EE9532900C586BB /* GainedConfig.swift */; };
 		734EA0382EE85F5A00C1B49E /* TwoHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734EA0372EE85F5A00C1B49E /* TwoHeadView.swift */; };
 		734EA03A2EE866FF00C1B49E /* ProductAccViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734EA0392EE866FF00C1B49E /* ProductAccViewCell.swift */; };
 		7368B6392EE8465700ADDA99 /* ReceiptAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7368B6382EE8465700ADDA99 /* ReceiptAccountViewController.swift */; };
@@ -123,6 +127,10 @@
 		731F231D2EE91BA800C586BB /* DashedLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedLineView.swift; sourceTree = "<group>"; };
 		731F231F2EE9204A00C586BB /* OrderMinListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderMinListView.swift; sourceTree = "<group>"; };
 		731F23212EE9251700C586BB /* OrderEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderEmptyView.swift; sourceTree = "<group>"; };
+		731F23232EE93F9600C586BB /* AppLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLocationManager.swift; sourceTree = "<group>"; };
+		731F23252EE9503100C586BB /* MacMessageConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacMessageConfig.swift; sourceTree = "<group>"; };
+		731F23272EE9504F00C586BB /* ProudConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProudConfig.swift; sourceTree = "<group>"; };
+		731F23292EE9532900C586BB /* GainedConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GainedConfig.swift; sourceTree = "<group>"; };
 		734EA0372EE85F5A00C1B49E /* TwoHeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoHeadView.swift; sourceTree = "<group>"; };
 		734EA0392EE866FF00C1B49E /* ProductAccViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAccViewCell.swift; sourceTree = "<group>"; };
 		7368B6382EE8465700ADDA99 /* ReceiptAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptAccountViewController.swift; sourceTree = "<group>"; };
@@ -386,6 +394,10 @@
 				737D1F112EE57B9F003CC748 /* NetworkMonitor.swift */,
 				73145EE62EE695CE006085E8 /* AppRouteConfig.swift */,
 				73145EF22EE6B6BB006085E8 /* LanguageManager.swift */,
+				731F23232EE93F9600C586BB /* AppLocationManager.swift */,
+				731F23252EE9503100C586BB /* MacMessageConfig.swift */,
+				731F23272EE9504F00C586BB /* ProudConfig.swift */,
+				731F23292EE9532900C586BB /* GainedConfig.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -558,6 +570,7 @@
 				731114AB2EE7E30B0036A024 /* TapTableViewCell.swift in Sources */,
 				731565002EE6E3FE00599239 /* CenterView.swift in Sources */,
 				73145F0A2EE6D954006085E8 /* FaceViewModel.swift in Sources */,
+				731F23282EE9504F00C586BB /* ProudConfig.swift in Sources */,
 				731F231C2EE910D300C586BB /* OrderListViewModel.swift in Sources */,
 				7368B6392EE8465700ADDA99 /* ReceiptAccountViewController.swift in Sources */,
 				73145F062EE6C8CD006085E8 /* StepView.swift in Sources */,
@@ -586,6 +599,7 @@
 				731114A02EE7AEEF0036A024 /* Untitled.swift in Sources */,
 				731114A42EE7C99D0036A024 /* PopListView.swift in Sources */,
 				737D1EFA2EE4582E003CC748 /* HttpRequestManager.swift in Sources */,
+				731F23242EE93FA100C586BB /* AppLocationManager.swift in Sources */,
 				73145EEB2EE69A49006085E8 /* AuthListViewModel.swift in Sources */,
 				73FA07EE2EE80D38006B7452 /* RelationViewModel.swift in Sources */,
 				737D1F102EE55843003CC748 /* LaunchViewModel.swift in Sources */,
@@ -600,6 +614,7 @@
 				737D1F042EE45870003CC748 /* HomeViewController.swift in Sources */,
 				737D1F0E2EE55034003CC748 /* LoadingView.swift in Sources */,
 				7368B63D2EE84C3300ADDA99 /* WebsiteViewController.swift in Sources */,
+				731F23262EE9503100C586BB /* MacMessageConfig.swift in Sources */,
 				73FA07EA2EE80BFF006B7452 /* RelationViewController.swift in Sources */,
 				737D1EF62EE457E9003CC748 /* BaseView.swift in Sources */,
 				737D1F062EE45878003CC748 /* CenterViewController.swift in Sources */,
@@ -616,6 +631,7 @@
 				737D1F162EE587E0003CC748 /* OneView.swift in Sources */,
 				73145EED2EE69A55006085E8 /* AuthListView.swift in Sources */,
 				73145F022EE6C85D006085E8 /* FaceViewController.swift in Sources */,
+				731F232A2EE9532A00C586BB /* GainedConfig.swift in Sources */,
 				731565022EE6E7EB00599239 /* CenterViewModel.swift in Sources */,
 				731565082EE707E600599239 /* SettingViewController.swift in Sources */,
 				73145EEF2EE69A8A006085E8 /* AppHeadView.swift in Sources */,

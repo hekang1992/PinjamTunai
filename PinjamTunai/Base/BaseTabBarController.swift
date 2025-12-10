@@ -99,14 +99,14 @@ class BaseTabBarController: UITabBarController {
 
 extension BaseTabBarController: UITabBarControllerDelegate {
     
-    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        if !LoginConfig.hasValidToken() {
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        if LoginConfig.hasValidToken() == false {
             let naeVc = BaseNavigationController(rootViewController: LoginViewController())
             naeVc.modalPresentationStyle = .overFullScreen
             self.present(naeVc, animated: true)
         }
+        return LoginConfig.hasValidToken()
     }
-    
 }
 
 extension UIView {

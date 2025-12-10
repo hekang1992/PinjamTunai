@@ -17,6 +17,8 @@ class LoginViewController: BaseViewController {
     
     private let viewModel = LoginViewModel()
     
+    let locationManager = AppLocationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,6 +41,10 @@ class LoginViewController: BaseViewController {
         loginView.loginBlock = { [weak self] in
             guard let self = self else { return }
             toLoginInfo()
+        }
+        
+        locationManager.getCurrentLocation { model in
+            LocationManagerModel.shared.model = model
         }
         
     }
