@@ -25,23 +25,31 @@ class RelationViewCell: UITableViewCell {
             oneLabel.text = model.account ?? ""
             twoLabel.text = model.music ?? ""
             
-            threeLabel.text = model.giving ?? ""
-            fourLabel.text = model.backing ?? ""
+            
+            let modelArray = model.breeze ?? []
             
             
             let fairy = model.fairy ?? ""
             if fairy.isEmpty {
+                threeLabel.text = model.giving ?? ""
                 threeLabel.textColor = UIColor(hex: "#939393")
             }else {
                 threeLabel.textColor = UIColor(hex: "#3B3B3B")
+                for model in modelArray {
+                    if model.heads == fairy {
+                        threeLabel.text = model.bore ?? ""
+                    }
+                }
             }
             
             let name = model.bore ?? ""
             let phone = model.beloved ?? ""
             
             if !name.isEmpty || !phone.isEmpty {
+                fourLabel.text = "\(name)-\(phone)"
                 fourLabel.textColor = UIColor.init(hex: "#3B3B3B")
             }else {
+                fourLabel.text = model.backing ?? ""
                 fourLabel.textColor = UIColor.init(hex: "#939393")
             }
             
