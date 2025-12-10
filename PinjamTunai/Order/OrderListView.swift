@@ -88,6 +88,12 @@ class OrderListView: UIView {
         return contentView
     }()
     
+    lazy var emptyView: OrderEmptyView = {
+        let emptyView = OrderEmptyView()
+        emptyView.isHidden = true
+        return emptyView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -131,7 +137,7 @@ class OrderListView: UIView {
         
         addSubview(contentView)
         contentView.addSubview(tableView)
-        
+        contentView.addSubview(emptyView)
         setupConstraints()
     }
     
@@ -165,6 +171,11 @@ class OrderListView: UIView {
         }
         
         tableView.snp.makeConstraints { make in
+            make.top.left.right.equalToSuperview()
+            make.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom).offset(-5)
+        }
+        
+        emptyView.snp.makeConstraints { make in
             make.top.left.right.equalToSuperview()
             make.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom).offset(-5)
         }
@@ -254,12 +265,16 @@ extension OrderListView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "OrderListViewCell", for: indexPath) as! OrderListViewCell
+        let model = modelArray?[indexPath.row]
+        cell.model = model
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        cellTapBlock?("\(indexPath.row)")
+        if let model = modelArray?[indexPath.row] {
+            cellTapBlock?(model.readily ?? "")
+        }
     }
 }
 

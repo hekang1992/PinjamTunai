@@ -42,6 +42,9 @@
 		731F23182EE9062D00C586BB /* OrderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731F23172EE9062500C586BB /* OrderListView.swift */; };
 		731F231A2EE90FD000C586BB /* OrderListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731F23192EE90FD000C586BB /* OrderListViewCell.swift */; };
 		731F231C2EE910D300C586BB /* OrderListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731F231B2EE910D000C586BB /* OrderListViewModel.swift */; };
+		731F231E2EE91BA900C586BB /* DashedLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731F231D2EE91BA800C586BB /* DashedLineView.swift */; };
+		731F23202EE9205D00C586BB /* OrderMinListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731F231F2EE9204A00C586BB /* OrderMinListView.swift */; };
+		731F23222EE9251700C586BB /* OrderEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731F23212EE9251700C586BB /* OrderEmptyView.swift */; };
 		734EA0382EE85F5A00C1B49E /* TwoHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734EA0372EE85F5A00C1B49E /* TwoHeadView.swift */; };
 		734EA03A2EE866FF00C1B49E /* ProductAccViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734EA0392EE866FF00C1B49E /* ProductAccViewCell.swift */; };
 		7368B6392EE8465700ADDA99 /* ReceiptAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7368B6382EE8465700ADDA99 /* ReceiptAccountViewController.swift */; };
@@ -117,6 +120,9 @@
 		731F23172EE9062500C586BB /* OrderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListView.swift; sourceTree = "<group>"; };
 		731F23192EE90FD000C586BB /* OrderListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListViewCell.swift; sourceTree = "<group>"; };
 		731F231B2EE910D000C586BB /* OrderListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListViewModel.swift; sourceTree = "<group>"; };
+		731F231D2EE91BA800C586BB /* DashedLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashedLineView.swift; sourceTree = "<group>"; };
+		731F231F2EE9204A00C586BB /* OrderMinListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderMinListView.swift; sourceTree = "<group>"; };
+		731F23212EE9251700C586BB /* OrderEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderEmptyView.swift; sourceTree = "<group>"; };
 		734EA0372EE85F5A00C1B49E /* TwoHeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoHeadView.swift; sourceTree = "<group>"; };
 		734EA0392EE866FF00C1B49E /* ProductAccViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAccViewCell.swift; sourceTree = "<group>"; };
 		7368B6382EE8465700ADDA99 /* ReceiptAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptAccountViewController.swift; sourceTree = "<group>"; };
@@ -360,10 +366,13 @@
 		737D1EF32EE457E9003CC748 /* Order */ = {
 			isa = PBXGroup;
 			children = (
+				731F231F2EE9204A00C586BB /* OrderMinListView.swift */,
+				731F231D2EE91BA800C586BB /* DashedLineView.swift */,
 				731F231B2EE910D000C586BB /* OrderListViewModel.swift */,
 				731F23172EE9062500C586BB /* OrderListView.swift */,
 				737D1EFF2EE4585B003CC748 /* OrderListViewController.swift */,
 				731F23192EE90FD000C586BB /* OrderListViewCell.swift */,
+				731F23212EE9251700C586BB /* OrderEmptyView.swift */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -544,6 +553,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				73145F082EE6D289006085E8 /* FaceListView.swift in Sources */,
+				731F23222EE9251700C586BB /* OrderEmptyView.swift in Sources */,
 				731565042EE6E94300599239 /* CenterTableViewCell.swift in Sources */,
 				731114AB2EE7E30B0036A024 /* TapTableViewCell.swift in Sources */,
 				731565002EE6E3FE00599239 /* CenterView.swift in Sources */,
@@ -556,11 +566,13 @@
 				73145EF32EE6B6BC006085E8 /* LanguageManager.swift in Sources */,
 				737D1F0A2EE45FB1003CC748 /* LaunchViewController.swift in Sources */,
 				731114A92EE7E3010036A024 /* BasicTableViewCell.swift in Sources */,
+				731F23202EE9205D00C586BB /* OrderMinListView.swift in Sources */,
 				73145EF12EE6A200006085E8 /* AuthListViewCell.swift in Sources */,
 				737D1F022EE45863003CC748 /* LoginViewController.swift in Sources */,
 				731565122EE715CE00599239 /* PopFaceView.swift in Sources */,
 				737D1F142EE5832E003CC748 /* BaseTabBarController.swift in Sources */,
 				737D1F0C2EE46C21003CC748 /* BaseModel.swift in Sources */,
+				731F231E2EE91BA900C586BB /* DashedLineView.swift in Sources */,
 				73145EE72EE695DB006085E8 /* AppRouteConfig.swift in Sources */,
 				731114A22EE7BCA00036A024 /* PopCommonAlertView.swift in Sources */,
 				737D1EF82EE45814003CC748 /* BaseNavigationController.swift in Sources */,

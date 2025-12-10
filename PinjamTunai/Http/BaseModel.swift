@@ -24,7 +24,11 @@ class flewModel: Codable {
     var swan: String?
     var shrank: String?
     var whistling: String?
-     
+    var wind: String?
+    var bring: String?
+    var rushing: String?
+    var mournful: [mournfulModel]?
+    var readily: String?
 }
 
 class aboveModel: Codable {
@@ -66,6 +70,11 @@ class breastModel: Codable {
     var strain: String?
     var lingering: String?
     var token: String?
+}
+
+class mournfulModel: Codable {
+    var shrank: String?
+    var fain: String?
 }
 
 class princeModel: Codable {
