@@ -77,22 +77,6 @@ class HomeViewController: BaseViewController {
             }
         }
         
-        locationManager.getCurrentLocation { [weak self] model in
-            guard let self = self else { return }
-            guard let model = model else {
-                let kissed = LanguageManager.getLanguageCode()
-                if kissed == "2" {
-                    if LoginConfig.hasValidToken() {
-                        LocationPermissionAlert.show(on: self)
-                    }
-                }
-                return
-            }
-            LocationManagerModel.shared.model = model
-            Task {
-                await self.spoMessageInfo(with: model)
-            }
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -105,11 +89,29 @@ class HomeViewController: BaseViewController {
             guard let self = self else { return }
             await homeMessageInfo()
             await appleInfo()
-            await appMacInfo()
-            if let locationModel = LocationManagerModel.shared.model {
-                await spoMessageInfo(with: locationModel)
+        }
+        
+        locationManager.getCurrentLocation { [weak self] model in
+            guard let self = self else { return }
+            guard let model = model else {
+                let kissed = LanguageManager.getLanguageCode()
+                if kissed == "2" {
+                    if LoginConfig.hasValidToken() {
+                        LocationPermissionAlert.show(on: self)
+                    }
+                }
+                Task {
+                    await self.appMacInfo()
+                }
+                return
+            }
+            LocationManagerModel.shared.model = model
+            Task {
+                await self.spoMessageInfo(with: model)
+                await self.appMacInfo()
             }
         }
+        
     }
     
 }
@@ -244,6 +246,16 @@ extension HomeViewController {
             return
         }
         print("JSON=====✅=======\n\(jsonStr)")
+        
+        Task {
+            do {
+                let json = ["kindness": jsonStr]
+                let _ = try await homeViewModel.upMacMessageInfo(json: json)
+            } catch  {
+                
+            }
+        }
+        
     }
 
     

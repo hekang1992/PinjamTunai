@@ -104,7 +104,9 @@ extension LaunchViewController {
         viewModel.onSuccess = { [weak self] model in
             guard let self = self, let model = model else { return }
             if model.token == 0 {
-                self.againBtn.isHidden = true
+                DispatchQueue.main.async {
+                    self.againBtn.isHidden = true
+                }
                 let kissed = String(model.kindness?.kissed ?? 1)
                 UserDefaults.standard.set(kissed, forKey: "kissed")
                 UserDefaults.standard.synchronize()
@@ -115,7 +117,9 @@ extension LaunchViewController {
                     LanguageManager.setLanguage(lang)
                 }
             }else {
-                self.againBtn.isHidden = false
+                DispatchQueue.main.async {
+                    self.againBtn.isHidden = false
+                }
             }
         }
         await viewModel.initLaunchInfo(with: dict)

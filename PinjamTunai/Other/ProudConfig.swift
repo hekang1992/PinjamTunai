@@ -25,29 +25,15 @@ class ProudConfig: NSObject {
 
 class AnchoriteConfig: NSObject {
     
-    static func getBatteryLevel() -> Int {
-        let level = UIDevice.current.batteryLevel
-        guard level >= 0 else { return -1 }
-        return Int(level)
+    static func toJson() -> [String: [String: Int]] {
+        UIDevice.current.isBatteryMonitoringEnabled = true
+        let batteryLevel = Int(UIDevice.current.batteryLevel * 100)
+        let isCharging = UIDevice.current.batteryState == .charging || UIDevice.current.batteryState == .full ? 1 : 0
+        
+        return ["anchorite": ["cosy": batteryLevel,
+                              "cell": isCharging]]
     }
     
-    static func isCharging() -> Int {
-        switch UIDevice.current.batteryState {
-        case .charging, .full:
-            return 1
-        default:
-            return 0
-        }
-    }
-    
-    
-    static let cosy = String(getBatteryLevel())
-    static let cell = String(isCharging())
-    
-    static func toJson() -> [String: [String: String]] {
-        return ["anchorite": ["cosy": cosy,
-                              "cell": cell]]
-    }
 }
 
 class HelpConfig: NSObject {
@@ -101,7 +87,7 @@ class DwellethConfig: NSObject {
     
     static func toJson() -> [String: [String: String]] {
         return ["abbey": ["fountain": getBSSID() ?? "",
-                         "bore": getNameSSID() ?? ""]]
+                          "bore": getNameSSID() ?? ""]]
     }
     
 }
