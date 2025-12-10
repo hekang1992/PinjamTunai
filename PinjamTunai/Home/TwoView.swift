@@ -87,9 +87,8 @@ extension TwoView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProductAccViewCell", for: indexPath) as! ProductAccViewCell
-        cell.backgroundColor = .clear
-        cell.selectionStyle = .none
-        cell.textLabel?.text = "indexPath.row=========\(indexPath.row)"
+        let model = modelArray?[indexPath.row]
+        cell.model = model
         return cell
     }
     
@@ -110,7 +109,8 @@ extension TwoView: UITableViewDelegate, UITableViewDataSource {
         }
         
         let iconImageView = UIImageView()
-        iconImageView.image = UIImage(named: "more_image_iac")
+        let code = LanguageManager.getLanguageCode()
+        iconImageView.image =  code == "2" ? UIImage(named: "id_moc_bg_image") : UIImage(named: "more_image_iac")
         headView.addSubview(iconImageView)
         iconImageView.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(23)
@@ -122,6 +122,13 @@ extension TwoView: UITableViewDelegate, UITableViewDataSource {
             self.applyBlock?(productID)
         }
         return headView
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let model = modelArray?[indexPath.row] {
+            self.applyBlock?(String(model.windows ?? 0))
+        }
+        
     }
     
 }
