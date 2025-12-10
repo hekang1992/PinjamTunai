@@ -17,6 +17,8 @@ class OneView: UIView {
     
     var applyBlock: ((String) -> Void)?
     
+    var mentBlock: ((String) -> Void)?
+    
     var model: aboveModel? {
         didSet {
             guard let model = model else { return }
@@ -36,6 +38,15 @@ class OneView: UIView {
             
             threeLabel.text = "\(desc): \(time)"
             fourLabel.text = "\(desc1): \(time1)"
+            
+        }
+    }
+    
+    var affModel: affrightModel? {
+        didSet {
+            guard let affModel = affModel else { return }
+            let guests = affModel.guests ?? ""
+            loanBtn.isHidden = guests.isEmpty
         }
     }
     
@@ -343,16 +354,16 @@ class OneView: UIView {
             make.size.equalTo(CGSize(width: 26, height: 26))
         }
         
-        loanBtn.snp.makeConstraints { make in
+        applyBtn.snp.makeConstraints { make in
             make.top.equalTo(cardImageView.snp.bottom).offset(18)
             make.centerX.equalToSuperview()
-            make.size.equalTo(CGSize(width: 190, height: 15))
+            make.size.equalTo(CGSize(width: 315, height: 55))
         }
         
-        applyBtn.snp.makeConstraints { make in
-            make.top.equalTo(loanBtn.snp.bottom).offset(4)
+        loanBtn.snp.makeConstraints { make in
+            make.top.equalTo(applyBtn.snp.bottom).offset(5)
             make.centerX.equalToSuperview()
-            make.size.equalTo(CGSize(width: 315, height: 55))
+            make.size.equalTo(CGSize(width: 190, height: 15))
         }
         
         twoImageView.snp.makeConstraints { make in
@@ -396,13 +407,20 @@ class OneView: UIView {
         }
         
         clickBtn.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.top.left.right.equalToSuperview()
+            make.bottom.equalTo(loanBtn.snp.top)
         }
         
         clickBtn.rx.tap.bind(onNext: { [weak self] in
             guard let self = self else { return }
             let productID = String(self.model?.windows ?? 0)
             self.applyBlock?(productID)
+        }).disposed(by: disposeBag)
+        
+        loanBtn.rx.tap.bind(onNext: { [weak self] in
+            guard let self = self else { return }
+            let pageUrl = self.affModel?.guests ?? ""
+            self.mentBlock?(pageUrl)
         }).disposed(by: disposeBag)
     }
     

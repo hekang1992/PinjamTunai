@@ -23,6 +23,10 @@ class LoginViewController: BaseViewController {
     
     var hair: String = ""
     
+    private var countdownTimer: Timer?
+    private var remainingSeconds = 60
+    private var isCountingDown = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,16 +51,61 @@ class LoginViewController: BaseViewController {
             toLoginInfo()
         }
         
+        loginView.mentBlock = { [weak self] in
+            guard let self = self else { return }
+            let webVc = WebsiteViewController()
+            let privacyPolicyUrl = UserDefaults.standard.object(forKey: "privacyPolicyUrl") as? String ?? ""
+            webVc.pageUrl = privacyPolicyUrl
+            self.navigationController?.pushViewController(webVc, animated: true)
+        }
+        
         locationManager.getCurrentLocation { model in
             LocationManagerModel.shared.model = model
         }
         
         SaveTimeConfig.saveStartTime()
-        
     }
     
-
+    private func startCountdown() {
+        if isCountingDown { return }
+        
+        isCountingDown = true
+        remainingSeconds = 60
+        
+        loginView.codeBtn.isEnabled = false
+        loginView.codeBtn.setTitle("60s", for: .disabled)
+        loginView.codeBtn.setTitleColor(.white, for: .disabled)
+        loginView.codeBtn.backgroundColor = UIColor.init(hex: "#6D95FC")
+        
+        countdownTimer = Timer.scheduledTimer(
+            timeInterval: 1.0,
+            target: self,
+            selector: #selector(updateCountdown),
+            userInfo: nil,
+            repeats: true
+        )
+    }
     
+    @objc private func updateCountdown() {
+        remainingSeconds -= 1
+        if remainingSeconds > 0 {
+            loginView.codeBtn.setTitle("\(remainingSeconds)s", for: .disabled)
+        } else {
+            stopCountdown()
+        }
+    }
+    
+    private func stopCountdown() {
+        countdownTimer?.invalidate()
+        countdownTimer = nil
+        isCountingDown = false
+        
+        // 恢复按钮状态
+        loginView.codeBtn.isEnabled = true
+        loginView.codeBtn.setTitle(LanguageManager.localizedString(for: "Get Code"), for: .normal)
+        loginView.codeBtn.setTitleColor(.blue, for: .normal)
+        loginView.codeBtn.backgroundColor = .white
+    }
 }
 
 extension LoginViewController {
@@ -73,7 +122,7 @@ extension LoginViewController {
                 let json = ["lose": phone]
                 let model = try await viewModel.getCodeInfo(json: json)
                 if model.token == 0 {
-                    
+                    startCountdown()
                 }
                 Toaster.showMessage(with: model.stretched ?? "")
             } catch {
@@ -160,5 +209,4 @@ class SaveTimeConfig {
         UserDefaults.standard.removeObject(forKey: "hair")
         UserDefaults.standard.synchronize()
     }
-    
 }

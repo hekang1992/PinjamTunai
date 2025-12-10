@@ -19,6 +19,8 @@ class LoginView: UIView {
     
     var loginBlock: (() -> Void)?
     
+    var mentBlock: (() -> Void)?
+    
     let disposeBag = DisposeBag()
         
     private lazy var oneLabel: UILabel = {
@@ -405,7 +407,7 @@ extension LoginView {
         
         nameLabel.rx.tapGesture().when(.recognized).bind(onNext: { [weak self] _ in
             guard let self = self else { return }
-            oneBtn.isSelected.toggle()
+            self.mentBlock?()
         }).disposed(by: disposeBag)
     }
 }

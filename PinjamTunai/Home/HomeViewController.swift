@@ -50,6 +50,16 @@ class HomeViewController: BaseViewController {
             self.homeAllApiMessageInfo()
         })
         
+        self.oneView.mentBlock = { [weak self] pageUrl in
+            guard let self = self else { return }
+            if pageUrl.isEmpty {
+                return
+            }
+            let webVc = WebsiteViewController()
+            webVc.pageUrl = pageUrl
+            self.navigationController?.pushViewController(webVc, animated: true)
+        }
+        
         self.oneView.applyBlock = { [weak self] productID in
             guard let self = self else { return }
             if LoginConfig.hasValidToken() {
@@ -139,6 +149,7 @@ extension HomeViewController {
     
     // Judge One Two
     private func dueModel(with model: BaseModel) {
+        self.oneView.affModel = model.kindness?.affright
         model.kindness?.flew?.forEach { model in
             let heads = model.heads ?? ""
             if heads == "asb" {

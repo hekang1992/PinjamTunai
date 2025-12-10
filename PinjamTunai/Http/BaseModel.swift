@@ -89,6 +89,11 @@ class princeModel: Codable {
     var breeze: [breezeModel]?
 }
 
+class affrightModel: Codable {
+    var shrank: String?
+    var guests: String?
+}
+
 class breezeModel: Codable {
     var bore: String?
     var heads: String?
@@ -183,6 +188,8 @@ class kindnessModel: Codable {
     var breast: [breastModel]?
     var ground: [groundModel]?
     var prince: [princeModel]?
+    var privacyPolicyUrl: String?
+    var affright: affrightModel?
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -197,9 +204,11 @@ class kindnessModel: Codable {
         mid = try container.decodeIfPresent([midModel].self, forKey: .mid)
         userInfo = try container.decodeIfPresent(userInfoModel.self, forKey: .userInfo)
         above = try container.decodeIfPresent(aboveModel.self, forKey: .above)
+        affright = try container.decodeIfPresent(affrightModel.self, forKey: .affright)
         breast = try container.decodeIfPresent([breastModel].self, forKey: .breast)
         ground = try container.decodeIfPresent([groundModel].self, forKey: .ground)
         prince = try container.decodeIfPresent([princeModel].self, forKey: .prince)
+        privacyPolicyUrl = try container.decodeIfPresent(String.self, forKey: .privacyPolicyUrl)
         
         if let droppedValue = try? container.decode(droppedModel.self, forKey: .dropped) {
             dropped = droppedValue

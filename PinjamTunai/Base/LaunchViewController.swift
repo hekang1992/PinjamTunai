@@ -108,7 +108,9 @@ extension LaunchViewController {
                     self.againBtn.isHidden = true
                 }
                 let kissed = String(model.kindness?.kissed ?? 1)
+                let privacyPolicyUrl = model.kindness?.privacyPolicyUrl ?? ""
                 UserDefaults.standard.set(kissed, forKey: "kissed")
+                UserDefaults.standard.set(privacyPolicyUrl, forKey: "privacyPolicyUrl")
                 UserDefaults.standard.synchronize()
                 if let tModel = model.kindness?.toward {
                     self.fbInfo(with: tModel)
