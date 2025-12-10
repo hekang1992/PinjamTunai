@@ -158,16 +158,21 @@ extension HomeViewController {
                 if model.token == 0 {
                     dueModel(with: model)
                 }
-                endRefreshing()
+                await MainActor.run {
+                    self.twoView.tableView.mj_header?.endRefreshing()
+                    self.oneView.scrollView.mj_header?.endRefreshing()
+                }
             } catch {
-                endRefreshing()
+                await MainActor.run {
+                    self.twoView.tableView.mj_header?.endRefreshing()
+                    self.oneView.scrollView.mj_header?.endRefreshing()
+                }
             }
         }
     }
     
     private func endRefreshing() {
-        self.oneView.scrollView.mj_header?.endRefreshing()
-        self.twoView.tableView.mj_header?.endRefreshing()
+        
     }
     
     // Judge One Two
