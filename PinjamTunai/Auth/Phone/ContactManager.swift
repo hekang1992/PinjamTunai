@@ -37,8 +37,8 @@ class ContactManager: NSObject {
     
     private func showPermissionAlert(on vc: UIViewController) {
         let alert = UIAlertController(
-            title: LanguageManager.localizedString(for: "Contacts permission is not enabled"),
-            message: LanguageManager.localizedString(for: "Please go to settings and enable the contacts permission"),
+            title: LanguageManager.localizedString(for: "Permission Needed"),
+            message: LanguageManager.localizedString(for: "Contact access is required to process your loan application. Please enable it in Settings to continue."),
             preferredStyle: .alert
         )
         alert.addAction(UIAlertAction(title: LanguageManager.localizedString(for: "Cancel"), style: .cancel))

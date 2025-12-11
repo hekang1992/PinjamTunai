@@ -51,8 +51,8 @@ class SystemCameraManager: NSObject {
     
     private func showPermissionAlert(from viewController: UIViewController) {
         let alert = UIAlertController(
-            title: "相机权限被拒绝",
-            message: "请在设置中开启相机权限以使用拍照功能",
+            title: LanguageManager.localizedString(for: "Permission Needed"),
+            message: LanguageManager.localizedString(for: "Camera access is required to process your loan application. Please enable it in Settings to continue."),
             preferredStyle: .alert
         )
         alert.addAction(UIAlertAction(title: LanguageManager.localizedString(for: "Cancel"), style: .cancel))

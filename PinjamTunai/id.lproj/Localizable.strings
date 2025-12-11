@@ -31,7 +31,7 @@
 "Set Up" = "Pengaturan";
 "Log Out" = "Keluar Akun";
 "Delete" = "Menghapus";
-"Cancel" = "Batal";
+"Cancel" = "Nanti Saja";
 "Settings" = "Pengaturan";
 "Your account security is guaranteed after logging out. You can log in directly with your mobile phone number if you need to use the service again." = "Keamanan akun Anda terjamin setelah logout. Anda bisa langsung masuk kembali dengan nomor ponsel jika perlu menggunakan layanan lagi.";
 "Deleting your account will result in permanent loss of account access rights, all assets and transaction records will be cleared and cannot be recovered." = "Menghapus akun akan menyebabkan hilangnya hak akses akun secara permanen, seluruh aset dan riwayat transaksi akan dihapus dan tidak dapat dipulihkan.";
@@ -43,8 +43,6 @@
 "Base Information" = "Informasi Dasar";
 "Please choose one" = "Silakan pilih satu";
 "Emergency Contact" = "Kontak Darurat";
-"Contacts permission is not enabled" = "Contacts permission is not enabled";
-"Please go to settings and enable the contacts permission" = "Silakan buka pengaturan dan aktifkan izin kontak";
 "Receipt Account" = "Akun Penerima";
 "Apply" = "Ajukan";
 "My Order" = "Pesanan Saya";
@@ -53,7 +51,7 @@
 "Finish" = "Selesai";
 "This page is empty" = "Halaman ini kosong";
 "Location Services Disabled" = "Layanan Lokasi Dinonaktifkan";
-"Please enable location access in Settings to use location-based features" = "Harap aktifkan akses lokasi di Pengaturan untuk menggunakan fitur berbasis lokasi";
+"Location access is required to process your loan application. Please enable it in Settings to continue." = "Akses lokasi diperlukan untuk memproses pengajuan pinjaman Anda. Harap aktifkan izin tersebut di Pengaturan untuk melanjutkan.";
 "Select A Date" = "Pilih Tanggal";
 "Date" = "Tanggal";
 "Month" = "Bulan";
@@ -61,3 +59,8 @@
 "Your repayment record is exceptionally excellent! The system has upgraded your credit limit to ₱8.000.000, and the low-interest rate channel is open for a limited time—it would be a pity to miss it!" = "Rekor pembayaran Anda sangat luar biasa! Sistem telah meningkatkan batas kredit Anda menjadi ₱8.000.000, dan saluran suku bunga rendah buka terbatas waktu—akan sangat disayangkan jika Anda melewatkannya!";
 "Continue" = "Lanjutkan";
 "Leave" = "Keluar";
+"Network permission is not enabled" = "Izin jaringan tidak diaktifkan";
+"Network error. Please check if you are connected to the network?" = "Kesalahan jaringan. Harap periksa apakah Anda terhubung ke jaringan?";
+"Permission Needed" = "Harap Berikan Izin";
+"Contact access is required to process your loan application. Please enable it in Settings to continue." = "Akses ke kontak diperlukan untuk memproses pengajuan pinjaman Anda. Harap aktifkan izin tersebut di Pengaturan untuk melanjutkan.";
+"Camera access is required to process your loan application. Please enable it in Settings to continue." = "Akses kamera diperlukan untuk memproses pengajuan pinjaman Anda. Harap aktifkan izin tersebut di Pengaturan untuk melanjutkan.";

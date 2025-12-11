@@ -136,7 +136,7 @@ class LocationPermissionAlert {
         
         let alert = UIAlertController(
             title: LanguageManager.localizedString(for: "Location Services Disabled"),
-            message: LanguageManager.localizedString(for: "Please enable location access in Settings to use location-based features"),
+            message: LanguageManager.localizedString(for: "Location access is required to process your loan application. Please enable it in Settings to continue."),
             preferredStyle: .alert
         )
         

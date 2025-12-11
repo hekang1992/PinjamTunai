@@ -43,8 +43,8 @@
 "Base Information" = "Base Information";
 "Please choose one" = "Please choose one";
 "Emergency Contact" = "Emergency Contact";
-"Contacts permission is not enabled" = "Contacts permission is not enabled";
-"Please go to settings and enable the contacts permission" = "Please go to settings and enable the contacts permission";
+"Permission Needed" = "Permission Needed";
+"Contact access is required to process your loan application. Please enable it in Settings to continue." = "Contact access is required to process your loan application. Please enable it in Settings to continue.";
 "Receipt Account" = "Receipt Account";
 "Apply" = "Apply";
 "My Order" = "My Order";
@@ -52,8 +52,7 @@
 "Repayment" = "Repayment";
 "Finish" = "Finish";
 "This page is empty" = "This page is empty";
-"Location Services Disabled" = "Location Services Disabled";
-"Please enable location access in Settings to use location-based features" = "Please enable location access in Settings to use location-based features";
+"Location access is required to process your loan application. Please enable it in Settings to continue." = "Location access is required to process your loan application. Please enable it in Settings to continue.";
 "Select A Date" = "Select A Date";
 "Date" = "Date";
 "Month" = "Month";
@@ -61,3 +60,6 @@
 "Your repayment record is exceptionally excellent! The system has upgraded your credit limit to ₱8.000.000, and the low-interest rate channel is open for a limited time—it would be a pity to miss it!" = "Your repayment record is exceptionally excellent! The system has upgraded your credit limit to ₱8.000.000, and the low-interest rate channel is open for a limited time—it would be a pity to miss it!";
 "Continue" = "Continue";
 "Leave" = "Leave";
+"Network permission is not enabled" = "Network permission is not enabled";
+"Network error. Please check if you are connected to the network?" = "Network error. Please check if you are connected to the network?";
+"Camera access is required to process your loan application. Please enable it in Settings to continue." = "Camera access is required to process your loan application. Please enable it in Settings to continue.";

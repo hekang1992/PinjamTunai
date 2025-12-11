@@ -171,16 +171,16 @@ class RelationViewCell: UITableViewCell {
         }
         
         oneImageView.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: 335, height: 57))
+            make.size.equalTo(CGSize(width: 335, height: 61))
             make.centerX.equalToSuperview()
             make.top.equalTo(titleLabel.snp.bottom).offset(20)
         }
         
         twoImageView.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: 335, height: 57))
+            make.size.equalTo(CGSize(width: 335, height: 61))
             make.centerX.equalToSuperview()
             make.top.equalTo(oneImageView.snp.bottom).offset(10)
-            make.bottom.equalToSuperview().offset(-25)
+            make.bottom.equalToSuperview().offset(-20)
         }
         
         threeImageView.snp.makeConstraints { make in
@@ -197,13 +197,13 @@ class RelationViewCell: UITableViewCell {
         
         oneLabel.snp.makeConstraints { make in
             make.height.equalTo(16)
-            make.top.equalToSuperview().offset(4)
+            make.top.equalToSuperview().offset(6)
             make.left.equalToSuperview().offset(7)
         }
         
         twoLabel.snp.makeConstraints { make in
             make.height.equalTo(16)
-            make.top.equalToSuperview().offset(4)
+            make.top.equalToSuperview().offset(6)
             make.left.equalToSuperview().offset(7)
         }
         
@@ -211,14 +211,14 @@ class RelationViewCell: UITableViewCell {
             make.right.equalTo(threeImageView.snp.left).offset(-10)
             make.left.equalTo(oneLabel).offset(2)
             make.height.equalTo(12)
-            make.bottom.equalToSuperview().offset(-10)
+            make.bottom.equalToSuperview().offset(-12)
         }
         
         fourLabel.snp.makeConstraints { make in
             make.right.equalTo(fourImageView.snp.left).offset(-10)
             make.left.equalTo(twoLabel).offset(2)
             make.height.equalTo(12)
-            make.bottom.equalToSuperview().offset(-10)
+            make.bottom.equalToSuperview().offset(-12)
         }
         
         oneBtn.snp.makeConstraints { make in

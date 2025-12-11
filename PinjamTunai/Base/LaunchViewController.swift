@@ -61,6 +61,16 @@ class LaunchViewController: BaseViewController {
                     await self.initAppInfo()
                     await self.getIDFAInfo()
                 }
+                UserDefaults.standard.set(networkType, forKey: "networkType")
+                UserDefaults.standard.synchronize()
+            }else {
+                if UIDevice.current.model == "iPad" {
+                    UserDefaults.standard.set("1", forKey: "kissed")
+                    UserDefaults.standard.synchronize()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                        NotificationCenter.default.post(name: NSNotification.Name("changeRootVc"), object: nil)
+                    }
+                }
             }
         }
         

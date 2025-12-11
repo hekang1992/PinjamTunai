@@ -340,7 +340,6 @@ class OneView: UIView {
             make.centerX.equalToSuperview()
             make.width.equalTo(335)
             make.height.equalTo(319)
-            make.bottom.lessThanOrEqualToSuperview().offset(-20)
         }
         
         // stackView constraints - 居中显示

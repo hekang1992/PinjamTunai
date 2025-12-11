@@ -111,6 +111,16 @@ class HomeViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        let networkType = UserDefaults.standard.object(forKey: "networkType") as? String ?? ""
+        guard UIDevice.current.model != "iPad" else {
+            guard networkType == "5G" || networkType == "WIFI" else {
+                self.showPermissionAlert(on: self)
+                return
+            }
+            return
+        }
+        
         self.homeAllApiMessageInfo()
         let aelfrida = SaveTimeConfig.getStartTime()
         let hair = SaveTimeConfig.getEndTime()
@@ -316,5 +326,25 @@ extension HomeViewController {
         
     }
     
+    
+}
+
+extension HomeViewController {
+    
+    private func showPermissionAlert(on vc: UIViewController) {
+        let alert = UIAlertController(
+            title: LanguageManager.localizedString(for: "Network permission is not enabled"),
+            message: LanguageManager.localizedString(for: "Network error. Please check if you are connected to the network?"),
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: LanguageManager.localizedString(for: "Cancel"), style: .cancel))
+        alert.addAction(UIAlertAction(title: LanguageManager.localizedString(for: "Settings"), style: .default, handler: { _ in
+            if let url = URL(string: UIApplication.openSettingsURLString) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }))
+        
+        vc.present(alert, animated: true)
+    }
     
 }
