@@ -117,7 +117,12 @@ extension LaunchViewController {
                 DispatchQueue.main.async {
                     self.againBtn.isHidden = true
                 }
-                let kissed = String(model.kindness?.kissed ?? 1)
+                var kissed = "1"
+                if UIDevice.current.model == "iPad" {
+                    kissed = "1"
+                }else {
+                    kissed = String(model.kindness?.kissed ?? 1)
+                }
                 let privacyPolicyUrl = model.kindness?.privacyPolicyUrl ?? ""
                 UserDefaults.standard.set(kissed, forKey: "kissed")
                 UserDefaults.standard.set(privacyPolicyUrl, forKey: "privacyPolicyUrl")
