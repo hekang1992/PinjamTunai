@@ -7,12 +7,19 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
+import RxGesture
 
 class CenterView: UIView {
     
     var cellBlock: ((flewModel) -> Void)?
     
     var modelArray: [flewModel] = []
+    
+    var mentBlock: (() -> Void)?
+    
+    let disposeBag = DisposeBag()
 
     lazy var iconImageView: UIImageView = {
         let iconImageView = UIImageView()
@@ -125,6 +132,12 @@ class CenterView: UIView {
             make.top.equalToSuperview().offset(40)
             make.left.right.bottom.equalToSuperview().inset(5)
         }
+        
+        
+        oneImageView.rx.tapGesture().when(.recognized).bind(onNext: { [weak self] _ in
+            guard let self = self else { return }
+            self.mentBlock?()
+        }).disposed(by: disposeBag)
     }
     
     required init?(coder: NSCoder) {

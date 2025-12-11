@@ -22,6 +22,8 @@ class HomeViewController: BaseViewController {
         return twoView
     }()
     
+    var model: BaseModel?
+    
     let homeViewModel = HomeViewModel()
     
     let locationManager = AppLocationManager()
@@ -62,14 +64,32 @@ class HomeViewController: BaseViewController {
             self.navigationController?.pushViewController(webVc, animated: true)
         }
         
+        self.oneView.customerBlock = { [weak self] in
+            guard let self = self else { return }
+            if LoginConfig.hasValidToken() {
+                let webVc = WebsiteViewController()
+                webVc.pageUrl = self.model?.kindness?.swan?.feedbackUrl ?? ""
+                self.navigationController?.pushViewController(webVc, animated: true)
+            }else {
+                self.popToLoginVc()
+            }
+        }
+        
+        self.oneView.toLoginBlock = { [weak self] in
+            guard let self = self else { return }
+            if LoginConfig.hasValidToken() {
+                return
+            }else {
+                self.popToLoginVc()
+            }
+        }
+        
         self.oneView.applyBlock = { [weak self] productID in
             guard let self = self else { return }
             if LoginConfig.hasValidToken() {
                 self.applyProduct(with: productID)
             }else {
-                let naeVc = BaseNavigationController(rootViewController: LoginViewController())
-                naeVc.modalPresentationStyle = .overFullScreen
-                self.present(naeVc, animated: true)
+                self.popToLoginVc()
             }
         }
         
@@ -83,9 +103,7 @@ class HomeViewController: BaseViewController {
             if LoginConfig.hasValidToken() {
                 self.applyProduct(with: productID)
             }else {
-                let naeVc = BaseNavigationController(rootViewController: LoginViewController())
-                naeVc.modalPresentationStyle = .overFullScreen
-                self.present(naeVc, animated: true)
+                self.popToLoginVc()
             }
         }
         
@@ -156,6 +174,7 @@ extension HomeViewController {
             do {
                 let model = try await homeViewModel.homeMessageInfo()
                 if model.token == 0 {
+                    self.model = model
                     dueModel(with: model)
                 }
                 await MainActor.run {
@@ -266,7 +285,7 @@ extension HomeViewController {
             
         }
         
-        let idfv = DeviceIdentifierManager.getIDFV() ?? ""
+        let idfv = DeviceIdentifierManager.readIDFVFromKeychain() ?? ""
         
         let idfa = DeviceIdentifierManager.getIDFA() ?? ""
         

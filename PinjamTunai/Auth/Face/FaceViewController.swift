@@ -238,7 +238,13 @@ extension FaceViewController {
                 let model = try await viewModel.uploadCardInfo(json: json, data: data)
                 if model.token == 0 {
                     if heads == "11" {
-                        cardSuccessView(with: model.kindness?.breast ?? [])
+                        let fixing = model.kindness?.fixing ?? 1
+                        if fixing == 0 {
+                            await self.getFaceInfo()
+                            await self.tracktwoInfo()
+                        }else if fixing == 1 {
+                            cardSuccessView(with: model.kindness?.breast ?? [])
+                        }
                     }else {
                         await self.getFaceInfo()
                         await self.trackthreeInfo()

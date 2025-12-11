@@ -21,6 +21,8 @@ class LoginView: UIView {
     
     var mentBlock: (() -> Void)?
     
+    var backBlock: (() -> Void)?
+    
     let disposeBag = DisposeBag()
         
     private lazy var oneLabel: UILabel = {
@@ -184,6 +186,7 @@ class LoginView: UIView {
     lazy var phoneTextFiled: UITextField = {
         let phoneTextFiled = UITextField()
         phoneTextFiled.keyboardType = .numberPad
+        phoneTextFiled.becomeFirstResponder()
         phoneTextFiled.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight(500))
         let attrString = NSMutableAttributedString(string: LanguageManager.localizedString(for: "Please Enter Your Phone Number"), attributes: [
             .foregroundColor: UIColor.init(hex: "#BDBDBD") as Any,
@@ -217,7 +220,14 @@ class LoginView: UIView {
         codeBtn.titleLabel?.font = UIFont.systemFont(ofSize: 10, weight: UIFont.Weight(400))
         return codeBtn
     }()
-            
+    
+    lazy var backBtn: UIButton = {
+        let backBtn = UIButton(type: .custom)
+        backBtn.setImage(UIImage(named: "app_back_image"), for: .normal)
+        backBtn.adjustsImageWhenHighlighted = true
+        return backBtn
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = UIColor(hex: "#F2F4FA")
@@ -242,10 +252,6 @@ extension LoginView {
         contentView.addSubview(logoImageView)
         contentView.addSubview(whiteView)
         contentView.addSubview(loginBtn)
-        contentView.addSubview(stackView)
-        
-        stackView.addArrangedSubview(oneBtn)
-        stackView.addArrangedSubview(nameLabel)
         
         whiteView.addSubview(phoneLabel)
         whiteView.addSubview(phoneView)
@@ -262,12 +268,25 @@ extension LoginView {
         
         codeView.addSubview(codeTextFiled)
         codeView.addSubview(codeBtn)
+        
+        
+        addSubview(stackView)
+        stackView.addArrangedSubview(oneBtn)
+        stackView.addArrangedSubview(nameLabel)
+        
+        addSubview(backBtn)
     }
     
     private func setupConstraints() {
         
+        backBtn.snp.makeConstraints { make in
+            make.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(20)
+            make.left.equalToSuperview().offset(20)
+            make.size.equalTo(CGSize(width: 24, height: 24))
+        }
+        
         scrollView.snp.makeConstraints { make in
-            make.top.equalTo(self.safeAreaLayoutGuide.snp.top)
+            make.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(60)
             make.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom)
             make.left.right.equalToSuperview()
         }
@@ -275,11 +294,11 @@ extension LoginView {
         contentView.snp.makeConstraints { make in
             make.edges.equalTo(scrollView)
             make.width.equalTo(scrollView)
-            make.bottom.equalTo(stackView.snp.bottom).offset(20)
+            make.height.greaterThanOrEqualTo(scrollView)
         }
         
         oneLabel.snp.makeConstraints { make in
-            make.top.equalTo(contentView).offset(55)
+            make.top.equalTo(contentView)
             make.left.equalTo(contentView).offset(20)
             make.height.equalTo(48)
         }
@@ -309,10 +328,10 @@ extension LoginView {
         }
         
         stackView.snp.makeConstraints { make in
-            make.top.equalTo(loginBtn.snp.bottom).offset(200)
             make.height.equalTo(46)
             make.centerX.equalToSuperview()
             make.left.equalToSuperview().offset(72)
+            make.bottom.equalToSuperview().offset(-40)
         }
         
         phoneLabel.snp.makeConstraints { make in
@@ -393,11 +412,13 @@ extension LoginView {
         codeBtn.rx.tap.bind(onNext: { [weak self] in
             guard let self = self else { return }
             self.codeBlock?()
+            self.codeTextFiled.becomeFirstResponder()
         }).disposed(by: disposeBag)
         
         voiceLabel.rx.tapGesture().when(.recognized).bind(onNext: { [weak self] _ in
             guard let self = self else { return }
             self.voiceBlock?()
+            self.codeTextFiled.becomeFirstResponder()
         }).disposed(by: disposeBag)
         
         oneBtn.rx.tap.bind(onNext: { [weak self] in
@@ -408,6 +429,13 @@ extension LoginView {
         nameLabel.rx.tapGesture().when(.recognized).bind(onNext: { [weak self] _ in
             guard let self = self else { return }
             self.mentBlock?()
+        }).disposed(by: disposeBag)
+        
+        backBtn.rx.tap.bind(onNext: { [weak self] in
+            guard let self = self else { return }
+            self.backBlock?()
+            self.phoneTextFiled.resignFirstResponder()
+            self.codeTextFiled.resignFirstResponder()
         }).disposed(by: disposeBag)
     }
 }

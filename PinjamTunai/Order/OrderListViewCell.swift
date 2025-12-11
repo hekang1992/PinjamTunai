@@ -38,7 +38,6 @@ class OrderListViewCell: UITableViewCell {
     
     lazy var logoImageView: UIImageView = {
         let logoImageView = UIImageView()
-        logoImageView.backgroundColor = .gray
         logoImageView.layer.cornerRadius = 5
         logoImageView.layer.masksToBounds = true
         return logoImageView

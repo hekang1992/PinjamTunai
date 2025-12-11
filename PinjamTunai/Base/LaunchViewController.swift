@@ -78,7 +78,7 @@ class LaunchViewController: BaseViewController {
         
     }
     
-//    @MainActor
+    @MainActor
     deinit {
         print("LaunchViewController============")
     }
@@ -93,7 +93,9 @@ extension LaunchViewController {
         let became = Locale.preferredLanguages.first ?? ""
         let famous = HTTPProxyInfo.proxyStatus.rawValue
         let fellowship = HTTPProxyInfo.vpnStatus.rawValue
-        let dict = ["became": became, "famous": famous, "fellowship": fellowship] as [String : Any]
+        let dict = ["became": became,
+                    "famous": famous,
+                    "fellowship": fellowship] as [String : Any]
         
         viewModel.onError = { [weak self] msg in
             guard let self = self else { return }
@@ -168,7 +170,7 @@ extension LaunchViewController {
             }
         }
         
-        let idfv = DeviceIdentifierManager.getIDFV() ?? ""
+        let idfv = DeviceIdentifierManager.readIDFVFromKeychain() ?? ""
         let idfa = DeviceIdentifierManager.getIDFA() ?? ""
         let json = ["eating": idfv, "lovers": idfa]
         await uploadViewModel.uploadIDFAInfo(with: json)

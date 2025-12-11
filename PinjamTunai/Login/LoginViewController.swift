@@ -51,6 +51,11 @@ class LoginViewController: BaseViewController {
             toLoginInfo()
         }
         
+        loginView.backBlock = { [weak self] in
+            guard let self = self else { return }
+            self.dismiss(animated: true)
+        }
+        
         loginView.mentBlock = { [weak self] in
             guard let self = self else { return }
             let webVc = WebsiteViewController()

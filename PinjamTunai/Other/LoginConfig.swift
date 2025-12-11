@@ -43,13 +43,17 @@ class DeviceIdentifierManager {
     }
     
     static func getIDFV() -> String? {
-        guard let identifier = UIDevice.current.identifierForVendor?.uuidString else {
-            return ""
+        if let existingID = readIDFVFromKeychain() {
+            return existingID
         }
         
-        saveIDFVToKeychain(identifier)
+        guard let newID = UIDevice.current.identifierForVendor?.uuidString else {
+            return nil
+        }
         
-        return identifier
+        saveIDFVToKeychain(newID)
+        
+        return newID
     }
     
     private static func saveIDFVToKeychain(_ idfv: String) {

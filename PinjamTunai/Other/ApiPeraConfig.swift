@@ -12,7 +12,7 @@ class ApiPeraConfig: NSObject {
     static func getCommonPara() -> [String: String] {
         let broken = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
         let straightway = getDeviceModel()
-        let sit = DeviceIdentifierManager.getIDFV() ?? ""
+        let sit = DeviceIdentifierManager.readIDFVFromKeychain() ?? ""
         let overfull = UIDevice.current.systemVersion
         let mill = UserDefaults.standard.object(forKey: "token") as? String ?? ""
         let weir = DeviceIdentifierManager.getIDFA() ?? ""

@@ -54,11 +54,11 @@ class StepIndicatorView: UIView {
             circle.textAlignment = .center
             circle.textColor = model.isCurrent ? .white : .darkGray
             circle.backgroundColor = model.isCurrent ? UIColor.init(hex: "#FFCC6C") : UIColor(white: 0.85, alpha: 1)
-            circle.layer.cornerRadius = 14
+            circle.layer.cornerRadius = 13
             circle.layer.masksToBounds = true
 
             circle.snp.makeConstraints { make in
-                make.width.height.equalTo(28)
+                make.width.height.equalTo(26)
             }
 
             container.addArrangedSubview(circle)
@@ -68,7 +68,7 @@ class StepIndicatorView: UIView {
                 line.backgroundColor = UIColor(white: 0.7, alpha: 1)
 
                 line.snp.makeConstraints { make in
-                    make.width.equalTo(28)
+                    make.width.equalTo(14)
                     make.height.equalTo(2)
                 }
 

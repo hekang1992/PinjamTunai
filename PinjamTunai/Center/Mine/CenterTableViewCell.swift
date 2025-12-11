@@ -29,7 +29,6 @@ class CenterTableViewCell: UITableViewCell {
     
     lazy var iconImageView: UIImageView = {
         let iconImageView = UIImageView()
-        iconImageView.backgroundColor = .gray
         iconImageView.layer.cornerRadius = 5
         iconImageView.layer.masksToBounds = true
         return iconImageView
@@ -39,7 +38,7 @@ class CenterTableViewCell: UITableViewCell {
         let nameLabel = UILabel()
         nameLabel.textAlignment = .left
         nameLabel.textColor = UIColor.init(hex: "#2F2F2F")
-        nameLabel.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight(500))
+        nameLabel.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight(500))
         return nameLabel
     }()
     
@@ -59,20 +58,20 @@ class CenterTableViewCell: UITableViewCell {
             make.top.equalToSuperview()
             make.left.equalToSuperview()
             make.centerX.equalToSuperview()
-            make.height.equalTo(30)
-            make.bottom.equalToSuperview().offset(-11)
+            make.height.equalTo(35)
+            make.bottom.equalToSuperview().offset(-12)
         }
         
         iconImageView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.left.equalToSuperview().offset(18)
-            make.size.equalTo(CGSize(width: 20, height: 20))
+            make.size.equalTo(CGSize(width: 25, height: 25))
         }
         
         nameLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.left.equalTo(iconImageView.snp.right).offset(6)
-            make.height.equalTo(20)
+            make.height.equalTo(25)
         }
         
         rightImageView.snp.makeConstraints { make in

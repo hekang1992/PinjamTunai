@@ -55,7 +55,6 @@ class TwoHeadView: UIView {
         let logoImageView = UIImageView()
         logoImageView.layer.cornerRadius = 5
         logoImageView.clipsToBounds = true
-        logoImageView.backgroundColor = UIColor.gray
         return logoImageView
     }()
     

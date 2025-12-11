@@ -19,6 +19,10 @@ class OneView: UIView {
     
     var mentBlock: ((String) -> Void)?
     
+    var customerBlock: (() -> Void)?
+    
+    var toLoginBlock: (() -> Void)?
+    
     var model: aboveModel? {
         didSet {
             guard let model = model else { return }
@@ -74,11 +78,11 @@ class OneView: UIView {
         return iconImageView
     }()
     
-    lazy var serviceImageView: UIImageView = {
-        let serviceImageView = UIImageView()
-        serviceImageView.image = UIImage(named: "ser_head_image")
-        serviceImageView.contentMode = .scaleAspectFit
-        return serviceImageView
+    lazy var serviceBtn: UIButton = {
+        let serviceBtn = UIButton(type: .custom)
+        serviceBtn.setImage(UIImage(named: "ser_head_image"), for: .normal)
+        serviceBtn.adjustsImageWhenHighlighted = false
+        return serviceBtn
     }()
     
     lazy var phoneLabel: UILabel = {
@@ -92,6 +96,11 @@ class OneView: UIView {
         phoneLabel.textColor = UIColor(hex: "#3D3D3D")
         phoneLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         return phoneLabel
+    }()
+    
+    lazy var notLoginBtn: UIButton = {
+        let notLoginBtn = UIButton(type: .custom)
+        return notLoginBtn
     }()
 
     lazy var scrollView: UIScrollView = {
@@ -125,7 +134,6 @@ class OneView: UIView {
         let logoImageView = UIImageView()
         logoImageView.layer.cornerRadius = 5
         logoImageView.clipsToBounds = true
-        logoImageView.backgroundColor = UIColor.gray
         return logoImageView
     }()
     
@@ -144,12 +152,6 @@ class OneView: UIView {
         stackView.alignment = .center
         stackView.distribution = .fill
         return stackView
-    }()
-    
-    lazy var cardImageView: UIImageView = {
-        let cardImageView = UIImageView()
-        cardImageView.image = UIImage(named: "home_card_image")
-        return cardImageView
     }()
     
     lazy var loanBtn: UIButton = {
@@ -198,23 +200,23 @@ class OneView: UIView {
     lazy var oneLabel: UILabel = {
         let oneLabel = UILabel()
         oneLabel.textAlignment = .center
-        oneLabel.textColor = UIColor(hex: "#FFFFFF")
-        oneLabel.font = UIFont.systemFont(ofSize: 12, weight: .regular)
+        oneLabel.textColor = UIColor(hex: "#6D95FC")
+        oneLabel.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight(500))
         return oneLabel
     }()
     
     lazy var twoLabel: UILabel = {
         let twoLabel = UILabel()
         twoLabel.textAlignment = .center
-        twoLabel.textColor = UIColor(hex: "#FFFFFF")
-        twoLabel.font = UIFont.systemFont(ofSize: 52, weight: .regular)
+        twoLabel.textColor = UIColor(hex: "#6D95FC")
+        twoLabel.font = UIFont.systemFont(ofSize: 56, weight: UIFont.Weight(500))
         return twoLabel
     }()
     
     lazy var threeLabel: UILabel = {
         let threeLabel = UILabel()
         threeLabel.textAlignment = .center
-        threeLabel.textColor = UIColor(hex: "#C4D4FF")
+        threeLabel.textColor = UIColor(hex: "#C8C8C8")
         threeLabel.font = UIFont.systemFont(ofSize: 13, weight: .regular)
         return threeLabel
     }()
@@ -222,7 +224,7 @@ class OneView: UIView {
     lazy var fourLabel: UILabel = {
         let fourLabel = UILabel()
         fourLabel.textAlignment = .center
-        fourLabel.textColor = UIColor(hex: "#C4D4FF")
+        fourLabel.textColor = UIColor(hex: "#C8C8C8")
         fourLabel.font = UIFont.systemFont(ofSize: 13, weight: .regular)
         return fourLabel
     }()
@@ -252,8 +254,9 @@ class OneView: UIView {
         // Add subviews
         addSubview(oneImageView)
         oneImageView.addSubview(iconImageView)
-        oneImageView.addSubview(serviceImageView)
+        oneImageView.addSubview(serviceBtn)
         oneImageView.addSubview(phoneLabel)
+        oneImageView.addSubview(notLoginBtn)
         
         addSubview(scrollView)
         scrollView.addSubview(contentView)
@@ -264,17 +267,16 @@ class OneView: UIView {
         stackView.addArrangedSubview(logoImageView)
         stackView.addArrangedSubview(nameLabel)
         
-        whiteView.addSubview(cardImageView)
         whiteView.addSubview(loanBtn)
         whiteView.addSubview(applyBtn)
         
-        scrollView.addSubview(twoImageView)
-        scrollView.addSubview(threeImageView)
+        contentView.addSubview(twoImageView)
+        contentView.addSubview(threeImageView)
         
-        cardImageView.addSubview(oneLabel)
-        cardImageView.addSubview(twoLabel)
-        cardImageView.addSubview(threeLabel)
-        cardImageView.addSubview(fourLabel)
+        whiteView.addSubview(oneLabel)
+        whiteView.addSubview(twoLabel)
+        whiteView.addSubview(threeLabel)
+        whiteView.addSubview(fourLabel)
         
         whiteView.addSubview(clickBtn)
     }
@@ -299,8 +301,8 @@ class OneView: UIView {
             make.left.equalToSuperview().offset(15)
         }
         
-        // serviceImageView constraints
-        serviceImageView.snp.makeConstraints { make in
+        // serviceBtn constraints
+        serviceBtn.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.size.equalTo(CGSize(width: 25, height: 25))
             make.right.equalToSuperview().offset(-12)
@@ -310,8 +312,13 @@ class OneView: UIView {
         phoneLabel.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.left.equalTo(iconImageView.snp.right).offset(12)
-            make.right.lessThanOrEqualTo(serviceImageView.snp.left).offset(-8)
+            make.right.lessThanOrEqualTo(serviceBtn.snp.left).offset(-8)
             make.height.equalTo(32)
+        }
+        
+        notLoginBtn.snp.makeConstraints { make in
+            make.left.bottom.top.equalToSuperview()
+            make.right.equalTo(serviceBtn.snp.left).offset(-5)
         }
         
         // scrollView constraints
@@ -338,15 +345,9 @@ class OneView: UIView {
         
         // stackView constraints - 居中显示
         stackView.snp.makeConstraints { make in
-            make.top.equalToSuperview()
+            make.top.equalToSuperview().offset(4)
             make.centerX.equalToSuperview()
             make.height.equalTo(50)
-        }
-        
-        cardImageView.snp.makeConstraints { make in
-            make.top.equalTo(stackView.snp.bottom)
-            make.centerX.equalToSuperview()
-            make.size.equalTo(CGSize(width: 315, height: 167))
         }
         
         // logoImageView constraints
@@ -355,13 +356,13 @@ class OneView: UIView {
         }
         
         applyBtn.snp.makeConstraints { make in
-            make.top.equalTo(cardImageView.snp.bottom).offset(18)
+            make.top.equalTo(fourLabel.snp.bottom).offset(25)
             make.centerX.equalToSuperview()
             make.size.equalTo(CGSize(width: 315, height: 55))
         }
         
         loanBtn.snp.makeConstraints { make in
-            make.top.equalTo(applyBtn.snp.bottom).offset(5)
+            make.top.equalTo(applyBtn.snp.bottom).offset(15)
             make.centerX.equalToSuperview()
             make.size.equalTo(CGSize(width: 190, height: 15))
         }
@@ -376,10 +377,11 @@ class OneView: UIView {
             make.top.equalTo(twoImageView.snp.bottom).offset(18)
             make.centerX.equalToSuperview()
             make.size.equalTo(CGSize(width: 335, height: 199))
+            make.bottom.equalToSuperview().offset(-20)
         }
         
         oneLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(12)
+            make.top.equalTo(stackView.snp.bottom).offset(18)
             make.height.equalTo(15)
             make.centerX.equalToSuperview()
             make.left.equalToSuperview()
@@ -422,6 +424,17 @@ class OneView: UIView {
             let pageUrl = self.affModel?.guests ?? ""
             self.mentBlock?(pageUrl)
         }).disposed(by: disposeBag)
+        
+        serviceBtn.rx.tap.bind(onNext: { [weak self] in
+            guard let self = self else { return }
+            self.customerBlock?()
+        }).disposed(by: disposeBag)
+        
+        notLoginBtn.rx.tap.bind(onNext: { [weak self] in
+            guard let self = self else { return }
+            self.toLoginBlock?()
+        }).disposed(by: disposeBag)
+        
     }
     
     private func setupGradient() {

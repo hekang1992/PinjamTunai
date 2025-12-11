@@ -17,6 +17,8 @@ class CenterViewController: BaseViewController {
     }()
     
     let viewModel = CenterViewModel()
+    
+    var model: BaseModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +48,14 @@ class CenterViewController: BaseViewController {
             }
         }
         
+        self.centerView.mentBlock = { [weak self] in
+            guard let self = self else { return }
+            let webVc = WebsiteViewController()
+            let pageUrl = self.model?.kindness?.other_url?.service_url ?? ""
+            webVc.pageUrl = pageUrl
+            self.navigationController?.pushViewController(webVc, animated: true)
+        }
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -65,6 +75,7 @@ extension CenterViewController {
                 let json = ["spot" : "1"]
                 let model = try await viewModel.centerInfo(json: json)
                 if model.token == 0 {
+                    self.model = model
                     self.centerView.phoneLabel.text = model.kindness?.userInfo?.lose ?? ""
                     self.centerView.modelArray = model.kindness?.flew ?? []
                 }

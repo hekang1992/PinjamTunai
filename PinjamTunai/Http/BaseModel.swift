@@ -89,6 +89,10 @@ class princeModel: Codable {
     var breeze: [breezeModel]?
 }
 
+class swanModel: Codable {
+    var feedbackUrl: String?
+}
+
 class affrightModel: Codable {
     var shrank: String?
     var guests: String?
@@ -121,9 +125,10 @@ class pavementModel: Codable {
     var lea: String?
     var stands: Int?
     var pallid: Int?
+    var bring: String?
     
     enum CodingKeys: String, CodingKey {
-        case rare, beauty, silently, stands, pallid, lea
+        case rare, beauty, silently, stands, pallid, lea, bring
     }
     
     required init(from decoder: Decoder) throws {
@@ -133,6 +138,7 @@ class pavementModel: Codable {
         silently = try container.decodeIfPresent(String.self, forKey: .silently)
         stands = try container.decodeIfPresent(Int.self, forKey: .stands)
         pallid = try container.decodeIfPresent(Int.self, forKey: .pallid)
+        bring = try container.decodeIfPresent(String.self, forKey: .bring)
         if let stringValue = try? container.decode(String.self, forKey: .beauty) {
             beauty = stringValue
         } else if let intValue = try? container.decode(Int.self, forKey: .beauty) {
@@ -190,10 +196,15 @@ class kindnessModel: Codable {
     var prince: [princeModel]?
     var privacyPolicyUrl: String?
     var affright: affrightModel?
+    var circle: String?
+    var other_url: other_urlModel?
+    var fixing: Int?
+    var swan: swanModel?
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        
+        fixing = try container.decodeIfPresent(Int.self, forKey: .fixing)
+        circle = try container.decodeIfPresent(String.self, forKey: .circle)
         kissed = try container.decodeIfPresent(Int.self, forKey: .kissed)
         toward = try container.decodeIfPresent(towardModel.self, forKey: .toward)
         flew = try container.decodeIfPresent([flewModel].self, forKey: .flew)
@@ -201,10 +212,12 @@ class kindnessModel: Codable {
         mill = try container.decodeIfPresent(String.self, forKey: .mill)
         whistling = try container.decodeIfPresent(String.self, forKey: .whistling)
         pavement = try container.decodeIfPresent(pavementModel.self, forKey: .pavement)
+        swan = try container.decodeIfPresent(swanModel.self, forKey: .swan)
         mid = try container.decodeIfPresent([midModel].self, forKey: .mid)
         userInfo = try container.decodeIfPresent(userInfoModel.self, forKey: .userInfo)
         above = try container.decodeIfPresent(aboveModel.self, forKey: .above)
         affright = try container.decodeIfPresent(affrightModel.self, forKey: .affright)
+        other_url = try container.decodeIfPresent(other_urlModel.self, forKey: .other_url)
         breast = try container.decodeIfPresent([breastModel].self, forKey: .breast)
         ground = try container.decodeIfPresent([groundModel].self, forKey: .ground)
         prince = try container.decodeIfPresent([princeModel].self, forKey: .prince)
@@ -218,4 +231,8 @@ class kindnessModel: Codable {
             dropped = nil
         }
     }
+}
+
+class other_urlModel: Codable {
+    var service_url: String?
 }

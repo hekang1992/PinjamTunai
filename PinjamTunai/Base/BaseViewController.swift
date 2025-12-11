@@ -39,5 +39,10 @@ extension BaseViewController {
         }
     }
     
+    func popToLoginVc() {
+        let naeVc = BaseNavigationController(rootViewController: LoginViewController())
+        naeVc.modalPresentationStyle = .overFullScreen
+        self.present(naeVc, animated: true)
+    }
     
 }

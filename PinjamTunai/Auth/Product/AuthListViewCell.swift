@@ -86,7 +86,6 @@ class AuthListViewCell: UITableViewCell {
     
     lazy var leftImageView: UIImageView = {
         let leftImageView = UIImageView()
-        leftImageView.backgroundColor = .gray
         leftImageView.layer.cornerRadius = 5
         leftImageView.layer.masksToBounds = true
         return leftImageView
