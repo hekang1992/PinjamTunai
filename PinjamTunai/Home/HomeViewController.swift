@@ -129,12 +129,12 @@ class HomeViewController: BaseViewController {
         super.viewWillAppear(animated)
         
         let networkType = UserDefaults.standard.object(forKey: "network") as? String ?? ""
-        guard UIDevice.current.model != "iPad" else {
+        
+        if UIDevice.current.model == "iPad" {
             guard networkType == "5G" || networkType == "WIFI" else {
                 self.showPermissionAlert(on: self)
                 return
             }
-            return
         }
         
         self.homeAllApiMessageInfo()
