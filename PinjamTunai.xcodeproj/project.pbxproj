@@ -51,6 +51,7 @@
 		731F232A2EE9532A00C586BB /* GainedConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 731F23292EE9532900C586BB /* GainedConfig.swift */; };
 		734EA0382EE85F5A00C1B49E /* TwoHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734EA0372EE85F5A00C1B49E /* TwoHeadView.swift */; };
 		734EA03A2EE866FF00C1B49E /* ProductAccViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734EA0392EE866FF00C1B49E /* ProductAccViewCell.swift */; };
+		7365DAC72EEABB1A00AF51FA /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7365DAC62EEABB1A00AF51FA /* ErrorView.swift */; };
 		7368B6392EE8465700ADDA99 /* ReceiptAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7368B6382EE8465700ADDA99 /* ReceiptAccountViewController.swift */; };
 		7368B63B2EE8473B00ADDA99 /* ReceiptViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7368B63A2EE8473400ADDA99 /* ReceiptViewModel.swift */; };
 		7368B63D2EE84C3300ADDA99 /* WebsiteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7368B63C2EE84C3300ADDA99 /* WebsiteViewController.swift */; };
@@ -136,6 +137,7 @@
 		731F23292EE9532900C586BB /* GainedConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GainedConfig.swift; sourceTree = "<group>"; };
 		734EA0372EE85F5A00C1B49E /* TwoHeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoHeadView.swift; sourceTree = "<group>"; };
 		734EA0392EE866FF00C1B49E /* ProductAccViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAccViewCell.swift; sourceTree = "<group>"; };
+		7365DAC62EEABB1A00AF51FA /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		7368B6382EE8465700ADDA99 /* ReceiptAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptAccountViewController.swift; sourceTree = "<group>"; };
 		7368B63A2EE8473400ADDA99 /* ReceiptViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptViewModel.swift; sourceTree = "<group>"; };
 		7368B63C2EE84C3300ADDA99 /* WebsiteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebsiteViewController.swift; sourceTree = "<group>"; };
@@ -353,6 +355,7 @@
 			children = (
 				737D1F152EE587E0003CC748 /* OneView.swift */,
 				737D1F172EE587EA003CC748 /* TwoView.swift */,
+				7365DAC62EEABB1A00AF51FA /* ErrorView.swift */,
 				737D1F192EE587F1003CC748 /* HomeViewModel.swift */,
 				737D1F032EE45870003CC748 /* HomeViewController.swift */,
 				734EA0372EE85F5A00C1B49E /* TwoHeadView.swift */,
@@ -632,6 +635,7 @@
 				737D1F1A2EE587F5003CC748 /* HomeViewModel.swift in Sources */,
 				734EA03A2EE866FF00C1B49E /* ProductAccViewCell.swift in Sources */,
 				738F4D762EE967F000909C0E /* TrackingViewModel.swift in Sources */,
+				7365DAC72EEABB1A00AF51FA /* ErrorView.swift in Sources */,
 				737D1F082EE4597A003CC748 /* ApiPeraConfig.swift in Sources */,
 				73145EE92EE69A28006085E8 /* AuthListViewController.swift in Sources */,
 				73145F042EE6C89D006085E8 /* FaceView.swift in Sources */,

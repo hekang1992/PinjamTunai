@@ -61,8 +61,6 @@ class LaunchViewController: BaseViewController {
                     await self.initAppInfo()
                     await self.getIDFAInfo()
                 }
-                UserDefaults.standard.set(networkType, forKey: "networkType")
-                UserDefaults.standard.synchronize()
             }else {
                 if UIDevice.current.model == "iPad" {
                     UserDefaults.standard.set("1", forKey: "kissed")

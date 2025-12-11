@@ -63,3 +63,4 @@
 "Network permission is not enabled" = "Network permission is not enabled";
 "Network error. Please check if you are connected to the network?" = "Network error. Please check if you are connected to the network?";
 "Camera access is required to process your loan application. Please enable it in Settings to continue." = "Camera access is required to process your loan application. Please enable it in Settings to continue.";
+"Network Connection Failure" = "Network Connection Failure";

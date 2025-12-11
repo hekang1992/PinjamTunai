@@ -112,12 +112,6 @@ class OneView: UIView {
         return scrollView
     }()
     
-    lazy var contentView: UIView = {
-        let contentView = UIView()
-        contentView.backgroundColor = .clear
-        return contentView
-    }()
-    
     lazy var whiteView: UIView = {
         let whiteView = UIView()
         whiteView.backgroundColor = .white
@@ -259,8 +253,7 @@ class OneView: UIView {
         oneImageView.addSubview(notLoginBtn)
         
         addSubview(scrollView)
-        scrollView.addSubview(contentView)
-        contentView.addSubview(whiteView)
+        scrollView.addSubview(whiteView)
         
         // Setup stackView
         whiteView.addSubview(stackView)
@@ -270,8 +263,8 @@ class OneView: UIView {
         whiteView.addSubview(loanBtn)
         whiteView.addSubview(applyBtn)
         
-        contentView.addSubview(twoImageView)
-        contentView.addSubview(threeImageView)
+        scrollView.addSubview(twoImageView)
+        scrollView.addSubview(threeImageView)
         
         whiteView.addSubview(oneLabel)
         whiteView.addSubview(twoLabel)
@@ -325,13 +318,6 @@ class OneView: UIView {
         scrollView.snp.makeConstraints { make in
             make.left.right.bottom.equalToSuperview()
             make.top.equalTo(oneImageView.snp.bottom).offset(1)
-        }
-        
-        // contentView constraints
-        contentView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-            make.width.equalTo(scrollView)
-            make.height.greaterThanOrEqualTo(scrollView)
         }
         
         // whiteView constraints

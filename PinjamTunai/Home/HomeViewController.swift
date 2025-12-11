@@ -22,6 +22,11 @@ class HomeViewController: BaseViewController {
         return twoView
     }()
     
+    lazy var errorView: ErrorView = {
+        let errorView = ErrorView()
+        return errorView
+    }()
+    
     var model: BaseModel?
     
     let homeViewModel = HomeViewModel()
@@ -46,8 +51,14 @@ class HomeViewController: BaseViewController {
             make.edges.equalToSuperview()
         }
         
+        view.addSubview(errorView)
+        errorView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
         oneView.isHidden = true
         twoView.isHidden = true
+        errorView.isHidden = true
         
         self.oneView.scrollView.mj_header = MJRefreshNormalHeader(refreshingBlock: { [weak self] in
             guard let self = self else { return }
@@ -107,12 +118,17 @@ class HomeViewController: BaseViewController {
             }
         }
         
+        self.errorView.clickBlock = { [weak self] in
+            guard let self = self else { return }
+            self.homeAllApiMessageInfo()
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let networkType = UserDefaults.standard.object(forKey: "networkType") as? String ?? ""
+        let networkType = UserDefaults.standard.object(forKey: "network") as? String ?? ""
         guard UIDevice.current.model != "iPad" else {
             guard networkType == "5G" || networkType == "WIFI" else {
                 self.showPermissionAlert(on: self)
@@ -192,6 +208,7 @@ extension HomeViewController {
                     self.oneView.scrollView.mj_header?.endRefreshing()
                 }
             } catch {
+                self.showPermissionAlert(on: self)
                 await MainActor.run {
                     self.twoView.tableView.mj_header?.endRefreshing()
                     self.oneView.scrollView.mj_header?.endRefreshing()
@@ -212,10 +229,12 @@ extension HomeViewController {
             if heads == "asb" {
                 oneView.isHidden = false
                 twoView.isHidden = true
+                errorView.isHidden = true
                 self.oneView.model = model.above?.first
             }else if heads == "asc" || heads == "asd" {
                 oneView.isHidden = true
                 twoView.isHidden = false
+                errorView.isHidden = true
                 if heads == "asc" {
                     self.twoView.model = model.above?.first
                 }
@@ -332,6 +351,9 @@ extension HomeViewController {
 extension HomeViewController {
     
     private func showPermissionAlert(on vc: UIViewController) {
+        oneView.isHidden = true
+        twoView.isHidden = true
+        errorView.isHidden = false
         let alert = UIAlertController(
             title: LanguageManager.localizedString(for: "Network permission is not enabled"),
             message: LanguageManager.localizedString(for: "Network error. Please check if you are connected to the network?"),
