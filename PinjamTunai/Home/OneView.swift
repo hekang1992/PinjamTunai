@@ -150,7 +150,7 @@ class OneView: UIView {
     
     lazy var loanBtn: UIButton = {
         let loanBtn = UIButton(type: .custom)
-        loanBtn.adjustsImageWhenHighlighted = true
+        loanBtn.adjustsImageWhenHighlighted = false
         let type = LanguageManager.getLanguageCode()
         if type == "2" {
             loanBtn.setImage(UIImage(named: "id_ag_imge_image"), for: .normal)
