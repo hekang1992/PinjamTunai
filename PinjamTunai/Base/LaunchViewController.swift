@@ -86,7 +86,7 @@ class LaunchViewController: BaseViewController {
         
     }
     
-    @MainActor
+//    @MainActor
     deinit {
         print("LaunchViewController============")
     }
@@ -174,7 +174,9 @@ extension LaunchViewController {
         uploadViewModel.onSuccess = { [weak self] model in
             guard let self = self, let model = model else { return }
             if model.token == 0 {
-                self.againBtn.isHidden = true
+                DispatchQueue.main.async {
+                    self.againBtn.isHidden = true
+                }
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
                     NotificationCenter.default.post(name: NSNotification.Name("changeRootVc"), object: nil)
                 }
