@@ -37,7 +37,6 @@ class AuthListView: UIView {
     lazy var nextBtn: UIButton = {
         let nextBtn = UIButton(type: .custom)
         nextBtn.setTitleColor(.white, for: .normal)
-        nextBtn.setTitle(LanguageManager.localizedString(for: "Next"), for: .normal)
         nextBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight(500))
         nextBtn.setBackgroundImage(UIImage(named: "home_apply_image"), for: .normal)
         nextBtn.adjustsImageWhenHighlighted = false

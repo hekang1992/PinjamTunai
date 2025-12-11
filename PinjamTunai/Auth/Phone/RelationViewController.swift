@@ -51,7 +51,8 @@ class RelationViewController: BaseViewController {
         tableView.showsVerticalScrollIndicator = false
         tableView.contentInsetAdjustmentBehavior = .never
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.register(RelationViewCell.self, forCellReuseIdentifier: "RelationViewCell")
+        tableView.register(RelationViewCell.self,
+                           forCellReuseIdentifier: "RelationViewCell")
         if #available(iOS 15.0, *) {
             tableView.sectionHeaderTopPadding = 0
         }

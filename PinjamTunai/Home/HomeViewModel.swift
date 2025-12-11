@@ -8,6 +8,9 @@
 class HomeViewModel {
     
     func homeMessageInfo() async throws -> BaseModel {
+        
+        try await Task.sleep(nanoseconds: 200_000_000)
+        
         LoadingView.show()
         
         defer {

@@ -116,7 +116,7 @@ class RelationViewCell: UITableViewCell {
         let threeLabel = UILabel()
         threeLabel.textAlignment = .left
         threeLabel.textColor = UIColor.init(hex: "#939393")
-        threeLabel.font = UIFont.systemFont(ofSize: 10, weight: UIFont.Weight(400))
+        threeLabel.font = UIFont.systemFont(ofSize: 13, weight: UIFont.Weight(400))
         return threeLabel
     }()
     
@@ -124,7 +124,7 @@ class RelationViewCell: UITableViewCell {
         let fourLabel = UILabel()
         fourLabel.textAlignment = .left
         fourLabel.textColor = UIColor.init(hex: "#939393")
-        fourLabel.font = UIFont.systemFont(ofSize: 10, weight: UIFont.Weight(400))
+        fourLabel.font = UIFont.systemFont(ofSize: 13, weight: UIFont.Weight(400))
         return fourLabel
     }()
     
@@ -171,66 +171,66 @@ class RelationViewCell: UITableViewCell {
         }
         
         oneImageView.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: 335, height: 61))
+            make.size.equalTo(CGSize(width: 335, height: 71))
             make.centerX.equalToSuperview()
             make.top.equalTo(titleLabel.snp.bottom).offset(20)
         }
         
         twoImageView.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: 335, height: 61))
+            make.size.equalTo(CGSize(width: 335, height: 71))
             make.centerX.equalToSuperview()
-            make.top.equalTo(oneImageView.snp.bottom).offset(10)
-            make.bottom.equalToSuperview().offset(-20)
+            make.top.equalTo(oneImageView.snp.bottom)
+            make.bottom.equalToSuperview().offset(-10)
         }
         
         threeImageView.snp.makeConstraints { make in
             make.right.equalToSuperview().offset(-5)
             make.size.equalTo(CGSize(width: 24, height: 24))
-            make.bottom.equalToSuperview().offset(-4)
+            make.centerY.equalTo(threeLabel.snp.centerY)
         }
         
         fourImageView.snp.makeConstraints { make in
             make.right.equalToSuperview().offset(-5)
             make.size.equalTo(CGSize(width: 24, height: 24))
-            make.bottom.equalToSuperview().offset(-4)
+            make.centerY.equalTo(fourLabel.snp.centerY)
         }
         
         oneLabel.snp.makeConstraints { make in
             make.height.equalTo(16)
-            make.top.equalToSuperview().offset(6)
+            make.top.equalToSuperview().offset(13)
             make.left.equalToSuperview().offset(7)
         }
         
         twoLabel.snp.makeConstraints { make in
             make.height.equalTo(16)
-            make.top.equalToSuperview().offset(6)
+            make.top.equalToSuperview().offset(13)
             make.left.equalToSuperview().offset(7)
         }
         
         threeLabel.snp.makeConstraints { make in
             make.right.equalTo(threeImageView.snp.left).offset(-10)
             make.left.equalTo(oneLabel).offset(2)
-            make.height.equalTo(12)
-            make.bottom.equalToSuperview().offset(-12)
+            make.height.equalTo(15)
+            make.bottom.equalToSuperview().offset(-15)
         }
         
         fourLabel.snp.makeConstraints { make in
             make.right.equalTo(fourImageView.snp.left).offset(-10)
             make.left.equalTo(twoLabel).offset(2)
-            make.height.equalTo(12)
-            make.bottom.equalToSuperview().offset(-12)
+            make.height.equalTo(15)
+            make.bottom.equalToSuperview().offset(-15)
         }
         
         oneBtn.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: 335, height: 57))
+            make.size.equalTo(CGSize(width: 335, height: 71))
             make.centerX.equalToSuperview()
             make.top.equalTo(titleLabel.snp.bottom).offset(20)
         }
         
         twoBtn.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: 335, height: 57))
+            make.size.equalTo(CGSize(width: 335, height: 71))
             make.centerX.equalToSuperview()
-            make.top.equalTo(oneImageView.snp.bottom).offset(10)
+            make.top.equalTo(oneImageView.snp.bottom)
             make.bottom.equalToSuperview().offset(-25)
         }
         

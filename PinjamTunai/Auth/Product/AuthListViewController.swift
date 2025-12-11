@@ -155,6 +155,7 @@ extension AuthListViewController {
                     self.droppedModel = model.kindness?.dropped
                     self.modelArray = model.kindness?.mid ?? []
                     self.headView.nameLabel.text = model.kindness?.pavement?.bring ?? ""
+                    self.listView.nextBtn.setTitle(model.kindness?.pavement?.rushing, for: .normal)
                 }
                 self.listView.tableView.reloadData()
                 await self.listView.tableView.mj_header?.endRefreshing()

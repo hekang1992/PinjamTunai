@@ -126,13 +126,15 @@ class pavementModel: Codable {
     var stands: Int?
     var pallid: Int?
     var bring: String?
+    var rushing: String?
     
     enum CodingKeys: String, CodingKey {
-        case rare, beauty, silently, stands, pallid, lea, bring
+        case rare, beauty, silently, stands, pallid, lea, bring, rushing
     }
     
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
+        rushing = try container.decodeIfPresent(String.self, forKey: .rushing)
         lea = try container.decodeIfPresent(String.self, forKey: .lea)
         rare = try container.decodeIfPresent(String.self, forKey: .rare)
         silently = try container.decodeIfPresent(String.self, forKey: .silently)

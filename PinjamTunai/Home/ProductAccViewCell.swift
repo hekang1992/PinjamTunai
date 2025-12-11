@@ -19,7 +19,11 @@ class ProductAccViewCell: UITableViewCell {
             
             nameLabel.text = model.bring ?? ""
             moneyLabel.text = model.throng ?? ""
-            descLabel.text = model.among ?? ""
+            descLabel.text = model.wondrous ?? ""
+            
+            let typeStr = model.rushing ?? ""
+            typeLabel.text = typeStr
+            
         }
     }
     
@@ -69,13 +73,17 @@ class ProductAccViewCell: UITableViewCell {
         typeLabel.textAlignment = .center
         typeLabel.textColor = UIColor.init(hex: "#FFFFFF")
         typeLabel.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight(400))
-        typeLabel.backgroundColor = UIColor.init(hex: "#6D95FC")
-        typeLabel.layer.cornerRadius = 12
-        typeLabel.layer.masksToBounds = true
-        typeLabel.text = LanguageManager.localizedString(for: "Apply")
         return typeLabel
     }()
-
+    
+    lazy var typeView: UIView = {
+        let typeView = UIView()
+        typeView.backgroundColor = UIColor.init(hex: "#6D95FC")
+        typeView.layer.cornerRadius = 15
+        typeView.layer.masksToBounds = true
+        return typeView
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = .clear
@@ -85,7 +93,8 @@ class ProductAccViewCell: UITableViewCell {
         bgView.addSubview(nameLabel)
         bgView.addSubview(moneyLabel)
         bgView.addSubview(descLabel)
-        bgView.addSubview(typeLabel)
+        bgView.addSubview(typeView)
+        typeView.addSubview(typeLabel)
         
         bgView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
@@ -113,11 +122,17 @@ class ProductAccViewCell: UITableViewCell {
             make.top.equalTo(moneyLabel.snp.bottom).offset(1)
             make.height.equalTo(24)
         }
-        typeLabel.snp.makeConstraints { make in
+        typeView.snp.makeConstraints { make in
             make.right.equalToSuperview().offset(-10)
             make.bottom.equalToSuperview().offset(-14)
-            make.height.equalTo(24)
-            make.width.equalTo(80)
+            make.height.equalTo(30)
+            make.width.greaterThanOrEqualTo(80)
+        }
+        typeLabel.snp.makeConstraints { make in
+            make.left.equalToSuperview().offset(8)
+            make.right.equalToSuperview().offset(-8)
+            make.centerY.equalToSuperview()
+            make.height.equalTo(26)
         }
     }
     

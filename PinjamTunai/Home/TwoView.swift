@@ -33,7 +33,8 @@ class TwoView: UIView {
         tableView.showsVerticalScrollIndicator = false
         tableView.contentInsetAdjustmentBehavior = .never
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.register(ProductAccViewCell.self, forCellReuseIdentifier: "ProductAccViewCell")
+        tableView.register(ProductAccViewCell.self,
+                           forCellReuseIdentifier: "ProductAccViewCell")
         if #available(iOS 15.0, *) {
             tableView.sectionHeaderTopPadding = 0
         }
