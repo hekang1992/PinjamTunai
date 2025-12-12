@@ -12,24 +12,31 @@ class HttpRequestManager: NSObject {
 
     static let shared = HttpRequestManager()
     private override init() {}
+    
+    private var baseURL: String {
+        let apiUrl = UserDefaults.standard.string(forKey: "baseUrl")
+        return apiUrl?.isEmpty == false ? apiUrl! : "https://cosco-vanijya.com/ommunicationsange"
+    }
 
-    private let baseURL = "http://8.215.47.12/ommunicationsange"
-
-    // MARK: - GET async
     func get<T: Decodable>(_ path: String,
-             parameters: [String: Any]? = nil) async throws -> T {
-
+                           parameters: [String: Any]? = nil,
+                           timeoutInterval: TimeInterval = 10) async throws -> T {
+        
         let url = baseURL + path
-        
         let para = ApiPeraConfig.getCommonPara()
-        
         let apiUrl = URLQueryHelper.appendQueries(to: url, parameters: para) ?? ""
-
+        
+        let configuration = URLSessionConfiguration.af.default
+        configuration.timeoutIntervalForRequest = timeoutInterval
+        configuration.timeoutIntervalForResource = timeoutInterval
+        
+        let session = Session(configuration: configuration)
+        
         return try await withCheckedThrowingContinuation { continuation in
-            AF.request(apiUrl,
-                       method: .get,
-                       parameters: parameters,
-                       encoding: URLEncoding.default)
+            session.request(apiUrl,
+                           method: .get,
+                           parameters: parameters,
+                           encoding: URLEncoding.default)
                 .validate()
                 .responseDecodable(of: T.self) { response in
                     switch response.result {

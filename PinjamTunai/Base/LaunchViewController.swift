@@ -16,6 +16,10 @@ class LaunchViewController: BaseViewController {
     
     let disposeBag = DisposeBag()
     
+    var apiArray: [[String: String]] = []
+    
+    var index: Int = 0
+    
     lazy var bgImageView: UIImageView = {
         let bgImageView = UIImageView()
         bgImageView.image = UIImage(named: "app_launch_image")
@@ -58,8 +62,7 @@ class LaunchViewController: BaseViewController {
             if networkType == "5G" || networkType == "WIFI" {
                 Task { [weak self] in
                     guard let self = self else { return }
-                    await self.initAppInfo()
-                    await self.getIDFAInfo()
+                    self.getJsonInfo()
                 }
             }else {
                 if UIDevice.current.model == "iPad" {
@@ -75,7 +78,6 @@ class LaunchViewController: BaseViewController {
         againBtn.rx.tap
             .bind(onNext: { [weak self] in
                 guard let self else { return }
-                
                 Task { [weak self] in
                     guard let self else { return }
                     await self.initAppInfo()
@@ -96,8 +98,34 @@ class LaunchViewController: BaseViewController {
 
 extension LaunchViewController {
     
+    
+    func getJsonInfo() {
+        let pageUrl = "https://id08-dc.oss-ap-southeast-5.aliyuncs.com/pinjam-tunai/693b83f95a67a.json"
+        guard let url = URL(string: pageUrl) else {
+            return
+        }
+        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+            guard let self = self, let data = data else {
+                return
+            }
+            do {
+                let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
+                if let jsonArray = jsonObject as? [[String: String]] {
+                    self.apiArray = jsonArray
+                    Task {
+                        await self.initAppInfo()
+                    }
+                }
+            } catch {
+                
+            }
+        }
+        task.resume()
+    }
+    
+    
     private func initAppInfo() async {
-        
+        LoadingView.show()
         let became = Locale.preferredLanguages.first ?? ""
         let famous = HTTPProxyInfo.proxyStatus.rawValue
         let fellowship = HTTPProxyInfo.vpnStatus.rawValue
@@ -109,9 +137,26 @@ extension LaunchViewController {
             guard let self = self else { return }
             self.againBtn.isHidden = false
             print("Error: \(msg)")
+            LoadingView.hide()
+            
+            
+            if self.index > self.apiArray.count - 1 {
+                return
+            }
+            
+            let apiUrl = self.apiArray[self.index]["pt"] ?? ""
+            UserDefaults.standard.set(apiUrl, forKey: "baseUrl")
+            UserDefaults.standard.synchronize()
+            
+            self.index += 1
+            Task {
+                await self.initAppInfo()
+            }
+            
         }
         
         viewModel.onSuccess = { [weak self] model in
+            LoadingView.hide()
             guard let self = self, let model = model else { return }
             if model.token == 0 {
                 DispatchQueue.main.async {
@@ -132,6 +177,9 @@ extension LaunchViewController {
                 }
                 if let lang = AppLanguage(rawValue: kissed) {
                     LanguageManager.setLanguage(lang)
+                }
+                Task {
+                    await self.getIDFAInfo()
                 }
             }else {
                 DispatchQueue.main.async {

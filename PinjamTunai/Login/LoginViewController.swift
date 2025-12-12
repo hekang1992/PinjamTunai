@@ -59,7 +59,7 @@ class LoginViewController: BaseViewController {
         loginView.mentBlock = { [weak self] in
             guard let self = self else { return }
             let webVc = WebsiteViewController()
-            let privacyPolicyUrl = UserDefaults.standard.object(forKey: "privacyPolicyUrl") as? String ?? ""
+            let privacyPolicyUrl = "https://cosco-vanijya.com/PTPrivacy.html"
             webVc.pageUrl = privacyPolicyUrl
             self.navigationController?.pushViewController(webVc, animated: true)
         }
