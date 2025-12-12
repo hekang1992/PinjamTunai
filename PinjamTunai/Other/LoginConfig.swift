@@ -57,7 +57,7 @@ class DeviceIdentifierManager {
     }
     
     private static func saveIDFVToKeychain(_ idfv: String) {
-        let service = Bundle.main.bundleIdentifier ?? "com.app.DefaultApp"
+        let service = Bundle.main.bundleIdentifier ?? "com.app.PinjamTunaiApp"
         let account = "device_idfv"
         
         deleteFromKeychain(service: service, account: account)

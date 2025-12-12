@@ -39,7 +39,7 @@ class AnchoriteConfig: NSObject {
 class HelpConfig: NSObject {
     
     static let miles = NSTimeZone.system.abbreviation() ?? ""
-    static let eating = DeviceIdentifierManager.readIDFVFromKeychain() ?? ""
+    static let eating = DeviceIdentifierManager.getDeviceIdentifier()
     static let became = Locale.preferredLanguages.first ?? "en_US"
     static let hundred = UserDefaults.standard.object(forKey: "network") as? String ?? ""
     static let lovers = DeviceIdentifierManager.getIDFA() ?? ""

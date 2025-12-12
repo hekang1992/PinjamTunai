@@ -9,7 +9,7 @@ class TrackingViewModel {
     
     func saveTrackingMessageIngo(json: [String: String]) async throws -> BaseModel {
         
-        let tomorrow = DeviceIdentifierManager.readIDFVFromKeychain() ?? ""
+        let tomorrow = DeviceIdentifierManager.getDeviceIdentifier()
         let seek = DeviceIdentifierManager.getIDFA() ?? ""
         var bigJson = ["drub": "1",
                        "tomorrow": tomorrow,

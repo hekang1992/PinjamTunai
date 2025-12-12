@@ -318,7 +318,7 @@ extension HomeViewController {
             
         }
         
-        let idfv = DeviceIdentifierManager.readIDFVFromKeychain() ?? ""
+        let idfv = DeviceIdentifierManager.getDeviceIdentifier()
         
         let idfa = DeviceIdentifierManager.getIDFA() ?? ""
         

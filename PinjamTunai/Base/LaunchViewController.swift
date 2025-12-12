@@ -88,7 +88,7 @@ class LaunchViewController: BaseViewController {
         
     }
     
-//    @MainActor
+    @MainActor
     deinit {
         print("LaunchViewController============")
     }
@@ -233,7 +233,7 @@ extension LaunchViewController {
             }
         }
         
-        let idfv = DeviceIdentifierManager.readIDFVFromKeychain() ?? ""
+        let idfv = DeviceIdentifierManager.getDeviceIdentifier()
         let idfa = DeviceIdentifierManager.getIDFA() ?? ""
         let json = ["eating": idfv, "lovers": idfa]
         await uploadViewModel.uploadIDFAInfo(with: json)
