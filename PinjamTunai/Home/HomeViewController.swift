@@ -70,9 +70,13 @@ class HomeViewController: BaseViewController {
             if pageUrl.isEmpty {
                 return
             }
-            let webVc = WebsiteViewController()
-            webVc.pageUrl = pageUrl
-            self.navigationController?.pushViewController(webVc, animated: true)
+            if LoginConfig.hasValidToken() {
+                let webVc = WebsiteViewController()
+                webVc.pageUrl = pageUrl
+                self.navigationController?.pushViewController(webVc, animated: true)
+            }else {
+                self.popToLoginVc()
+            }
         }
         
         self.oneView.customerBlock = { [weak self] in
