@@ -32,6 +32,8 @@ class BasicViewController: BaseViewController {
     
     var onetime: String = ""
     
+    var apptitle: String = ""
+    
     lazy var nextBtn: UIButton = {
         let nextBtn = UIButton(type: .custom)
         nextBtn.setTitleColor(.white, for: .normal)
@@ -64,7 +66,7 @@ class BasicViewController: BaseViewController {
         // Do any additional setup after loading the view.
         view.addSubview(headView)
         
-        headView.nameLabel.text = LanguageManager.localizedString(for: "Base Information")
+        headView.nameLabel.text = apptitle
         
         headView.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
@@ -194,8 +196,9 @@ extension BasicViewController {
                 if model.token == 0 {
                     self.navigationController?.popViewController(animated: true)
                     await self.trackfmesageInfo()
+                }else {
+                    Toaster.showMessage(with: model.stretched ?? "")
                 }
-                Toaster.showMessage(with: model.stretched ?? "")
             } catch {
             
             }

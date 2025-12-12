@@ -412,13 +412,11 @@ extension LoginView {
         codeBtn.rx.tap.bind(onNext: { [weak self] in
             guard let self = self else { return }
             self.codeBlock?()
-            self.codeTextFiled.becomeFirstResponder()
         }).disposed(by: disposeBag)
         
         voiceLabel.rx.tapGesture().when(.recognized).bind(onNext: { [weak self] _ in
             guard let self = self else { return }
             self.voiceBlock?()
-            self.codeTextFiled.becomeFirstResponder()
         }).disposed(by: disposeBag)
         
         oneBtn.rx.tap.bind(onNext: { [weak self] in

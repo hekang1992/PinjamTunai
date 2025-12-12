@@ -40,9 +40,7 @@
 "Please agree to all the terms" = "Please agree to all the terms";
 "Confirm" = "Confirm";
 "Confirm Information" = "Confirm Information";
-"Base Information" = "Base Information";
 "Please choose one" = "Please choose one";
-"Emergency Contact" = "Emergency Contact";
 "Permission Needed" = "Permission Needed";
 "Contact access is required to process your loan application. Please enable it in Settings to continue." = "Contact access is required to process your loan application. Please enable it in Settings to continue.";
 "Receipt Account" = "Receipt Account";
@@ -57,7 +55,7 @@
 "Date" = "Date";
 "Month" = "Month";
 "Year" = "Year";
-"Your repayment record is exceptionally excellent! The system has upgraded your credit limit to ₱8.000.000, and the low-interest rate channel is open for a limited time—it would be a pity to miss it!" = "Your repayment record is exceptionally excellent! The system has upgraded your credit limit to ₱8.000.000, and the low-interest rate channel is open for a limited time—it would be a pity to miss it!";
+"Your repayment record is exceptionally excellent! The system has upgraded your credit limit to 8.000.000, and the low-interest rate channel is open for a limited time—it would be a pity to miss it!" = "Your repayment record is exceptionally excellent! The system has upgraded your credit limit to 8.000.000, and the low-interest rate channel is open for a limited time—it would be a pity to miss it!";
 "Continue" = "Continue";
 "Leave" = "Leave";
 "Network permission is not enabled" = "Network permission is not enabled";

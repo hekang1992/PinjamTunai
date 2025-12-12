@@ -26,6 +26,8 @@ class FaceViewController: BaseViewController {
     
     let trackingViewModel = TrackingViewModel()
     
+    var apptitle: String = ""
+    
     lazy var faceView: FaceView = {
         let faceView = FaceView()
         return faceView
@@ -42,7 +44,7 @@ class FaceViewController: BaseViewController {
         view.addSubview(headView)
         view.addSubview(faceView)
         
-        headView.nameLabel.text = LanguageManager.localizedString(for: "Identity Information")
+        headView.nameLabel.text = apptitle
         
         headView.snp.makeConstraints { make in
             make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
@@ -303,8 +305,9 @@ extension FaceViewController {
                     self.dismiss(animated: true)
                     await self.getFaceInfo()
                     await self.tracktwoInfo()
+                }else {
+                    Toaster.showMessage(with: model.stretched ?? "")
                 }
-                Toaster.showMessage(with: model.stretched ?? "")
             } catch {
                 
             }

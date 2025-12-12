@@ -32,18 +32,23 @@ class AuthListViewCell: UITableViewCell {
             switch blossoming {
             case "isa":
                 listImageView.image = stillness == 1 ? UIImage(named: "one_com_type_image") : UIImage(named: "list_auth_nor_image")
+                threeLabel.textColor = stillness == 1 ? UIColor.init(hex: "#608EFC") : UIColor.init(hex: "#ACACAC")
                 break
             case "isb":
                 listImageView.image = stillness == 1 ? UIImage(named: "two_com_type_image") : UIImage(named: "list_auth_nor_image")
+                threeLabel.textColor = stillness == 1 ? UIColor.init(hex: "#FBA505") : UIColor.init(hex: "#ACACAC")
                 break
             case "isc":
                 listImageView.image = stillness == 1 ? UIImage(named: "three_com_type_image") : UIImage(named: "list_auth_nor_image")
+                threeLabel.textColor = stillness == 1 ? UIColor.init(hex: "#22CB59") : UIColor.init(hex: "#ACACAC")
                 break
             case "isd":
                 listImageView.image = stillness == 1 ? UIImage(named: "four_com_type_image") : UIImage(named: "list_auth_nor_image")
+                threeLabel.textColor = stillness == 1 ? UIColor.init(hex: "#855FFE") : UIColor.init(hex: "#ACACAC")
                 break
             case "ise":
                 listImageView.image = stillness == 1 ? UIImage(named: "five_com_type_image") : UIImage(named: "list_auth_nor_image")
+                threeLabel.textColor = stillness == 1 ? UIColor.init(hex: "#60DAFC") : UIColor.init(hex: "#ACACAC")
                 break
             default:
                 break

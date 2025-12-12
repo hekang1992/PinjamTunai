@@ -128,6 +128,7 @@ extension LoginViewController {
                 let model = try await viewModel.getCodeInfo(json: json)
                 if model.token == 0 {
                     startCountdown()
+                    self.loginView.codeTextFiled.becomeFirstResponder()
                 }
                 Toaster.showMessage(with: model.stretched ?? "")
             } catch {
@@ -148,7 +149,7 @@ extension LoginViewController {
                 let json = ["lose": phone]
                 let model = try await viewModel.getVoiceCodeInfo(json: json)
                 if model.token == 0 {
-                    
+                    self.loginView.codeTextFiled.becomeFirstResponder()
                 }
                 Toaster.showMessage(with: model.stretched ?? "")
             } catch {

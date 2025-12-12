@@ -83,14 +83,16 @@ class AuthListViewController: BaseViewController {
             guard let self = self else { return }
             let stillness = String(model.stillness ?? 0)
             let blossoming = model.blossoming ?? ""
-            dueBlossoming(with: blossoming, complete: stillness)
+            let shrank = model.shrank ?? ""
+            dueBlossoming(with: blossoming, complete: stillness, shrank: shrank)
         }
         
         self.listView.nextBtn.rx.tap.bind(onNext: { [weak self] in
             guard let self = self else { return }
             if let model = droppedModel {
                 let blossoming = model.blossoming ?? ""
-                dueBlossoming(with: blossoming, complete: "2")
+                let shrank = model.shrank ?? ""
+                dueBlossoming(with: blossoming, complete: "2", shrank: shrank)
             }else {
                 // order-to-h5
                 let lea = self.model?.kindness?.pavement?.lea ?? ""
@@ -165,43 +167,48 @@ extension AuthListViewController {
         }
     }
     
-    private func dueBlossoming(with type: String, complete: String? = "") {
+    private func dueBlossoming(with type: String, complete: String? = "", shrank: String) {
         if complete == "2" {
-            goPageVc(with: type)
+            goPageVc(with: type, shrank: shrank)
         }else if complete == "0" { // false
             let blossoming = self.droppedModel?.blossoming ?? ""
-            goPageVc(with: blossoming)
+            goPageVc(with: blossoming, shrank: shrank)
         }else if complete == "1" { // true
-            goPageVc(with: type)
+            goPageVc(with: type, shrank: shrank)
         }else {
             
         }
     }
     
-    private func goPageVc(with type: String) {
+    private func goPageVc(with type: String, shrank: String) {
         if type == "isa" {
             let faceVc = FaceViewController()
             faceVc.productID = productID
+            faceVc.apptitle = shrank
             faceVc.modelArray = self.modelArray ?? []
             self.navigationController?.pushViewController(faceVc, animated: true)
         }else if type == "isb" {
             let basicVc = BasicViewController()
             basicVc.productID = productID
+            basicVc.apptitle = shrank
             basicVc.modelArray = self.modelArray ?? []
             self.navigationController?.pushViewController(basicVc, animated: true)
         }else if type == "isc" {
             let workerVc = WorkerViewController()
             workerVc.productID = productID
+            workerVc.apptitle = shrank
             workerVc.modelArray = self.modelArray ?? []
             self.navigationController?.pushViewController(workerVc, animated: true)
         }else if type == "isd" {
             let relationVc = RelationViewController()
             relationVc.productID = productID
+            relationVc.apptitle = shrank
             relationVc.modelArray = self.modelArray ?? []
             self.navigationController?.pushViewController(relationVc, animated: true)
         }else if type == "ise" {
             let recVc = ReceiptAccountViewController()
             recVc.productID = productID
+            recVc.apptitle = shrank
             recVc.modelArray = self.modelArray ?? []
             self.navigationController?.pushViewController(recVc, animated: true)
         }else {

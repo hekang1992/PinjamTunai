@@ -51,7 +51,7 @@ class PopSLeaveView: UIView {
         nameLabel.font = UIFont.systemFont(ofSize: 13, weight: UIFont.Weight(400))
         nameLabel.textAlignment = .center
         nameLabel.numberOfLines = 0
-        nameLabel.text = LanguageManager.localizedString(for: "Your repayment record is exceptionally excellent! The system has upgraded your credit limit to ₱8.000.000, and the low-interest rate channel is open for a limited time—it would be a pity to miss it!")
+        nameLabel.text = LanguageManager.localizedString(for: "Your repayment record is exceptionally excellent! The system has upgraded your credit limit to 8.000.000, and the low-interest rate channel is open for a limited time—it would be a pity to miss it!")
         return nameLabel
     }()
     
