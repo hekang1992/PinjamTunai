@@ -2,7 +2,7 @@
 //  OneView.swift
 //  PinjamTunai
 //
-//  Created by hekang on 2025/12/7.
+//  Created by Jonathan Miles on 2025/12/7.
 //
 
 import UIKit
@@ -43,6 +43,7 @@ class OneView: UIView {
             threeLabel.text = "\(desc): \(time)"
             fourLabel.text = "\(desc1): \(time1)"
             
+            logoImageView.af
         }
     }
     

@@ -2,7 +2,7 @@
 //  LaunchViewController.swift
 //  PinjamTunai
 //
-//  Created by hekang on 2025/12/6.
+//  Created by Jonathan Miles on 2025/12/6.
 //
 
 import UIKit
@@ -88,7 +88,7 @@ class LaunchViewController: BaseViewController {
         
     }
     
-    @MainActor
+//    @MainActor
     deinit {
         print("LaunchViewController============")
     }

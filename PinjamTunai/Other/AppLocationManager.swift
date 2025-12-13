@@ -2,7 +2,7 @@
 //  AppLocationManager.swift
 //  PinjamTunai
 //
-//  Created by hekang on 2025/12/10.
+//  Created by Jonathan Miles on 2025/12/10.
 //
 
 import Foundation
