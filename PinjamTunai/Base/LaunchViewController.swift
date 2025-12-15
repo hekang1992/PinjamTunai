@@ -88,7 +88,7 @@ class LaunchViewController: BaseViewController {
         
     }
     
-//    @MainActor
+    @MainActor
     deinit {
         print("LaunchViewController============")
     }
