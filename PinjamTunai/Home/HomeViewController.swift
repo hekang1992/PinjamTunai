@@ -363,8 +363,8 @@ extension HomeViewController {
             message: LanguageManager.localizedString(for: "Network error. Please check if you are connected to the network?"),
             preferredStyle: .alert
         )
-        alert.addAction(UIAlertAction(title: LanguageManager.localizedString(for: "Cancel"), style: .cancel))
-        alert.addAction(UIAlertAction(title: LanguageManager.localizedString(for: "Settings"), style: .default, handler: { _ in
+        alert.addAction(UIAlertAction(title: LanguageManager.localizedString(for: "Cancel"), style: .default))
+        alert.addAction(UIAlertAction(title: LanguageManager.localizedString(for: "Settings"), style: .cancel, handler: { _ in
             if let url = URL(string: UIApplication.openSettingsURLString) {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
             }

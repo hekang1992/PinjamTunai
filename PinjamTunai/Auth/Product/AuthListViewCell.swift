@@ -130,7 +130,7 @@ class AuthListViewCell: UITableViewCell {
         bgView.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.centerX.equalToSuperview()
-            make.size.equalTo(CGSize(width: 335, height: 85))
+            make.size.equalTo(CGSize(width: 335.pix(), height: 85))
             make.bottom.equalToSuperview().offset(-15)
         }
         

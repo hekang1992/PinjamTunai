@@ -87,14 +87,14 @@ class AuthListView: UIView {
         whiteView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(15)
             make.centerX.equalToSuperview()
-            make.size.equalTo(CGSize(width: 335, height: 130))
+            make.size.equalTo(CGSize(width: 335.pix(), height: 130))
         }
         bgImageView.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(10)
         }
         nextBtn.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.size.equalTo(CGSize(width: 313, height: 50))
+            make.size.equalTo(CGSize(width: 313.pix(), height: 50.pix()))
             make.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom).offset(-10)
         }
         tableView.snp.makeConstraints { make in

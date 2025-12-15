@@ -106,7 +106,7 @@ extension TwoView: UITableViewDelegate, UITableViewDataSource {
         twoHeadView.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.centerX.equalToSuperview()
-            make.size.equalTo(CGSize(width: 335, height: 279))
+            make.size.equalTo(CGSize(width: 335.pix(), height: 279))
         }
         
         let iconImageView = UIImageView()

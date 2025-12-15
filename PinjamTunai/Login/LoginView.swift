@@ -77,8 +77,11 @@ class LoginView: UIView {
         loginBtn.setTitleColor(.white, for: .normal)
         loginBtn.setTitle(LanguageManager.localizedString(for: "Log In"), for: .normal)
         loginBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight(500))
-        loginBtn.setBackgroundImage(UIImage(named: "home_apply_image"), for: .normal)
+//        loginBtn.setBackgroundImage(UIImage(named: "home_apply_image"), for: .normal)
         loginBtn.adjustsImageWhenHighlighted = false
+        loginBtn.backgroundColor = UIColor.init(hex: "#6D95FC")
+        loginBtn.layer.cornerRadius = 8
+        loginBtn.layer.masksToBounds = true
         return loginBtn
     }()
     
@@ -318,13 +321,15 @@ extension LoginView {
         whiteView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(logoImageView.snp.bottom).offset(38)
-            make.size.equalTo(CGSize(width: 337, height: 217))
+            make.left.equalToSuperview().offset(20)
+            make.height.equalTo(230)
         }
         
         loginBtn.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(whiteView.snp.bottom).offset(30)
-            make.size.equalTo(CGSize(width: 313, height: 50))
+            make.left.equalToSuperview().offset(20)
+            make.height.equalTo(50)
         }
         
         stackView.snp.makeConstraints { make in
@@ -350,7 +355,7 @@ extension LoginView {
         codeLabel.snp.makeConstraints { make in
             make.height.equalTo(18)
             make.left.equalToSuperview().offset(15)
-            make.top.equalTo(phoneView.snp.bottom).offset(11)
+            make.top.equalTo(phoneView.snp.bottom).offset(25)
         }
         
         codeView.snp.makeConstraints { make in

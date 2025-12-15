@@ -99,7 +99,7 @@ class ProductAccViewCell: UITableViewCell {
         bgView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().offset(10)
-            make.size.equalTo(CGSize(width: 335, height: 85))
+            make.size.equalTo(CGSize(width: 335.pix(), height: 85))
             make.bottom.equalToSuperview().offset(-2)
         }
         logoImageView.snp.makeConstraints { make in

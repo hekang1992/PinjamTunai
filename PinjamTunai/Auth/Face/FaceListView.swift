@@ -62,13 +62,13 @@ class FaceListView: UIView {
         whiteView.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.centerX.equalToSuperview()
-            make.size.equalTo(CGSize(width: 335, height: 176))
+            make.size.equalTo(CGSize(width: 335.pix(), height: 176))
         }
         
         uploadBtn.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.bottom.equalTo(whiteView.snp.bottom).offset(18)
-            make.size.equalTo(CGSize(width: 237, height: 36))
+            make.size.equalTo(CGSize(width: 237.pix(), height: 36))
         }
         
         whiteView.addSubview(oneImageView)

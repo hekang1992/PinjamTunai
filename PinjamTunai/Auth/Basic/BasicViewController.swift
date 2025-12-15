@@ -114,7 +114,7 @@ class BasicViewController: BaseViewController {
         nextBtn.snp.makeConstraints { make in
             make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(-10)
             make.centerX.equalToSuperview()
-            make.size.equalTo(CGSize(width: 313, height: 50))
+            make.size.equalTo(CGSize(width: 313.pix(), height: 50.pix()))
         }
         
         view.addSubview(tableView)

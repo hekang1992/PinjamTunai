@@ -9,6 +9,8 @@ import UIKit
 import AdSupport
 import Security
 
+let SCREEN_WIDTH = UIScreen.main.bounds.size.width
+
 class LoginConfig: NSObject {
     
     static func saveLoginInfo(to phone: String, token: String) {
@@ -161,4 +163,22 @@ class JSONConverter {
         return ""
     }
     
+}
+
+extension Double {
+    func pix() -> CGFloat {
+        return CGFloat.init(CGFloat.init(self)/375.0 * SCREEN_WIDTH)
+    }
+}
+
+extension CGFloat {
+    func pix() -> CGFloat {
+        return CGFloat.init(CGFloat.init(self)/375.0 * SCREEN_WIDTH)
+    }
+}
+
+extension Int {
+    func pix() -> CGFloat {
+        return CGFloat.init(CGFloat.init(self)/375.0 * SCREEN_WIDTH)
+    }
 }

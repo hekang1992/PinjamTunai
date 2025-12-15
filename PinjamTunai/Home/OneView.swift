@@ -188,6 +188,7 @@ class OneView: UIView {
         }else {
             threeImageView.image = UIImage(named: "home_three_image")
         }
+        threeImageView.contentMode = .scaleAspectFit
         return threeImageView
     }()
     
@@ -283,21 +284,21 @@ class OneView: UIView {
         oneImageView.snp.makeConstraints { make in
             make.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(12)
             make.centerX.equalToSuperview()
-            make.width.equalTo(335)
-            make.height.equalTo(68)
+            make.width.equalTo(335.pix())
+            make.height.equalTo(68.pix())
         }
         
         // iconImageView constraints
         iconImageView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.size.equalTo(CGSize(width: 32, height: 32))
+            make.size.equalTo(CGSize(width: 32.pix(), height: 32.pix()))
             make.left.equalToSuperview().offset(15)
         }
         
         // serviceBtn constraints
         serviceBtn.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.size.equalTo(CGSize(width: 25, height: 25))
+            make.size.equalTo(CGSize(width: 25.pix(), height: 25.pix()))
             make.right.equalToSuperview().offset(-12)
         }
         
@@ -316,7 +317,8 @@ class OneView: UIView {
         
         // scrollView constraints
         scrollView.snp.makeConstraints { make in
-            make.left.right.bottom.equalToSuperview()
+            make.left.right.equalToSuperview()
+            make.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom)
             make.top.equalTo(oneImageView.snp.bottom).offset(1)
         }
         
@@ -324,7 +326,7 @@ class OneView: UIView {
         whiteView.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.centerX.equalToSuperview()
-            make.width.equalTo(335)
+            make.width.equalTo(335.pix())
             make.height.equalTo(319)
         }
         
@@ -355,13 +357,14 @@ class OneView: UIView {
         twoImageView.snp.makeConstraints { make in
             make.top.equalTo(whiteView.snp.bottom).offset(18)
             make.centerX.equalToSuperview()
-            make.size.equalTo(CGSize(width: 335, height: 113))
+            make.size.equalTo(CGSize(width: 335.pix(), height: 113.pix()))
         }
         
         threeImageView.snp.makeConstraints { make in
             make.top.equalTo(twoImageView.snp.bottom).offset(18)
             make.centerX.equalToSuperview()
-            make.size.equalTo(CGSize(width: 335, height: 199))
+            make.width.equalTo(335.pix())
+            make.height.equalTo(212.pix())
             make.bottom.equalToSuperview().offset(-20)
         }
         

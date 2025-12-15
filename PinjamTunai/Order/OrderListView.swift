@@ -151,7 +151,7 @@ class OrderListView: UIView {
         filterContainerView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(nameLabel.snp.bottom).offset(10)
-            make.width.equalTo(335)
+            make.width.equalTo(335.pix())
             make.height.equalTo(62)
         }
         

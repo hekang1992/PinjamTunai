@@ -86,7 +86,7 @@ class OrderListViewCell: UITableViewCell {
         whiteView.addSubview(coverView)
         
         whiteView.snp.makeConstraints { make in
-            make.size.equalTo(CGSize(width: 335, height: 160))
+            make.size.equalTo(CGSize(width: 335.pix(), height: 160))
             make.top.equalToSuperview()
             make.centerX.equalToSuperview()
             make.bottom.equalToSuperview().offset(-12)

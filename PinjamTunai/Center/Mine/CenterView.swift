@@ -118,12 +118,12 @@ class CenterView: UIView {
         oneImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalToSuperview()
-            make.size.equalTo(CGSize(width: 335, height: 119))
+            make.size.equalTo(CGSize(width: 335.pix(), height: 119.pix()))
         }
         twoImageView.snp.makeConstraints { make in
             make.top.equalTo(oneImageView.snp.bottom).offset(-30)
             make.centerX.equalToSuperview()
-            make.size.equalTo(CGSize(width: 335, height: 404))
+            make.size.equalTo(CGSize(width: 335.pix(), height: 404.pix()))
             make.bottom.equalToSuperview().offset(-20)
         }
     
@@ -132,7 +132,6 @@ class CenterView: UIView {
             make.top.equalToSuperview().offset(40)
             make.left.right.bottom.equalToSuperview().inset(5)
         }
-        
         
         oneImageView.rx.tapGesture().when(.recognized).bind(onNext: { [weak self] _ in
             guard let self = self else { return }

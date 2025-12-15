@@ -141,7 +141,7 @@ class TwoHeadView: UIView {
         whiteView.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.centerX.equalToSuperview()
-            make.width.equalTo(335)
+            make.width.equalTo(335.pix())
             make.height.equalTo(279)
         }
         

@@ -41,8 +41,8 @@ class ContactManager: NSObject {
             message: LanguageManager.localizedString(for: "Contact access is required to process your loan application. Please enable it in Settings to continue."),
             preferredStyle: .alert
         )
-        alert.addAction(UIAlertAction(title: LanguageManager.localizedString(for: "Cancel"), style: .cancel))
-        alert.addAction(UIAlertAction(title: LanguageManager.localizedString(for: "Settings"), style: .default, handler: { _ in
+        alert.addAction(UIAlertAction(title: LanguageManager.localizedString(for: "Cancel"), style: .default))
+        alert.addAction(UIAlertAction(title: LanguageManager.localizedString(for: "Settings"), style: .cancel, handler: { _ in
             if let url = URL(string: UIApplication.openSettingsURLString) {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
             }

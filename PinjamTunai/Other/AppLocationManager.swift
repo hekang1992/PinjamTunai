@@ -142,12 +142,12 @@ class LocationPermissionAlert {
         
         let cancelAction = UIAlertAction(
             title: LanguageManager.localizedString(for: "Cancel"),
-            style: .cancel
+            style: .default
         )
         
         let settingsAction = UIAlertAction(
             title: LanguageManager.localizedString(for: "Settings"),
-            style: .default
+            style: .cancel
         ) { _ in
             if let settingsURL = URL(string: UIApplication.openSettingsURLString) {
                 UIApplication.shared.open(settingsURL)
