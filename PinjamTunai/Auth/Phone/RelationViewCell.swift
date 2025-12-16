@@ -159,7 +159,7 @@ class RelationViewCell: UITableViewCell {
         contentView.addSubview(twoBtn)
         
         titleLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview()
+            make.top.equalToSuperview().inset(10)
             make.centerX.equalToSuperview()
             make.height.equalTo(20)
         }
@@ -173,7 +173,7 @@ class RelationViewCell: UITableViewCell {
         oneImageView.snp.makeConstraints { make in
             make.size.equalTo(CGSize(width: 335, height: 71))
             make.centerX.equalToSuperview()
-            make.top.equalTo(titleLabel.snp.bottom).offset(20)
+            make.top.equalTo(titleLabel.snp.bottom).offset(10)
         }
         
         twoImageView.snp.makeConstraints { make in

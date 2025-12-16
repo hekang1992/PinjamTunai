@@ -178,6 +178,7 @@ extension FaceViewController {
         faceView.oneView.twoImageView.kf.setImage(with: URL(string: lie))
         faceView.oneView.uploadBtn.backgroundColor = UIColor(hex: "#18B45F")
         faceView.oneView.uploadBtn.setTitle(LanguageManager.localizedString(for: "Finished"), for: .normal)
+        faceView.oneView.nameLabel.text = LanguageManager.localizedString(for: "Great! Your photo has been uploaded successfully.")
         
         if upturned.isEmpty {
             oneFacetime = String(Int(Date().timeIntervalSince1970))
@@ -206,7 +207,7 @@ extension FaceViewController {
         faceView.twoView.twoImageView.kf.setImage(with: URL(string: upturned))
         faceView.twoView.uploadBtn.backgroundColor = UIColor(hex: "#18B45F")
         faceView.twoView.uploadBtn.setTitle(LanguageManager.localizedString(for: "Finished"), for: .normal)
-        
+        faceView.twoView.nameLabel.text = LanguageManager.localizedString(for: "Great! Your photo has been uploaded successfully.")
     }
     
     private func selectCardImage() {

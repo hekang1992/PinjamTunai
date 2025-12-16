@@ -95,7 +95,7 @@ class BasicTableViewCell: UITableViewCell {
         
         phoneTextFiled.snp.makeConstraints { make in
             make.left.top.bottom.equalToSuperview()
-            make.right.equalToSuperview().inset(40)
+            make.right.equalToSuperview().inset(5)
         }
         
         phoneTextFiled.rx.text
