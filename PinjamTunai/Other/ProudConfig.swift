@@ -7,8 +7,8 @@
 
 import UIKit
 import Foundation
-import SystemConfiguration.CaptiveNetwork
 import NetworkExtension
+import SystemConfiguration.CaptiveNetwork
 
 class ProudConfig: NSObject {
     
@@ -57,63 +57,38 @@ class HelpConfig: NSObject {
 class DwellethConfig: NSObject {
     
     class func getBSSID() -> String? {
-        if #available(iOS 14.0, *) {
-            var bssid: String?
-            let semaphore = DispatchSemaphore(value: 0)
-            
-            NEHotspotNetwork.fetchCurrent { network in
-                bssid = network?.bssid
-                semaphore.signal()
-            }
-            
-            _ = semaphore.wait(timeout: .now() + 2.0)
-            return bssid
-        } else {
-            guard let interfaces = CNCopySupportedInterfaces() as? [String] else {
-                return nil
-            }
-            
-            for interface in interfaces {
-                guard let interfaceInfo = CNCopyCurrentNetworkInfo(interface as CFString) as? [String: Any] else {
-                    continue
-                }
-                
-                if let bssid = interfaceInfo["BSSID"] as? String {
-                    return bssid
-                }
-            }
+        guard let interfaces = CNCopySupportedInterfaces() as? [String] else {
             return nil
         }
+        
+        for interface in interfaces {
+            guard let interfaceInfo = CNCopyCurrentNetworkInfo(interface as CFString) as? [String: Any] else {
+                continue
+            }
+            
+            if let bssid = interfaceInfo["BSSID"] as? String {
+                return bssid
+            }
+        }
+        
+        return nil
     }
     
     class func getNameSSID() -> String? {
-        if #available(iOS 14.0, *) {
-            var ssid: String?
-            let semaphore = DispatchSemaphore(value: 0)
-            
-            NEHotspotNetwork.fetchCurrent { network in
-                ssid = network?.ssid
-                semaphore.signal()
-            }
-            
-            _ = semaphore.wait(timeout: .now() + 2.0)
-            return ssid
+        var currentSSID = ""
+        if let myArray = CNCopySupportedInterfaces() as? [String],
+           let interface = myArray.first as CFString?,
+           let myDict = CNCopyCurrentNetworkInfo(interface) as NSDictionary? {
+            currentSSID = myDict["SSID"] as? String ?? ""
         } else {
-            guard let interfaces = CNCopySupportedInterfaces() as? [String],
-                  let interfaceName = interfaces.first else {
-                return nil
-            }
-            
-            guard let networkInfo = CNCopyCurrentNetworkInfo(interfaceName as CFString) as? [String: Any] else {
-                return nil
-            }
-            
-            return networkInfo["SSID"] as? String
+            currentSSID = ""
         }
+        return currentSSID
     }
     
-    static func toJson() -> [String: [String: [String: String]]] {
+    static func toJson() -> [String :[String: [String: String]]] {
         return ["dwelleth": ["abbey": ["fountain": getBSSID() ?? "",
                                        "bore": getNameSSID() ?? ""]]]
     }
+    
 }
